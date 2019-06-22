@@ -1,0 +1,882 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1884A3D722BE2787000F20A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A3D622BE2787000F20A1 /* AppDelegate.m */; };
+		1884A3DA22BE2787000F20A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A3D922BE2787000F20A1 /* ViewController.m */; };
+		1884A3DD22BE2787000F20A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1884A3DB22BE2787000F20A1 /* Main.storyboard */; };
+		1884A3DF22BE2789000F20A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1884A3DE22BE2789000F20A1 /* Assets.xcassets */; };
+		1884A3E222BE2789000F20A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1884A3E022BE2789000F20A1 /* LaunchScreen.storyboard */; };
+		1884A3E522BE2789000F20A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A3E422BE2789000F20A1 /* main.m */; };
+		1884A3EF22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A3EE22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests.m */; };
+		1884A3FA22BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A3F922BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests.m */; };
+		1884A44F22BE2928000F20A1 /* YHVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A41122BE2928000F20A1 /* YHVisitor.m */; };
+		1884A45022BE2928000F20A1 /* YHBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A41222BE2928000F20A1 /* YHBinaryTree.m */; };
+		1884A45122BE2928000F20A1 /* YHBNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A41322BE2928000F20A1 /* YHBNote.m */; };
+		1884A45222BE2928000F20A1 /* YHComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A41522BE2928000F20A1 /* YHComparator.m */; };
+		1884A45322BE2928000F20A1 /* YHAVLNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A41822BE2928000F20A1 /* YHAVLNote.m */; };
+		1884A45422BE2928000F20A1 /* YHAVLTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A41A22BE2928000F20A1 /* YHAVLTree.m */; };
+		1884A45522BE2928000F20A1 /* YHBinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A41E22BE2928000F20A1 /* YHBinarySearchTree.m */; };
+		1884A45622BE2928000F20A1 /* YHBalanceBinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A42022BE2928000F20A1 /* YHBalanceBinarySearchTree.m */; };
+		1884A45722BE2928000F20A1 /* YHLeetCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A42322BE2928000F20A1 /* YHLeetCode.m */; };
+		1884A45822BE2928000F20A1 /* YHDoubleLoopLinked.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A42822BE2928000F20A1 /* YHDoubleLoopLinked.m */; };
+		1884A45922BE2928000F20A1 /* YHJosephusLinked.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A42B22BE2928000F20A1 /* YHJosephusLinked.m */; };
+		1884A45A22BE2928000F20A1 /* YHDoubleLinked.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A42E22BE2928000F20A1 /* YHDoubleLinked.m */; };
+		1884A45B22BE2928000F20A1 /* YHBaseLinked.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A43122BE2928000F20A1 /* YHBaseLinked.m */; };
+		1884A45C22BE2928000F20A1 /* YHNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A43222BE2928000F20A1 /* YHNote.m */; };
+		1884A45D22BE2928000F20A1 /* YHOneLoopLinked.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A43522BE2928000F20A1 /* YHOneLoopLinked.m */; };
+		1884A45E22BE2928000F20A1 /* YHOneLinked.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A43822BE2928000F20A1 /* YHOneLinked.m */; };
+		1884A45F22BE2928000F20A1 /* YHQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A43B22BE2928000F20A1 /* YHQueue.m */; };
+		1884A46022BE2928000F20A1 /* YHDoubleQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A43D22BE2928000F20A1 /* YHDoubleQueue.m */; };
+		1884A46122BE2928000F20A1 /* YHStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44022BE2928000F20A1 /* YHStack.m */; };
+		1884A46222BE2928000F20A1 /* MJInorderPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44622BE2928000F20A1 /* MJInorderPrinter.m */; };
+		1884A46322BE2928000F20A1 /* MJLevelOrderPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44822BE2928000F20A1 /* MJLevelOrderPrinter.m */; };
+		1884A46422BE2928000F20A1 /* MJPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44922BE2928000F20A1 /* MJPrinter.m */; };
+		1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */; };
+		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1884A3EB22BE2789000F20A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1884A3CA22BE2787000F20A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1884A3D122BE2787000F20A1;
+			remoteInfo = YHDataStructureAndAlgorithm;
+		};
+		1884A3F622BE2789000F20A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1884A3CA22BE2787000F20A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1884A3D122BE2787000F20A1;
+			remoteInfo = YHDataStructureAndAlgorithm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1884A3D222BE2787000F20A1 /* YHDataStructureAndAlgorithm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YHDataStructureAndAlgorithm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1884A3D522BE2787000F20A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1884A3D622BE2787000F20A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1884A3D822BE2787000F20A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1884A3D922BE2787000F20A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1884A3DC22BE2787000F20A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1884A3DE22BE2789000F20A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1884A3E122BE2789000F20A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1884A3E322BE2789000F20A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1884A3E422BE2789000F20A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1884A3EA22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YHDataStructureAndAlgorithmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1884A3EE22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDataStructureAndAlgorithmTests.m; sourceTree = "<group>"; };
+		1884A3F022BE2789000F20A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1884A3F522BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YHDataStructureAndAlgorithmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1884A3F922BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDataStructureAndAlgorithmUITests.m; sourceTree = "<group>"; };
+		1884A3FB22BE2789000F20A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1884A40E22BE2928000F20A1 /* YHBNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBNote.h; sourceTree = "<group>"; };
+		1884A40F22BE2928000F20A1 /* YHBinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBinaryTree.h; sourceTree = "<group>"; };
+		1884A41022BE2928000F20A1 /* YHComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHComparator.h; sourceTree = "<group>"; };
+		1884A41122BE2928000F20A1 /* YHVisitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHVisitor.m; sourceTree = "<group>"; };
+		1884A41222BE2928000F20A1 /* YHBinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBinaryTree.m; sourceTree = "<group>"; };
+		1884A41322BE2928000F20A1 /* YHBNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBNote.m; sourceTree = "<group>"; };
+		1884A41422BE2928000F20A1 /* YHVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHVisitor.h; sourceTree = "<group>"; };
+		1884A41522BE2928000F20A1 /* YHComparator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHComparator.m; sourceTree = "<group>"; };
+		1884A41722BE2928000F20A1 /* YHAVLTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHAVLTree.h; sourceTree = "<group>"; };
+		1884A41822BE2928000F20A1 /* YHAVLNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHAVLNote.m; sourceTree = "<group>"; };
+		1884A41922BE2928000F20A1 /* YHAVLNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHAVLNote.h; sourceTree = "<group>"; };
+		1884A41A22BE2928000F20A1 /* YHAVLTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHAVLTree.m; sourceTree = "<group>"; };
+		1884A41D22BE2928000F20A1 /* YHBinarySearchTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBinarySearchTree.h; sourceTree = "<group>"; };
+		1884A41E22BE2928000F20A1 /* YHBinarySearchTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBinarySearchTree.m; sourceTree = "<group>"; };
+		1884A42022BE2928000F20A1 /* YHBalanceBinarySearchTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBalanceBinarySearchTree.m; sourceTree = "<group>"; };
+		1884A42122BE2928000F20A1 /* YHBalanceBinarySearchTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBalanceBinarySearchTree.h; sourceTree = "<group>"; };
+		1884A42322BE2928000F20A1 /* YHLeetCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHLeetCode.m; sourceTree = "<group>"; };
+		1884A42422BE2928000F20A1 /* YHLeetCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHLeetCode.h; sourceTree = "<group>"; };
+		1884A42722BE2928000F20A1 /* YHDoubleLoopLinked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHDoubleLoopLinked.h; sourceTree = "<group>"; };
+		1884A42822BE2928000F20A1 /* YHDoubleLoopLinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHDoubleLoopLinked.m; sourceTree = "<group>"; };
+		1884A42A22BE2928000F20A1 /* YHJosephusLinked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHJosephusLinked.h; sourceTree = "<group>"; };
+		1884A42B22BE2928000F20A1 /* YHJosephusLinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHJosephusLinked.m; sourceTree = "<group>"; };
+		1884A42D22BE2928000F20A1 /* YHDoubleLinked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHDoubleLinked.h; sourceTree = "<group>"; };
+		1884A42E22BE2928000F20A1 /* YHDoubleLinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHDoubleLinked.m; sourceTree = "<group>"; };
+		1884A43022BE2928000F20A1 /* YHNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNote.h; sourceTree = "<group>"; };
+		1884A43122BE2928000F20A1 /* YHBaseLinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBaseLinked.m; sourceTree = "<group>"; };
+		1884A43222BE2928000F20A1 /* YHNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNote.m; sourceTree = "<group>"; };
+		1884A43322BE2928000F20A1 /* YHBaseLinked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBaseLinked.h; sourceTree = "<group>"; };
+		1884A43522BE2928000F20A1 /* YHOneLoopLinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHOneLoopLinked.m; sourceTree = "<group>"; };
+		1884A43622BE2928000F20A1 /* YHOneLoopLinked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHOneLoopLinked.h; sourceTree = "<group>"; };
+		1884A43822BE2928000F20A1 /* YHOneLinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHOneLinked.m; sourceTree = "<group>"; };
+		1884A43922BE2928000F20A1 /* YHOneLinked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHOneLinked.h; sourceTree = "<group>"; };
+		1884A43B22BE2928000F20A1 /* YHQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHQueue.m; sourceTree = "<group>"; };
+		1884A43C22BE2928000F20A1 /* YHDoubleQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHDoubleQueue.h; sourceTree = "<group>"; };
+		1884A43D22BE2928000F20A1 /* YHDoubleQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHDoubleQueue.m; sourceTree = "<group>"; };
+		1884A43E22BE2928000F20A1 /* YHQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQueue.h; sourceTree = "<group>"; };
+		1884A44022BE2928000F20A1 /* YHStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHStack.m; sourceTree = "<group>"; };
+		1884A44122BE2928000F20A1 /* YHStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHStack.h; sourceTree = "<group>"; };
+		1884A44322BE2928000F20A1 /* MJBinaryTrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBinaryTrees.h; sourceTree = "<group>"; };
+		1884A44522BE2928000F20A1 /* MJLevelOrderPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJLevelOrderPrinter.h; sourceTree = "<group>"; };
+		1884A44622BE2928000F20A1 /* MJInorderPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJInorderPrinter.m; sourceTree = "<group>"; };
+		1884A44722BE2928000F20A1 /* MJPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPrinter.h; sourceTree = "<group>"; };
+		1884A44822BE2928000F20A1 /* MJLevelOrderPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJLevelOrderPrinter.m; sourceTree = "<group>"; };
+		1884A44922BE2928000F20A1 /* MJPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPrinter.m; sourceTree = "<group>"; };
+		1884A44A22BE2928000F20A1 /* MJInorderPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJInorderPrinter.h; sourceTree = "<group>"; };
+		1884A44B22BE2928000F20A1 /* NSString+Trees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Trees.h"; sourceTree = "<group>"; };
+		1884A44C22BE2928000F20A1 /* MJBinaryTreeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBinaryTreeInfo.h; sourceTree = "<group>"; };
+		1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBinaryTrees.m; sourceTree = "<group>"; };
+		1884A44E22BE2928000F20A1 /* NSString+Trees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trees.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1884A3CF22BE2787000F20A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1884A3E722BE2789000F20A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1884A3F222BE2789000F20A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1884A3C922BE2787000F20A1 = {
+			isa = PBXGroup;
+			children = (
+				1884A40B22BE2928000F20A1 /* Source */,
+				1884A3D422BE2787000F20A1 /* YHDataStructureAndAlgorithm */,
+				1884A3ED22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests */,
+				1884A3F822BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests */,
+				1884A3D322BE2787000F20A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1884A3D322BE2787000F20A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1884A3D222BE2787000F20A1 /* YHDataStructureAndAlgorithm.app */,
+				1884A3EA22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests.xctest */,
+				1884A3F522BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1884A3D422BE2787000F20A1 /* YHDataStructureAndAlgorithm */ = {
+			isa = PBXGroup;
+			children = (
+				1884A3D522BE2787000F20A1 /* AppDelegate.h */,
+				1884A3D622BE2787000F20A1 /* AppDelegate.m */,
+				1884A3D822BE2787000F20A1 /* ViewController.h */,
+				1884A3D922BE2787000F20A1 /* ViewController.m */,
+				1884A3DB22BE2787000F20A1 /* Main.storyboard */,
+				1884A3DE22BE2789000F20A1 /* Assets.xcassets */,
+				1884A3E022BE2789000F20A1 /* LaunchScreen.storyboard */,
+				1884A3E322BE2789000F20A1 /* Info.plist */,
+				1884A3E422BE2789000F20A1 /* main.m */,
+			);
+			path = YHDataStructureAndAlgorithm;
+			sourceTree = "<group>";
+		};
+		1884A3ED22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests */ = {
+			isa = PBXGroup;
+			children = (
+				1884A3EE22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests.m */,
+				1884A3F022BE2789000F20A1 /* Info.plist */,
+			);
+			path = YHDataStructureAndAlgorithmTests;
+			sourceTree = "<group>";
+		};
+		1884A3F822BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1884A3F922BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests.m */,
+				1884A3FB22BE2789000F20A1 /* Info.plist */,
+			);
+			path = YHDataStructureAndAlgorithmUITests;
+			sourceTree = "<group>";
+		};
+		1884A40B22BE2928000F20A1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1884A40C22BE2928000F20A1 /* 二叉树 */,
+				1884A42222BE2928000F20A1 /* LeetCode */,
+				1884A42522BE2928000F20A1 /* 链表 */,
+				1884A43A22BE2928000F20A1 /* 队列 */,
+				1884A43F22BE2928000F20A1 /* 栈 */,
+				1884A44222BE2928000F20A1 /* MJBinaryTrees */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1884A40C22BE2928000F20A1 /* 二叉树 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A40D22BE2928000F20A1 /* 二叉树 */,
+				1884A41622BE2928000F20A1 /* AVL树 */,
+				1884A41B22BE2928000F20A1 /* 红黑树 */,
+				1884A41C22BE2928000F20A1 /* 二叉搜索树 */,
+				1884A41F22BE2928000F20A1 /* 平衡二叉搜索树 */,
+			);
+			path = "二叉树";
+			sourceTree = "<group>";
+		};
+		1884A40D22BE2928000F20A1 /* 二叉树 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A40E22BE2928000F20A1 /* YHBNote.h */,
+				1884A40F22BE2928000F20A1 /* YHBinaryTree.h */,
+				1884A41022BE2928000F20A1 /* YHComparator.h */,
+				1884A41122BE2928000F20A1 /* YHVisitor.m */,
+				1884A41222BE2928000F20A1 /* YHBinaryTree.m */,
+				1884A41322BE2928000F20A1 /* YHBNote.m */,
+				1884A41422BE2928000F20A1 /* YHVisitor.h */,
+				1884A41522BE2928000F20A1 /* YHComparator.m */,
+			);
+			path = "二叉树";
+			sourceTree = "<group>";
+		};
+		1884A41622BE2928000F20A1 /* AVL树 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A41722BE2928000F20A1 /* YHAVLTree.h */,
+				1884A41822BE2928000F20A1 /* YHAVLNote.m */,
+				1884A41922BE2928000F20A1 /* YHAVLNote.h */,
+				1884A41A22BE2928000F20A1 /* YHAVLTree.m */,
+			);
+			path = "AVL树";
+			sourceTree = "<group>";
+		};
+		1884A41B22BE2928000F20A1 /* 红黑树 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "红黑树";
+			sourceTree = "<group>";
+		};
+		1884A41C22BE2928000F20A1 /* 二叉搜索树 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A41D22BE2928000F20A1 /* YHBinarySearchTree.h */,
+				1884A41E22BE2928000F20A1 /* YHBinarySearchTree.m */,
+			);
+			path = "二叉搜索树";
+			sourceTree = "<group>";
+		};
+		1884A41F22BE2928000F20A1 /* 平衡二叉搜索树 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A42022BE2928000F20A1 /* YHBalanceBinarySearchTree.m */,
+				1884A42122BE2928000F20A1 /* YHBalanceBinarySearchTree.h */,
+			);
+			path = "平衡二叉搜索树";
+			sourceTree = "<group>";
+		};
+		1884A42222BE2928000F20A1 /* LeetCode */ = {
+			isa = PBXGroup;
+			children = (
+				1884A42322BE2928000F20A1 /* YHLeetCode.m */,
+				1884A42422BE2928000F20A1 /* YHLeetCode.h */,
+			);
+			path = LeetCode;
+			sourceTree = "<group>";
+		};
+		1884A42522BE2928000F20A1 /* 链表 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A42622BE2928000F20A1 /* 双向循环链表 */,
+				1884A42922BE2928000F20A1 /* 约瑟夫轮盘 */,
+				1884A42C22BE2928000F20A1 /* 双向链表 */,
+				1884A42F22BE2928000F20A1 /* 链表与节点 */,
+				1884A43422BE2928000F20A1 /* 单向循环链表 */,
+				1884A43722BE2928000F20A1 /* 单向链表 */,
+			);
+			path = "链表";
+			sourceTree = "<group>";
+		};
+		1884A42622BE2928000F20A1 /* 双向循环链表 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A42722BE2928000F20A1 /* YHDoubleLoopLinked.h */,
+				1884A42822BE2928000F20A1 /* YHDoubleLoopLinked.m */,
+			);
+			path = "双向循环链表";
+			sourceTree = "<group>";
+		};
+		1884A42922BE2928000F20A1 /* 约瑟夫轮盘 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A42A22BE2928000F20A1 /* YHJosephusLinked.h */,
+				1884A42B22BE2928000F20A1 /* YHJosephusLinked.m */,
+			);
+			path = "约瑟夫轮盘";
+			sourceTree = "<group>";
+		};
+		1884A42C22BE2928000F20A1 /* 双向链表 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A42D22BE2928000F20A1 /* YHDoubleLinked.h */,
+				1884A42E22BE2928000F20A1 /* YHDoubleLinked.m */,
+			);
+			path = "双向链表";
+			sourceTree = "<group>";
+		};
+		1884A42F22BE2928000F20A1 /* 链表与节点 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A43022BE2928000F20A1 /* YHNote.h */,
+				1884A43122BE2928000F20A1 /* YHBaseLinked.m */,
+				1884A43222BE2928000F20A1 /* YHNote.m */,
+				1884A43322BE2928000F20A1 /* YHBaseLinked.h */,
+			);
+			path = "链表与节点";
+			sourceTree = "<group>";
+		};
+		1884A43422BE2928000F20A1 /* 单向循环链表 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A43522BE2928000F20A1 /* YHOneLoopLinked.m */,
+				1884A43622BE2928000F20A1 /* YHOneLoopLinked.h */,
+			);
+			path = "单向循环链表";
+			sourceTree = "<group>";
+		};
+		1884A43722BE2928000F20A1 /* 单向链表 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A43822BE2928000F20A1 /* YHOneLinked.m */,
+				1884A43922BE2928000F20A1 /* YHOneLinked.h */,
+			);
+			path = "单向链表";
+			sourceTree = "<group>";
+		};
+		1884A43A22BE2928000F20A1 /* 队列 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A43B22BE2928000F20A1 /* YHQueue.m */,
+				1884A43C22BE2928000F20A1 /* YHDoubleQueue.h */,
+				1884A43D22BE2928000F20A1 /* YHDoubleQueue.m */,
+				1884A43E22BE2928000F20A1 /* YHQueue.h */,
+			);
+			path = "队列";
+			sourceTree = "<group>";
+		};
+		1884A43F22BE2928000F20A1 /* 栈 */ = {
+			isa = PBXGroup;
+			children = (
+				1884A44022BE2928000F20A1 /* YHStack.m */,
+				1884A44122BE2928000F20A1 /* YHStack.h */,
+			);
+			path = "栈";
+			sourceTree = "<group>";
+		};
+		1884A44222BE2928000F20A1 /* MJBinaryTrees */ = {
+			isa = PBXGroup;
+			children = (
+				1884A44322BE2928000F20A1 /* MJBinaryTrees.h */,
+				1884A44422BE2928000F20A1 /* MJPrinter */,
+				1884A44B22BE2928000F20A1 /* NSString+Trees.h */,
+				1884A44C22BE2928000F20A1 /* MJBinaryTreeInfo.h */,
+				1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */,
+				1884A44E22BE2928000F20A1 /* NSString+Trees.m */,
+			);
+			path = MJBinaryTrees;
+			sourceTree = "<group>";
+		};
+		1884A44422BE2928000F20A1 /* MJPrinter */ = {
+			isa = PBXGroup;
+			children = (
+				1884A44522BE2928000F20A1 /* MJLevelOrderPrinter.h */,
+				1884A44622BE2928000F20A1 /* MJInorderPrinter.m */,
+				1884A44722BE2928000F20A1 /* MJPrinter.h */,
+				1884A44822BE2928000F20A1 /* MJLevelOrderPrinter.m */,
+				1884A44922BE2928000F20A1 /* MJPrinter.m */,
+				1884A44A22BE2928000F20A1 /* MJInorderPrinter.h */,
+			);
+			path = MJPrinter;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1884A3D122BE2787000F20A1 /* YHDataStructureAndAlgorithm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1884A3FE22BE2789000F20A1 /* Build configuration list for PBXNativeTarget "YHDataStructureAndAlgorithm" */;
+			buildPhases = (
+				1884A3CE22BE2787000F20A1 /* Sources */,
+				1884A3CF22BE2787000F20A1 /* Frameworks */,
+				1884A3D022BE2787000F20A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YHDataStructureAndAlgorithm;
+			productName = YHDataStructureAndAlgorithm;
+			productReference = 1884A3D222BE2787000F20A1 /* YHDataStructureAndAlgorithm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1884A3E922BE2789000F20A1 /* YHDataStructureAndAlgorithmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1884A40122BE2789000F20A1 /* Build configuration list for PBXNativeTarget "YHDataStructureAndAlgorithmTests" */;
+			buildPhases = (
+				1884A3E622BE2789000F20A1 /* Sources */,
+				1884A3E722BE2789000F20A1 /* Frameworks */,
+				1884A3E822BE2789000F20A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1884A3EC22BE2789000F20A1 /* PBXTargetDependency */,
+			);
+			name = YHDataStructureAndAlgorithmTests;
+			productName = YHDataStructureAndAlgorithmTests;
+			productReference = 1884A3EA22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1884A3F422BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1884A40422BE2789000F20A1 /* Build configuration list for PBXNativeTarget "YHDataStructureAndAlgorithmUITests" */;
+			buildPhases = (
+				1884A3F122BE2789000F20A1 /* Sources */,
+				1884A3F222BE2789000F20A1 /* Frameworks */,
+				1884A3F322BE2789000F20A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1884A3F722BE2789000F20A1 /* PBXTargetDependency */,
+			);
+			name = YHDataStructureAndAlgorithmUITests;
+			productName = YHDataStructureAndAlgorithmUITests;
+			productReference = 1884A3F522BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1884A3CA22BE2787000F20A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "玉河川";
+				TargetAttributes = {
+					1884A3D122BE2787000F20A1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					1884A3E922BE2789000F20A1 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 1884A3D122BE2787000F20A1;
+					};
+					1884A3F422BE2789000F20A1 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 1884A3D122BE2787000F20A1;
+					};
+				};
+			};
+			buildConfigurationList = 1884A3CD22BE2787000F20A1 /* Build configuration list for PBXProject "YHDataStructureAndAlgorithm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1884A3C922BE2787000F20A1;
+			productRefGroup = 1884A3D322BE2787000F20A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1884A3D122BE2787000F20A1 /* YHDataStructureAndAlgorithm */,
+				1884A3E922BE2789000F20A1 /* YHDataStructureAndAlgorithmTests */,
+				1884A3F422BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1884A3D022BE2787000F20A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1884A3E222BE2789000F20A1 /* LaunchScreen.storyboard in Resources */,
+				1884A3DF22BE2789000F20A1 /* Assets.xcassets in Resources */,
+				1884A3DD22BE2787000F20A1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1884A3E822BE2789000F20A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1884A3F322BE2789000F20A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1884A3CE22BE2787000F20A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1884A45922BE2928000F20A1 /* YHJosephusLinked.m in Sources */,
+				1884A45322BE2928000F20A1 /* YHAVLNote.m in Sources */,
+				1884A45F22BE2928000F20A1 /* YHQueue.m in Sources */,
+				1884A45522BE2928000F20A1 /* YHBinarySearchTree.m in Sources */,
+				1884A45222BE2928000F20A1 /* YHComparator.m in Sources */,
+				1884A45822BE2928000F20A1 /* YHDoubleLoopLinked.m in Sources */,
+				1884A45E22BE2928000F20A1 /* YHOneLinked.m in Sources */,
+				1884A3DA22BE2787000F20A1 /* ViewController.m in Sources */,
+				1884A45D22BE2928000F20A1 /* YHOneLoopLinked.m in Sources */,
+				1884A3E522BE2789000F20A1 /* main.m in Sources */,
+				1884A45722BE2928000F20A1 /* YHLeetCode.m in Sources */,
+				1884A45422BE2928000F20A1 /* YHAVLTree.m in Sources */,
+				1884A3D722BE2787000F20A1 /* AppDelegate.m in Sources */,
+				1884A45622BE2928000F20A1 /* YHBalanceBinarySearchTree.m in Sources */,
+				1884A46022BE2928000F20A1 /* YHDoubleQueue.m in Sources */,
+				1884A46322BE2928000F20A1 /* MJLevelOrderPrinter.m in Sources */,
+				1884A44F22BE2928000F20A1 /* YHVisitor.m in Sources */,
+				1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */,
+				1884A45B22BE2928000F20A1 /* YHBaseLinked.m in Sources */,
+				1884A45022BE2928000F20A1 /* YHBinaryTree.m in Sources */,
+				1884A45A22BE2928000F20A1 /* YHDoubleLinked.m in Sources */,
+				1884A45122BE2928000F20A1 /* YHBNote.m in Sources */,
+				1884A46422BE2928000F20A1 /* MJPrinter.m in Sources */,
+				1884A46222BE2928000F20A1 /* MJInorderPrinter.m in Sources */,
+				1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */,
+				1884A45C22BE2928000F20A1 /* YHNote.m in Sources */,
+				1884A46122BE2928000F20A1 /* YHStack.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1884A3E622BE2789000F20A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1884A3EF22BE2789000F20A1 /* YHDataStructureAndAlgorithmTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1884A3F122BE2789000F20A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1884A3FA22BE2789000F20A1 /* YHDataStructureAndAlgorithmUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1884A3EC22BE2789000F20A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1884A3D122BE2787000F20A1 /* YHDataStructureAndAlgorithm */;
+			targetProxy = 1884A3EB22BE2789000F20A1 /* PBXContainerItemProxy */;
+		};
+		1884A3F722BE2789000F20A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1884A3D122BE2787000F20A1 /* YHDataStructureAndAlgorithm */;
+			targetProxy = 1884A3F622BE2789000F20A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1884A3DB22BE2787000F20A1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1884A3DC22BE2787000F20A1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1884A3E022BE2789000F20A1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1884A3E122BE2789000F20A1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1884A3FC22BE2789000F20A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1884A3FD22BE2789000F20A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1884A3FF22BE2789000F20A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JX84U25WS9;
+				INFOPLIST_FILE = YHDataStructureAndAlgorithm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "---.YHDataStructureAndAlgorithm";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1884A40022BE2789000F20A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JX84U25WS9;
+				INFOPLIST_FILE = YHDataStructureAndAlgorithm/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "---.YHDataStructureAndAlgorithm";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1884A40222BE2789000F20A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JX84U25WS9;
+				INFOPLIST_FILE = YHDataStructureAndAlgorithmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "---.YHDataStructureAndAlgorithmTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YHDataStructureAndAlgorithm.app/YHDataStructureAndAlgorithm";
+			};
+			name = Debug;
+		};
+		1884A40322BE2789000F20A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JX84U25WS9;
+				INFOPLIST_FILE = YHDataStructureAndAlgorithmTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "---.YHDataStructureAndAlgorithmTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YHDataStructureAndAlgorithm.app/YHDataStructureAndAlgorithm";
+			};
+			name = Release;
+		};
+		1884A40522BE2789000F20A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JX84U25WS9;
+				INFOPLIST_FILE = YHDataStructureAndAlgorithmUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "---.YHDataStructureAndAlgorithmUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YHDataStructureAndAlgorithm;
+			};
+			name = Debug;
+		};
+		1884A40622BE2789000F20A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JX84U25WS9;
+				INFOPLIST_FILE = YHDataStructureAndAlgorithmUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "---.YHDataStructureAndAlgorithmUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = YHDataStructureAndAlgorithm;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1884A3CD22BE2787000F20A1 /* Build configuration list for PBXProject "YHDataStructureAndAlgorithm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1884A3FC22BE2789000F20A1 /* Debug */,
+				1884A3FD22BE2789000F20A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1884A3FE22BE2789000F20A1 /* Build configuration list for PBXNativeTarget "YHDataStructureAndAlgorithm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1884A3FF22BE2789000F20A1 /* Debug */,
+				1884A40022BE2789000F20A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1884A40122BE2789000F20A1 /* Build configuration list for PBXNativeTarget "YHDataStructureAndAlgorithmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1884A40222BE2789000F20A1 /* Debug */,
+				1884A40322BE2789000F20A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1884A40422BE2789000F20A1 /* Build configuration list for PBXNativeTarget "YHDataStructureAndAlgorithmUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1884A40522BE2789000F20A1 /* Debug */,
+				1884A40622BE2789000F20A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1884A3CA22BE2787000F20A1 /* Project object */;
+}
