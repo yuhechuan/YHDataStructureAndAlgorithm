@@ -7,51 +7,11 @@
 //
 
 #import "YHLeetCode.h"
+#import "YHStack.h"
 
 @implementation YHLeetCode
 
-// 1 2 3 5 6 7
-/*
- 15.三数相加
- */
-+ (BOOL)isThreeAdd:(NSArray *)arr
-               num:(NSInteger)num {
-    // 排序
-    NSArray *d = [arr sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
-        return [obj1 compare:obj2];
-    }];
-    
-    NSInteger len = d.count;
-    
-    for (int i = 0; i < len - 2; i ++) {
-        if (i > 0 && [d[i] integerValue] == [d[i - 1] integerValue]) {
-            continue;
-        }
-        NSInteger left = i +1;
-        NSInteger right = len - 1;
-        while (left <= right) {
-            NSInteger a = [d[left] integerValue];
-            NSInteger b = [d[i] integerValue];
-            NSInteger c = [d[right] integerValue];
-            
-            NSInteger sum = a + b +c;
-            
-            if (num == sum) {
-                NSLog(@"%ld-%ld-%ld",(long)a,(long)b,(long)c);
-                return YES;
-            }
-            
-            if (sum > num) {
-                while (right > 0 && ([d[right] integerValue] == [d[--right] integerValue]));
-            }
-            
-            if (sum < num) {
-                while (left <len-1 && ([d[left] integerValue] == [d[++left] integerValue]));
-            }
-        }
-    }
-    return NO;
-}
+
 
 /*
  1.两数相加
@@ -565,5 +525,211 @@
     }
     return first;
 }
+
+// 1 2 3 5 6 7
+/*
+ 15.三数相加
+ */
++ (BOOL)isThreeAdd:(NSArray *)arr
+               num:(NSInteger)num {
+    // 排序
+    NSArray *d = [arr sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+        return [obj1 compare:obj2];
+    }];
+    
+    NSInteger len = d.count;
+    
+    for (int i = 0; i < len - 2; i ++) {
+        if (i > 0 && [d[i] integerValue] == [d[i - 1] integerValue]) {
+            continue;
+        }
+        NSInteger left = i +1;
+        NSInteger right = len - 1;
+        while (left <= right) {
+            NSInteger a = [d[left] integerValue];
+            NSInteger b = [d[i] integerValue];
+            NSInteger c = [d[right] integerValue];
+            
+            NSInteger sum = a + b +c;
+            
+            if (num == sum) {
+                NSLog(@"%ld-%ld-%ld",(long)a,(long)b,(long)c);
+                return YES;
+            }
+            
+            if (sum > num) {
+                while (right > 0 && ([d[right] integerValue] == [d[--right] integerValue]));
+            }
+            
+            if (sum < num) {
+                while (left <len-1 && ([d[left] integerValue] == [d[++left] integerValue]));
+            }
+        }
+    }
+    return NO;
+}
+
+/*
+ *17. 电话号码的字母组合  笛卡尔积
+ */
+
++ (NSArray *)letterCombinations:(NSString *)digits {
+    
+    if ( !digits || digits.length == 0) {
+        return @[];
+    }
+    
+    NSDictionary *phoneNumber = @{@"2":@[@"a",@"b",@"c"],
+                                  @"3":@[@"d",@"e",@"f"],
+                                  @"4":@[@"g",@"h",@"i"],
+                                  @"5":@[@"j",@"k",@"l"],
+                                  @"6":@[@"m",@"n",@"o"],
+                                  @"7":@[@"p",@"q",@"r",@"s"],
+                                  @"8":@[@"t",@"u",@"v"],
+                                  @"9":@[@"w",@"x",@"y",@"z"]
+                                  };
+    NSMutableArray *outPut = [NSMutableArray array];
+    [self backtrack:@"" digits:digits phoneNumber:phoneNumber outPut:outPut];
+    return outPut;
+}
+
++ (void)backtrack:(NSString *)combination
+           digits:(NSString *)digits
+      phoneNumber:(NSDictionary *)phoneNumber
+           outPut:(NSMutableArray *)outPut{
+    if (digits.length == 0) {
+        [outPut addObject:combination];
+    } else {
+        NSString *key = [digits substringToIndex:1];
+        NSArray *letters = phoneNumber[key];
+        NSInteger count = letters.count;
+        for (int i = 0; i < count; i ++) {
+            [self backtrack:[NSString stringWithFormat:@"%@%@",combination,letters[i]]
+                     digits:[digits substringFromIndex:1]
+                phoneNumber:phoneNumber
+                     outPut:outPut];
+        }
+    }
+}
+
+/*
+ 18.四数相加
+ */
++ (NSArray *)isFourAdd:(NSArray *)arr
+                target:(NSInteger)target {
+    // 排序
+    NSArray *d = [arr sortedArrayUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+        return [obj1 compare:obj2];
+    }];
+    
+    NSInteger len = d.count;
+    
+    NSMutableArray *outPut = [NSMutableArray array];
+    for (int i = 0; i < len - 3; i ++) {
+        
+        if (i > 0 && [d[i] integerValue] == [d[i -1] integerValue]) {
+            continue;
+        }
+        
+        NSInteger tmpMin = [d[i] integerValue] + [d[i + 1] integerValue] + [d[i +2] integerValue] +[d[i + 3] integerValue];
+        if (tmpMin > target) {
+            break;
+        }
+        
+        NSInteger tmpMax = [d[i] integerValue] + [d[len - 1] integerValue] + [d[len - 2] integerValue] +[d[len - 3] integerValue];
+        
+        if (tmpMax < target) {
+            continue;
+        }
+        
+        
+        for (int j = i + 1; j < len - 2; j ++) {
+            
+            if (j > i + 1 && [d[j] integerValue] == [d[j -1] integerValue]) {
+                continue;
+            }
+            
+            NSInteger tmpMin1 = [d[j] integerValue] + [d[j + 1] integerValue] + [d[j +2] integerValue] +[d[i] integerValue];
+            if (tmpMin1 > target) {
+                break;
+            }
+            
+            NSInteger tmpMax = [d[j] integerValue] + [d[len - 1] integerValue] + [d[len - 2] integerValue] +[d[i] integerValue];
+            
+            if (tmpMax < target) {
+                continue;
+            }
+            
+            
+            NSInteger left = j + 1;
+            NSInteger right = len - 1;
+            while (left < right) {
+                
+                NSInteger a = [d[left] integerValue];
+                NSInteger b = [d[i] integerValue];
+                NSInteger c = [d[right] integerValue];
+                NSInteger e = [d[j] integerValue];
+                
+                NSInteger sum = a + b +c + e;
+                
+                if (target == sum) {
+                    NSLog(@"%ld,%ld,%ld,%ld",(long)d,(long)a,(long)b,(long)c);
+                    [outPut addObject:@[@(e),@(a),@(b),@(c)]];
+                    while (left < right && d[left] == d[left + 1]) left ++;
+                    while (left < right && d[right] == d[right - 1]) right --;
+                    left ++;
+                    right --;
+                    break;
+                }
+                
+                if (sum > target) {
+                    right --;
+                }
+                
+                if (sum < target) {
+                    left ++;
+                }
+            }
+        }
+        
+    }
+    
+    return outPut;
+}
+
+/*
+ 20. 有效的括号
+ */
++ (BOOL)isValid:(NSString *)s {
+    YHStack *stack = [[YHStack alloc]init];
+    NSInteger len = s.length;
+    
+    for (int i = 0; i < len; i ++) {
+        NSString *c = [s substringWithRange:NSMakeRange(i, 1)];
+        if ([stack isEmpty] || ![self matching:[stack peek] b:c]) {
+            [stack push:c];
+        } else {
+            [stack pop];
+        }
+    }
+    
+    return stack.size == 0;
+}
+
++ (BOOL)matching:(NSString *)a b:(NSString *)b {
+    BOOL ret = NO;
+    if ([a isEqualToString:@"{"] && [b isEqualToString:@"}"]) {
+        ret = YES;
+    } else if ([a isEqualToString:@"["] && [b isEqualToString:@"]"]) {
+        ret = YES;
+    } else if ([a isEqualToString:@"("] && [b isEqualToString:@")"]) {
+        ret = YES;
+    }
+    return ret;
+}
+
+
+
+
 
 @end

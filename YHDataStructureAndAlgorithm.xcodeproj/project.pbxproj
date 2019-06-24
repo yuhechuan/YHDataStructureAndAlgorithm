@@ -285,8 +285,8 @@
 		1884A42222BE2928000F20A1 /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
-				1884A42322BE2928000F20A1 /* YHLeetCode.m */,
 				1884A42422BE2928000F20A1 /* YHLeetCode.h */,
+				1884A42322BE2928000F20A1 /* YHLeetCode.m */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";

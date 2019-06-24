@@ -91,6 +91,28 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)longestCommonPrefix:(NSArray *)strs;
 
+/*
+ 15.三数相加
+ */
++ (BOOL)isThreeAdd:(NSArray *)arr
+               num:(NSInteger)num;
+
+/*
+ *17. 电话号码的字母组合
+ */
++ (NSArray *)letterCombinations:(NSString *)digits;
+
+/*
+ 18.四数相加
+ */
++ (NSArray *)isFourAdd:(NSArray *)arr
+           target:(NSInteger)target;
+
+/*
+ 20. 有效的括号
+ */
++ (BOOL)isValid:(NSString *)s;
+
 @end
 
 NS_ASSUME_NONNULL_END
