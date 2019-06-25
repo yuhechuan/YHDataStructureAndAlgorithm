@@ -8,6 +8,7 @@
 
 #import "YHLeetCode.h"
 #import "YHStack.h"
+#import "YHQueue.h"
 
 @implementation YHLeetCode
 
@@ -728,8 +729,203 @@
     return ret;
 }
 
+/*
+ 22. 括号生成
+ */
++ (NSArray *)generateParenthesis:(NSInteger)n {
+    NSMutableArray *o = [NSMutableArray array];
+    return o;
+}
 
+/*
+ 26. 删除排序数组中的重复项
+ */
 
++ (NSInteger)removeDuplicates:(NSArray *)arr {
+    NSMutableDictionary *d = [NSMutableDictionary dictionary];
+    NSInteger len = arr.count;
+    for (int i = 0; i < len; i ++) {
+        d[arr[i]] = @"123";
+    }
+    NSArray *keys = d.allKeys;
+    return keys.count;
+}
 
+/*
+ 32. 最长有效括号
+ 
+ ((((()
+ */
+
++ (NSInteger)longestValidParentheses:(NSString *)s {
+    NSInteger len = s.length;
+    YHStack *stack = [[YHStack alloc]init];
+    NSInteger max = 0;
+    NSInteger startIndax = 0;
+    for (int i = 0; i < len; i ++) {
+        NSString *c = [s substringWithRange:NSMakeRange(i, 1)];
+        if ([c isEqualToString:@"("]) {
+            [stack push:@(i)];
+        } else {
+            if ([stack isEmpty]) {
+                startIndax = i + 1;
+            } else {
+                [stack pop];
+                max = [stack isEmpty] ? MAX(max, i - startIndax + 1) : MAX(max, i - [[stack peek] integerValue]);
+            }
+        }
+    }
+    return max;
+}
+
+/*
+ 59. 螺旋矩阵 II
+ n = 2
+ 1 2
+ 4 3
+ 
+ n = 3
+ 1 2 3
+ 8 9 4
+ 7 6 5
+ 
+ n = 4
+ 
+ 1  2  3 4
+12 13 14 5
+11 16 15 6
+10  9  8 7
+ */
+
++ (NSArray <NSArray *>*)generateMatrix:(NSInteger)n {
+    NSMutableArray *table = [NSMutableArray array];
+    for (int i = 0; i < n; i ++) {
+        NSMutableArray *arr = [NSMutableArray array];
+        for (int j = 0; j <n; j ++) {
+            [arr addObject:@(0)];
+        }
+        [table addObject:arr];
+    }
+    
+    NSInteger n2 = n * n;
+    NSInteger row = 0;  // 第几行
+    NSInteger rowend = n-1;
+    
+    NSInteger line = 0; // 第几列
+    NSInteger lineend = n-1;
+
+    NSInteger j = 1;
+    while (j <= n2) {
+    
+        // 行固定 列增加 并且小于等于尾部
+        NSInteger lineTmp = line;
+        while (lineTmp <= lineend) {
+            table[row][lineTmp] = @(j);
+            lineTmp ++;
+            j ++;
+        }
+        row ++;// 填完一行  行头增加
+        
+        // 列固定 行增加 并且小于等于尾部
+        NSInteger rowTmp = row;
+        while (rowTmp <= rowend) {
+            table[rowTmp][lineend] = @(j);
+            rowTmp ++;
+            j ++;
+        }
+        lineend--; // 填完一列 列减少
+        
+         // 行固定 列j减少 并且大于等于y头部
+        lineTmp = lineend;
+        while (lineTmp >= line) {
+            table[rowend][lineTmp] = @(j);
+            lineTmp --;
+            j ++;
+        }
+        rowend --; //填完一行  行尾减少
+        
+        // 列固定 行减少 并且小于等于头部
+        rowTmp = rowend;
+        while (rowTmp >= row) {
+            table[rowTmp][line] = @(j);
+            rowTmp--;
+            j ++;
+        }
+        line ++;
+    }
+    return table;
+}
+
+/*
+ 412. Fizz Buzz
+ */
++ (NSArray *)fizzBuzz:(NSInteger)n {
+    NSMutableArray *arr = [NSMutableArray array];
+    NSString *str_3 = @"Fizz";
+    NSString *str_5 = @"Buzz";
+    for (int i = 1; i <= n; i ++) {
+        NSString *s = @"";
+        if (i % 3 == 0) {
+            s = [NSString stringWithFormat:@"%@%@",s,str_3];
+        }
+        
+        if (i % 5 == 0) {
+            s = [NSString stringWithFormat:@"%@%@",s,str_5];
+        }
+        if (s.length == 0) {
+            s = [NSString stringWithFormat:@"%d",i];
+        }
+        [arr addObject:s];
+    }
+    return arr;
+}
+
+/*
+ 538. 把二叉搜索树转换为累加树
+ */
++ (YHBinarySearchTree *)convertBST:(YHBinarySearchTree *)tree {
+    // 中序遍历
+    YHVisitor *visitor = [[YHVisitor alloc]init];
+    YHQueue *queue = [[YHQueue alloc]init];
+    __block NSInteger max = 0;
+    visitor.visit = ^BOOL(YHBNote *object) {
+         max = max + [object->element integerValue];
+        [queue enQueue:object];
+        return NO;
+    };
+    [tree inorder:visitor];
+
+    NSInteger pre = 0;
+    while (![queue isEmpty]) {
+        YHBNote *note = [queue deQueue];
+        NSInteger p = [note->element integerValue];
+        note->element = @(max - pre);
+        pre += p;
+    }
+    return tree;
+}
+
+/*
+ *1078. Bigram 分词
+ */
++ (NSArray *)findOcurrences:(NSString *)text
+                      frist:(NSString *)frist
+                     second:(NSString *)second {
+    NSArray *words = [text componentsSeparatedByString:@" "];
+    if (words.count < 3) {
+        return @[];
+    }
+    NSInteger len = words.count;
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i < len - 2; i ++) {
+        NSString *f = words[i];
+        NSString *s = words[i + 1];
+        NSString *t = words[i + 2];
+        if ([f isEqualToString:frist] && [s isEqualToString:second]) {
+            [arr addObject:t];
+        }
+    }
+    return arr;
+}
 
 @end

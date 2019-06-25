@@ -13,6 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YHBinaryTree : NSObject {
+    @public
     NSInteger size;
     YHBNote *root;
 }

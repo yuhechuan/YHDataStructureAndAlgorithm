@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YHLeetCode.h"
+#import "YHBinarySearchTree.h"
 
 @interface ViewController ()
 
@@ -22,7 +23,12 @@
 }
 
 - (void)test {
-    [YHLeetCode isValid:@"[()]"];
+    YHBinarySearchTree *tree = [[YHBinarySearchTree alloc]init];
+    [tree add:@(5)];
+    [tree add:@(2)];
+    [tree add:@(13)];
+    
+    [YHLeetCode convertBST:tree];
 }
 
 

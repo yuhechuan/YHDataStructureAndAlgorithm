@@ -44,7 +44,7 @@
 - (void)preorder:(YHBNote *)note
          visitor:(YHVisitor *)visitor {
     if (note == nil || visitor.isStop) return;
-    visitor.isStop = visitor.visit(note->element);
+    visitor.isStop = visitor.visit(note);
     [self preorder:note->left visitor:visitor];
     [self preorder:note->right visitor:visitor];
 }
@@ -60,7 +60,7 @@
         visitor:(YHVisitor *)visitor {
     if (note == nil || visitor.isStop) return;
     [self inorder:note->left visitor:visitor];
-    visitor.isStop = visitor.visit(note->element);
+    visitor.isStop = visitor.visit(note);
     [self inorder:note->right visitor:visitor];
 }
 
@@ -76,7 +76,7 @@
     if (note == nil || visitor.isStop) return;
     [self postorder:note->left visitor:visitor];
     [self postorder:note->right visitor:visitor];
-    visitor.isStop = visitor.visit(note->element);
+    visitor.isStop = visitor.visit(note);
 }
 
 
@@ -96,7 +96,7 @@
     while (![queue isEmpty]) {
         
         YHBNote *note = [queue deQueue];
-        if (visitor.visit(note->element)) return;
+        if (visitor.visit(note)) return;
         
         if (note->left != nil) {
             [queue enQueue:note->left];

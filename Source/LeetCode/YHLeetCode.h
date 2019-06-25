@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "YHDoubleLinked.h"
+#import "YHBinarySearchTree.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -112,6 +113,46 @@ NS_ASSUME_NONNULL_BEGIN
  20. 有效的括号
  */
 + (BOOL)isValid:(NSString *)s;
+
+/*
+ 22. 括号生成
+ */
+
++ (NSArray *)generateParenthesis:(NSInteger)n;
+
+/*
+ 26. 删除排序数组中的重复项
+ */
+
++ (NSInteger)removeDuplicates:(NSArray *)arr;
+
+/*
+ 32. 最长有效括号
+ */
++ (NSInteger)longestValidParentheses:(NSString *)s;
+
+/*
+ 59. 螺旋矩阵 II
+ */
+
++ (NSArray <NSArray *>*)generateMatrix:(NSInteger)n;
+
+/*
+ 412. Fizz Buzz
+ */
++ (NSArray *)fizzBuzz:(NSInteger)n;
+
+/*
+ 538. 把二叉搜索树转换为累加树
+ */
++ (YHBinarySearchTree *)convertBST:(YHBinarySearchTree *)tree;
+
+/*
+ *1078. Bigram 分词
+ */
++ (NSArray *)findOcurrences:(NSString *)text
+                      frist:(NSString *)frist
+                     second:(NSString *)second;
 
 @end
 
