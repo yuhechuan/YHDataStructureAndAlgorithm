@@ -39,6 +39,8 @@
 		1884A46422BE2928000F20A1 /* MJPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44922BE2928000F20A1 /* MJPrinter.m */; };
 		1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */; };
 		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
+		F0FDCA9422C227540020BB60 /* YHRBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FDCA9322C227540020BB60 /* YHRBTree.m */; };
+		F0FDCA9722C227740020BB60 /* YHRBNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FDCA9622C227740020BB60 /* YHRBNote.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,10 @@
 		1884A44C22BE2928000F20A1 /* MJBinaryTreeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBinaryTreeInfo.h; sourceTree = "<group>"; };
 		1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBinaryTrees.m; sourceTree = "<group>"; };
 		1884A44E22BE2928000F20A1 /* NSString+Trees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trees.m"; sourceTree = "<group>"; };
+		F0FDCA9222C227540020BB60 /* YHRBTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHRBTree.h; sourceTree = "<group>"; };
+		F0FDCA9322C227540020BB60 /* YHRBTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRBTree.m; sourceTree = "<group>"; };
+		F0FDCA9522C227740020BB60 /* YHRBNote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHRBNote.h; sourceTree = "<group>"; };
+		F0FDCA9622C227740020BB60 /* YHRBNote.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRBNote.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,9 +228,9 @@
 		1884A40C22BE2928000F20A1 /* 二叉树 */ = {
 			isa = PBXGroup;
 			children = (
+				F0FDCA9122C227420020BB60 /* 红黑树 */,
 				1884A40D22BE2928000F20A1 /* 二叉树 */,
 				1884A41622BE2928000F20A1 /* AVL树 */,
-				1884A41B22BE2928000F20A1 /* 红黑树 */,
 				1884A41C22BE2928000F20A1 /* 二叉搜索树 */,
 				1884A41F22BE2928000F20A1 /* 平衡二叉搜索树 */,
 			);
@@ -255,13 +261,6 @@
 				1884A41A22BE2928000F20A1 /* YHAVLTree.m */,
 			);
 			path = "AVL树";
-			sourceTree = "<group>";
-		};
-		1884A41B22BE2928000F20A1 /* 红黑树 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "红黑树";
 			sourceTree = "<group>";
 		};
 		1884A41C22BE2928000F20A1 /* 二叉搜索树 */ = {
@@ -406,6 +405,17 @@
 			path = MJPrinter;
 			sourceTree = "<group>";
 		};
+		F0FDCA9122C227420020BB60 /* 红黑树 */ = {
+			isa = PBXGroup;
+			children = (
+				F0FDCA9222C227540020BB60 /* YHRBTree.h */,
+				F0FDCA9322C227540020BB60 /* YHRBTree.m */,
+				F0FDCA9522C227740020BB60 /* YHRBNote.h */,
+				F0FDCA9622C227740020BB60 /* YHRBNote.m */,
+			);
+			path = "红黑树";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -539,9 +549,11 @@
 				1884A45922BE2928000F20A1 /* YHJosephusLinked.m in Sources */,
 				1884A45322BE2928000F20A1 /* YHAVLNote.m in Sources */,
 				1884A45F22BE2928000F20A1 /* YHQueue.m in Sources */,
+				F0FDCA9722C227740020BB60 /* YHRBNote.m in Sources */,
 				1884A45522BE2928000F20A1 /* YHBinarySearchTree.m in Sources */,
 				1884A45222BE2928000F20A1 /* YHComparator.m in Sources */,
 				1884A45822BE2928000F20A1 /* YHDoubleLoopLinked.m in Sources */,
+				F0FDCA9422C227540020BB60 /* YHRBTree.m in Sources */,
 				1884A45E22BE2928000F20A1 /* YHOneLinked.m in Sources */,
 				1884A3DA22BE2787000F20A1 /* ViewController.m in Sources */,
 				1884A45D22BE2928000F20A1 /* YHOneLoopLinked.m in Sources */,
