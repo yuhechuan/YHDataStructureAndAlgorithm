@@ -32,19 +32,15 @@
     return [self color:BLACK];
 }
 
-- (BOOL)colorOf {
-    YHRBNote *rb = (YHRBNote *)self;
-    return rb->color;
++ (BOOL)colorOf:(YHBNote *)note {
+    YHRBNote *rNote = (YHRBNote *)note;
+    return !note ? BLACK :rNote->color;
 }
-
-- (BOOL)isRed {
-    YHRBNote *rb = (YHRBNote *)self;
-    return rb->color == RED;
++ (BOOL)isRed:(YHBNote *)note {
+    return [self colorOf:note] == RED;
 }
-
-- (BOOL)isBlack {
-    YHRBNote *rb = (YHRBNote *)self;
-    return rb->color == BLACK;
++ (BOOL)isBlack:(YHRBNote *)note {
+    return [self colorOf:note] == BLACK;
 }
 
 - (YHBNote *)sibling {
@@ -60,9 +56,9 @@
 
 - (NSString *)description
 {
-    NSString *c = @"R";
-    if (color) {
-        c = @"B";
+    NSString *c = @"";
+    if (color == RED) {
+        c = @"R";
     }
     return [NSString stringWithFormat:@"%ld%@",(long)[element integerValue],c];
 }

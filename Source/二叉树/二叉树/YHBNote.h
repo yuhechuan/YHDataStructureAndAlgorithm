@@ -43,10 +43,11 @@
 - (YHBNote *)color:(BOOL)c;
 - (YHBNote *)red;
 - (YHBNote *)black;
-- (BOOL)colorOf;
-- (BOOL)isRed;
-- (BOOL)isBlack;
 - (YHBNote *)sibling;
+
++ (BOOL)colorOf:(YHBNote *)note;
++ (BOOL)isRed:(YHBNote *)note;
++ (BOOL)isBlack:(YHBNote *)note;
 
 @end
 

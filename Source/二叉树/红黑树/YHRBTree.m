@@ -21,11 +21,13 @@
     }
     
     // 如果是在黑色节点下添加节点不用做任何处理
-    if ([parent isBlack]) return;
-    
+    if ([YHRBNote isBlack:parent]){
+        return;
+    }
     YHRBNote *uncle = (YHRBNote *)[parent sibling];
-    YHRBNote *grand = (YHRBNote *)[parent->parent red];
-    if ([uncle isRed]) { // B树节点上益 当成是新添加的节点
+    YHRBNote *grand = (YHRBNote *)parent->parent;
+    [grand red];
+    if ([YHRBNote isRed:uncle]) { // B树节点上益 当成是新添加的节点
         [parent black];
         [uncle black];
         [self afterAdd:grand];
@@ -56,7 +58,7 @@
 
 - (void)afterRemove:(YHBNote *)note {
     // 删除的是红色节点 或者代替的是红色
-    if ([note isRed]) {
+    if ([YHRBNote isRed:note]) {
         [note black];
         return;
     }
@@ -73,7 +75,7 @@
     
     if (left) {// 被删除的节点在左边边，兄弟节点在右边
         
-        if ([sibling isRed]) {
+        if ([YHRBNote isRed:sibling]) {
             // 替换兄弟节点
             [sibling black];
             [parent red];
@@ -83,7 +85,7 @@
         
         // 此时兄弟节点肯定为 黑色
         if ([sibling->left black]&& [sibling->right black]) {
-            BOOL blackParent = [parent isBlack];
+            BOOL blackParent = [YHRBNote isBlack:parent];
             [parent black];
             [sibling red];
             if (blackParent) {
@@ -92,19 +94,19 @@
             
         } else {
             // 兄弟节点有子节点 可以借
-            if ([sibling->right isBlack]) {
+            if ([YHRBNote isBlack:sibling->right]) {
                 [self rotateRight:sibling];
                 sibling = (YHRBNote *)parent->right;
             }
             
-            [sibling color:[parent colorOf]];
+            [sibling color:[YHRBNote colorOf:parent]];
             [sibling->right black];
             [parent black];
             [self rotateLeft:parent];
         }
         
     } else {// 被删除的节点在右边，兄弟节点在左边
-        if ([sibling isRed]) {
+        if ([YHRBNote isRed:sibling]) {
             // 替换兄弟节点
             [sibling black];
             [parent red];
@@ -114,7 +116,7 @@
         
         // 此时兄弟节点肯定为 黑色
         if (sibling->left == nil && sibling->right == nil) {
-            BOOL blackParent = [parent isBlack];
+            BOOL blackParent = [YHRBNote isBlack:parent];
             [parent black];
             [sibling red];
             if (blackParent) {
@@ -123,12 +125,12 @@
             
         } else {
             // 兄弟节点有子节点 可以借
-            if ([sibling->left isBlack]) {
+            if ([YHRBNote isBlack:sibling->left]) {
                 [self rotateLeft:sibling];
                 sibling = (YHRBNote *)parent->left;
             }
             
-            [sibling color:[parent colorOf]];
+            [sibling color:[YHRBNote colorOf:parent]];
             [sibling->left black];
             [parent black];
             [self rotateRight:parent];

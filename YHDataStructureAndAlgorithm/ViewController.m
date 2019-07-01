@@ -27,9 +27,9 @@
 - (void)test {
     
     YHRBTree *rb = [[YHRBTree alloc]init];
-    NSArray *arr = @[@(55), @(87), @(56), @(74),@(96),@(22), @(62),@(20), @(70), @(68), @(90), @(50)];
-    for (NSNumber *n in arr) {
-        [rb add:n];
+    NSArray *arr = @[@(55), @(87), @(56),@(74),@(96),@(22),@(62),@(20),@(70),@(68),@(90),@(50)];
+    for (int i = 0; i< arr.count; i ++ ) {
+        [rb add:arr[i]];
     }
     [MJBinaryTrees println:rb];
 }
