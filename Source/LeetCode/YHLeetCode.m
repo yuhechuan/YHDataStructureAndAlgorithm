@@ -857,6 +857,27 @@
 }
 
 /*
+ 406. 根据身高重建队列
+ */
+
++ (NSArray *)reconstructQueue:(NSArray *)peoples {
+    // 排序
+    NSArray *d = [peoples sortedArrayUsingComparator:^NSComparisonResult(NSArray *obj1, NSArray *obj2) {
+        return -[obj1[0] compare:obj2[0]];
+    }];
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSArray *subarr in d) {
+        NSInteger index = [[subarr lastObject] integerValue];
+        if (index >= arr.count) {
+            [arr addObject:subarr];
+        } else {
+            [arr insertObject:subarr atIndex:index];
+        }
+    }
+    return arr;
+}
+
+/*
  412. Fizz Buzz
  */
 + (NSArray *)fizzBuzz:(NSInteger)n {
@@ -903,6 +924,30 @@
         pre += p;
     }
     return tree;
+}
+
+
+/*
+ 781. 森林中的兔子
+ */
+
++ (NSInteger)numRabbits:(NSArray *)answers {
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    for (NSNumber *number in answers) {
+        if (dict[number]) {
+            dict[number] = @([dict[number] integerValue] + 1);
+        } else {
+            dict[number] = @(1);
+        }
+    }
+    
+    __block NSInteger rabbitsCount = 0;
+    [dict enumerateKeysAndObjectsUsingBlock:^(NSNumber *key,NSNumber *value, BOOL * _Nonnull stop) {
+        rabbitsCount = rabbitsCount + [key integerValue] + 1;
+    }];
+    
+    return rabbitsCount;
 }
 
 /*

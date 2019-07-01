@@ -23,12 +23,8 @@
 }
 
 - (void)test {
-    YHBinarySearchTree *tree = [[YHBinarySearchTree alloc]init];
-    [tree add:@(5)];
-    [tree add:@(2)];
-    [tree add:@(13)];
     
-    [YHLeetCode convertBST:tree];
+    [YHLeetCode numRabbits:@[@(10),@(10),@(10)]];
 }
 
 

@@ -138,6 +138,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray <NSArray *>*)generateMatrix:(NSInteger)n;
 
 /*
+ 406. 根据身高重建队列
+ */
+
++ (NSArray *)reconstructQueue:(NSArray *)peoples;
+
+/*
  412. Fizz Buzz
  */
 + (NSArray *)fizzBuzz:(NSInteger)n;
@@ -146,6 +152,12 @@ NS_ASSUME_NONNULL_BEGIN
  538. 把二叉搜索树转换为累加树
  */
 + (YHBinarySearchTree *)convertBST:(YHBinarySearchTree *)tree;
+
+/*
+ 781. 森林中的兔子
+ */
+
++ (NSInteger)numRabbits:(NSArray *)answers;
 
 /*
  *1078. Bigram 分词
