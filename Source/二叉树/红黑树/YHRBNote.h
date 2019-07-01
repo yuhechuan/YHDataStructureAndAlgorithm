@@ -18,12 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
     BOOL color;
 }
 
-+ (YHRBNote *)color:(YHRBNote *)note c:(BOOL)c;
-+ (YHRBNote *)red:(YHRBNote *)note;
-+ (YHRBNote *)black:(YHRBNote *)note;
-+ (BOOL)colorOf:(YHRBNote *)note;
-+ (BOOL)isRed:(YHRBNote *)note;
-+ (BOOL)isBlack:(YHRBNote *)note;
 
 
 @end

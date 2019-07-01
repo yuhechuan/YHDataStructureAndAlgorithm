@@ -10,33 +10,61 @@
 
 @implementation YHRBNote
 
-+ (YHRBNote *)color:(YHRBNote *)note
-                  c:(BOOL)c {
-    if (!note) {
-        return note;
+- (instancetype)initWithElement:(id)element parent:(YHBNote *)parent {
+    color = RED;
+    return [super initWithElement:element parent:parent];
+}
+
+- (YHBNote *)color:(BOOL)c {
+    if (!self) {
+        return self;
     }
-    note->color = c;
-    return note;
+    YHRBNote *rb = (YHRBNote *)self;
+    rb->color = c;
+    return rb;
 }
 
-+ (YHRBNote *)red:(YHRBNote *)note {
-    return [self color:note c:RED];
+- (YHBNote *)red {
+    return [self color:RED];
 }
 
-+ (YHRBNote *)black:(YHRBNote *)note {
-    return [self color:note c:BLACK];
+- (YHBNote *)black {
+    return [self color:BLACK];
 }
 
-+ (BOOL)colorOf:(YHRBNote *)note {
-    return note->color;
+- (BOOL)colorOf {
+    YHRBNote *rb = (YHRBNote *)self;
+    return rb->color;
 }
 
-+ (BOOL)isRed:(YHRBNote *)note {
-    return note->color == RED;
+- (BOOL)isRed {
+    YHRBNote *rb = (YHRBNote *)self;
+    return rb->color == RED;
 }
 
-+ (BOOL)isBlack:(YHRBNote *)note {
-    return note->color == BLACK;
+- (BOOL)isBlack {
+    YHRBNote *rb = (YHRBNote *)self;
+    return rb->color == BLACK;
+}
+
+- (YHBNote *)sibling {
+    if ([self isLeftChild]) {
+        return parent->right;
+    }
+    
+    if ([self isRightChild]) {
+        return parent->left;
+    }
+    return nil;
+}
+
+- (NSString *)description
+{
+    NSString *c = @"R";
+    if (color) {
+        c = @"B";
+    }
+    return [NSString stringWithFormat:@"%ld%@",(long)[element integerValue],c];
 }
 
 @end

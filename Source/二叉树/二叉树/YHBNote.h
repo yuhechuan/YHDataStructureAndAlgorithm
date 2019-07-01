@@ -39,5 +39,14 @@
  */
 - (BOOL)isRightChild;
 
+
+- (YHBNote *)color:(BOOL)c;
+- (YHBNote *)red;
+- (YHBNote *)black;
+- (BOOL)colorOf;
+- (BOOL)isRed;
+- (BOOL)isBlack;
+- (YHBNote *)sibling;
+
 @end
 
