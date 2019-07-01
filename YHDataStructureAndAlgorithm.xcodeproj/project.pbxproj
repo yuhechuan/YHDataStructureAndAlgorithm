@@ -41,6 +41,7 @@
 		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
 		F0FDCA9422C227540020BB60 /* YHRBTree.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FDCA9322C227540020BB60 /* YHRBTree.m */; };
 		F0FDCA9722C227740020BB60 /* YHRBNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FDCA9622C227740020BB60 /* YHRBNote.m */; };
+		F0FDCAEF22C9E0AD0020BB60 /* YHTreeSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F0FDCAEE22C9E0AD0020BB60 /* YHTreeSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,9 @@
 		F0FDCA9322C227540020BB60 /* YHRBTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRBTree.m; sourceTree = "<group>"; };
 		F0FDCA9522C227740020BB60 /* YHRBNote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHRBNote.h; sourceTree = "<group>"; };
 		F0FDCA9622C227740020BB60 /* YHRBNote.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRBNote.m; sourceTree = "<group>"; };
+		F0FDCAEC22C9DF4F0020BB60 /* YHSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHSet.h; sourceTree = "<group>"; };
+		F0FDCAED22C9E0AD0020BB60 /* YHTreeSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHTreeSet.h; sourceTree = "<group>"; };
+		F0FDCAEE22C9E0AD0020BB60 /* YHTreeSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHTreeSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,7 @@
 		1884A40B22BE2928000F20A1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F0FDCAE822C9DE770020BB60 /* 集合 */,
 				1884A40C22BE2928000F20A1 /* 二叉树 */,
 				1884A42222BE2928000F20A1 /* LeetCode */,
 				1884A42522BE2928000F20A1 /* 链表 */,
@@ -416,6 +421,40 @@
 			path = "红黑树";
 			sourceTree = "<group>";
 		};
+		F0FDCAE822C9DE770020BB60 /* 集合 */ = {
+			isa = PBXGroup;
+			children = (
+				F0FDCAEB22C9DF030020BB60 /* 集合 */,
+				F0FDCAE922C9DEE70020BB60 /* 红黑树集合 */,
+				F0FDCAEA22C9DEE70020BB60 /* 链表集合 */,
+			);
+			path = "集合";
+			sourceTree = "<group>";
+		};
+		F0FDCAE922C9DEE70020BB60 /* 红黑树集合 */ = {
+			isa = PBXGroup;
+			children = (
+				F0FDCAED22C9E0AD0020BB60 /* YHTreeSet.h */,
+				F0FDCAEE22C9E0AD0020BB60 /* YHTreeSet.m */,
+			);
+			path = "红黑树集合";
+			sourceTree = "<group>";
+		};
+		F0FDCAEA22C9DEE70020BB60 /* 链表集合 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "链表集合";
+			sourceTree = "<group>";
+		};
+		F0FDCAEB22C9DF030020BB60 /* 集合 */ = {
+			isa = PBXGroup;
+			children = (
+				F0FDCAEC22C9DF4F0020BB60 /* YHSet.h */,
+			);
+			path = "集合";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -563,6 +602,7 @@
 				1884A3D722BE2787000F20A1 /* AppDelegate.m in Sources */,
 				1884A45622BE2928000F20A1 /* YHBalanceBinarySearchTree.m in Sources */,
 				1884A46022BE2928000F20A1 /* YHDoubleQueue.m in Sources */,
+				F0FDCAEF22C9E0AD0020BB60 /* YHTreeSet.m in Sources */,
 				1884A46322BE2928000F20A1 /* MJLevelOrderPrinter.m in Sources */,
 				1884A44F22BE2928000F20A1 /* YHVisitor.m in Sources */,
 				1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */,
