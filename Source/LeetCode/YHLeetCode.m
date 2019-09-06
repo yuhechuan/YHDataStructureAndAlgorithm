@@ -951,6 +951,60 @@
 }
 
 /*
+ 1000. 合并石头的最低成本
+ */
++ (NSInteger)mergeStones:(NSArray *)stones
+                       k:(NSInteger)k {
+    
+    if (stones.count == k) {
+        return [self sumStart:0 end:k stones:stones];
+    }
+    NSInteger count = stones.count;
+    NSInteger minSum = INT_MAX;
+    NSInteger sum = 0;
+    NSInteger key = 0;
+    for (int i = 0;i <= count - k; i ++) {
+        sum = [self sumStart:i end:i + k stones:stones];
+        
+        if (sum < minSum) {
+            minSum = sum;
+            key = i;
+        }
+        while (i + k < count && [stones[i] integerValue] <= [stones[i + k] integerValue]) {
+            i ++;
+            if (i >= count - k) {
+                break;
+            }
+        }
+    }
+    
+    NSMutableArray *s = [NSMutableArray arrayWithArray:stones];
+    [s removeObjectsInRange:NSMakeRange(key, k)];
+    
+    if (key < count) {
+        [s insertObject:@(minSum) atIndex:key];
+    } else {
+        [s addObject:@(minSum)];
+    }
+    
+    if (s.count < k) {
+        return -1;
+    }
+    
+    return minSum + [self mergeStones:s.copy k:k];
+}
+
++ (NSInteger)sumStart:(NSInteger)start
+                end:(NSInteger)end
+             stones:(NSArray *)stones {
+    NSInteger sum = 0;
+    for (NSInteger i = start ;i < end; i ++) {
+        sum = sum + [stones[i] integerValue];
+    }
+    return sum;
+}
+
+/*
  *1078. Bigram 分词
  */
 + (NSArray *)findOcurrences:(NSString *)text

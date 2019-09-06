@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef BOOL(^Visitor)(id element);
+typedef BOOL(^Visitor)(id _Nullable element);
 
 NS_ASSUME_NONNULL_BEGIN
 

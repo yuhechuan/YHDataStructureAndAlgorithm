@@ -160,6 +160,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSInteger)numRabbits:(NSArray *)answers;
 
 /*
+ 1000. 合并石头的最低成本
+ */
++ (NSInteger)mergeStones:(NSArray *)stones
+                       k:(NSInteger)k;
+
+/*
  *1078. Bigram 分词
  */
 + (NSArray *)findOcurrences:(NSString *)text
