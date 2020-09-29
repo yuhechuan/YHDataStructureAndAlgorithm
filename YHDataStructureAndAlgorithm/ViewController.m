@@ -13,6 +13,7 @@
 #import "MJBinaryTrees.h"
 #import "YHInterview.h"
 #import "YHOneLinked.h"
+#import "YHListGraph.h"
 
 @interface ViewController ()
 
@@ -22,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test];
+    [self test2];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -46,6 +47,28 @@
     NSArray *arr = @[@(4),@(5),@(6),@(7),@(8),@(1),@(2),@(3)];
     NSInteger a = [YHInterview search:arr target:8];
     NSLog(@"%ld",(long)a);
+}
+
+- (void)test2 {
+
+    // Do any additional setup after loading the view.
+    YHListGraph *graph = [[YHListGraph alloc]init];
+    [graph addEdge:@(0) to:@(2)];
+    
+    [graph addEdge:@(2) to:@(6)];
+    [graph addEdge:@(2) to:@(5)];
+    
+    [graph addEdge:@(6) to:@(4)];
+    [graph addEdge:@(7) to:@(6)];
+    [graph addEdge:@(5) to:@(7)];
+    
+    [graph addEdge:@(3) to:@(5)];
+    [graph addEdge:@(3) to:@(7)];
+    [graph addEdge:@(3) to:@(1)];
+    
+    [graph addEdge:@(1) to:@(0)];
+    
+    NSLog(@"%@", [graph topologicSort]);
 }
 
 
