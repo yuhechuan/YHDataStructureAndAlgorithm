@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YHVisitor.h"
+
+@class YHVisitor;
+
+@interface YHEdgeInfo : NSObject
+
+@property (nonatomic) id<NSCopying> from;
+@property (nonatomic) id<NSCopying> to;
+@property (nonatomic) NSObject *weight;
+
+@end
 
 @interface YHGraph : NSObject
 
@@ -25,5 +34,6 @@
 - (void)dsf:(id<NSCopying>)v visitor:(YHVisitor *)visitor;
 
 - (NSArray *)topologicSort;
+- (NSSet<YHEdgeInfo *> *)mst;
 
 @end

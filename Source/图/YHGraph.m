@@ -8,6 +8,19 @@
 
 #import "YHGraph.h"
 
+@implementation YHEdgeInfo
+
+- (instancetype)initWithFrom:(id<NSCopying>)from to:(id<NSCopying>)to weight:(NSObject *)weight {
+    if (self = [super init]) {
+        _from = from;
+        _to = to;
+        _weight = weight;
+    }
+    return self;
+}
+
+@end
+
 @implementation YHGraph
 /**
  * 添加一个顶点 子类实现

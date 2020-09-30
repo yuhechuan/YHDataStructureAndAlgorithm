@@ -9,6 +9,8 @@
 #import "YHListGraph.h"
 #import "YHQueue.h"
 #import "YHStack.h"
+#import "YHVisitor.h"
+#import "YHBinaryHeap.h"
 
 @class YHVertex;
 @class YHEdge;
@@ -288,7 +290,7 @@
         }
     }
 }
-
+// 拓扑排序 有向五环图 -- 项目的执行 先后顺序
 - (NSArray *)topologicSort {
     NSMutableArray *list = [NSMutableArray array];
     YHQueue *queue = [[YHQueue alloc]init];
@@ -317,6 +319,25 @@
         }
     }
     return list.copy;
+}
+
+/**
+ * 最小生成树
+ */
+- (NSSet<YHEdgeInfo *> *)mst {
+    return [self prim];
+}
+/**
+ * prim 算法
+ */
+- (NSSet<YHEdgeInfo *> *)prim {
+    return nil;
+}
+/**
+ * kruskal 算法
+ */
+- (NSSet<YHEdgeInfo *> *)kruskal {
+    return nil;
 }
 
 

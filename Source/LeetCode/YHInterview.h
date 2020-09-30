@@ -81,6 +81,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSInteger)search:(NSArray *)nums
              target:(NSInteger)target;
+/**
+ * top K
+ */
++ (NSArray *)topK:(NSArray *)datas
+             size:(int)size;
 
 @end
 

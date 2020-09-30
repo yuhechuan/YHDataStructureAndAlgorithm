@@ -7,6 +7,7 @@
 //
 
 #import "YHInterview.h"
+#import "YHBinaryHeap.h"
 
 @implementation YHInterview
 
@@ -541,6 +542,26 @@
     }
     // 一层循环得到最大值
     return maxOff;
+}
+
++ (NSArray *)topK:(NSArray *)datas
+             size:(int)size {
+    YHComparator *c = [[YHComparator alloc]init];
+    c.compare = ^BOOL(NSNumber *a, NSNumber *b) {
+        return [a intValue] < [b intValue];
+    };
+    // 穿件一个小顶堆
+    YHBinaryHeap *heap = [[YHBinaryHeap alloc]initWithComparator:c];
+    for (int i = 0; i < datas.count; i ++) {
+        NSNumber *d = datas[i];
+        if (heap.size < size) {
+            [heap add:d]; // 时间复杂度  log(k)
+        } else if ([d intValue] > [[heap get] intValue]) {
+            [heap replace:d]; // log(k)
+        }
+    }
+    // O(nlog(k));
+    return [heap heapElements];
 }
 
 

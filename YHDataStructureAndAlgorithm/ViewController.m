@@ -14,6 +14,8 @@
 #import "YHInterview.h"
 #import "YHOneLinked.h"
 #import "YHListGraph.h"
+#import "YHBinaryHeap.h"
+#import "MJBinaryTrees.h"
 
 @interface ViewController ()
 
@@ -23,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test2];
+    [self test4];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -71,5 +73,19 @@
     NSLog(@"%@", [graph topologicSort]);
 }
 
+- (void)test3 {
+    YHComparator *c = [[YHComparator alloc]init];
+    c.compare = ^BOOL(NSNumber *a, NSNumber *b) {
+        return [a intValue] < [b intValue];
+    };
+    NSArray *e = @[@(68),@(72),@(43),@(50),@(38),@(10),@(95),@(65)];
+    YHBinaryHeap *heap = [[YHBinaryHeap alloc]initWithComparator:c elements:e];
+    [MJBinaryTrees print:heap];
+}
+
+- (void)test4 {
+    NSArray *a = [YHInterview topK:@[@(68),@(72),@(43),@(50),@(38),@(10),@(95),@(65)] size:1];
+    NSLog(@"%@",a);
+}
 
 @end
