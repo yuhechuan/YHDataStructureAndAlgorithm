@@ -8,6 +8,11 @@
 
 #import "YHGraph.h"
 
+
+@implementation YHWeightManager
+
+@end
+
 @implementation YHEdgeInfo
 
 - (instancetype)initWithFrom:(id<NSCopying>)from to:(id<NSCopying>)to weight:(NSObject *)weight {
@@ -19,9 +24,21 @@
     return self;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"from: %@  to:%@  weight:%@",_from,_to,_weight];
+}
+
 @end
 
 @implementation YHGraph
+
+- (instancetype)initWeightManager:(YHWeightManager *)weightManager {
+    if (self = [super init]) {
+        _weightManager = weightManager;
+    }
+    return self;
+}
+
 /**
  * 添加一个顶点 子类实现
  */
@@ -62,5 +79,9 @@
  * 拓扑排序
  */
 - (NSArray *)topologicSort{return nil;}
+/**
+ * 最小生成树
+ */
+- (NSSet<YHEdgeInfo *> *)mst{return nil;}
 
 @end

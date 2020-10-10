@@ -61,9 +61,20 @@
     int index = (int)(_elements.count - 1);
     [self siftUp:index];
 }
+/**
+ * 批量添加
+ */
+- (void)addElements:(NSArray *)elements {
+    for (id e in elements) {
+        [self add:e];
+    }
+}
 
 // 上滤
 - (void)siftUp:(int)index {
+    if (index >= [self size]) {
+        return;
+    }
     id e = _elements[index];
     while (index > 0) {
         int pindex = (index - 1) >>1;
@@ -92,6 +103,9 @@
 
 // 下滤
 - (void)siftDown:(int)index {
+    if (index >= [self size]) {
+        return;
+    }
     // 第一个叶子节点的索引 就是  非叶子节点的数量
     id e = _elements[index];
     int half = (int)([self size] >> 1);

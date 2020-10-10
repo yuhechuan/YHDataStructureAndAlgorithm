@@ -10,15 +10,28 @@
 
 @class YHVisitor;
 
+@interface YHWeightManager : NSObject
+
+@property(nonatomic, copy) BOOL (^comparator)(id a,id b);
+@property(nonatomic, copy) id (^add)(id a,id b);
+
+@end
+
 @interface YHEdgeInfo : NSObject
 
 @property (nonatomic) id<NSCopying> from;
 @property (nonatomic) id<NSCopying> to;
 @property (nonatomic) NSObject *weight;
 
+- (instancetype)initWithFrom:(id<NSCopying>)from to:(id<NSCopying>)to weight:(NSObject *)weight;
+
 @end
 
 @interface YHGraph : NSObject
+
+@property (nonatomic,strong) YHWeightManager *weightManager;
+
+- (instancetype)initWeightManager:(YHWeightManager *)weightManager;
 
 - (void)addVertex:(id<NSCopying>)v;
 - (void)addEdge:(id<NSCopying>)from to:(id<NSCopying>)to;

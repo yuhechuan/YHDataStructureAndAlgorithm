@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isEmpty;
 - (void)clear;
 - (void)add:(id)element;
+- (void)addElements:(NSArray *)elements;
 // 获取堆顶元素
 - (id)get;
 // 删除堆顶元素

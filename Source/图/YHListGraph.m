@@ -74,6 +74,8 @@
 @property (nonatomic, strong) YHVertex *from;
 @property (nonatomic, strong) NSObject *weight;
 
+- (YHEdgeInfo *)info;
+
 @end
 
 @implementation YHEdge
@@ -84,6 +86,13 @@
     edge.from = from;
     edge.to = to;
     return edge;
+}
+
+- (YHEdgeInfo *)info {
+    YHEdgeInfo *i = [[YHEdgeInfo alloc]initWithFrom:_from.value
+                                                 to:_to.value
+                                             weight:_weight];
+    return i;
 }
 
 - (BOOL)isEqual:(id)object {
@@ -108,6 +117,7 @@
 
 @property (nonatomic, strong) NSMutableSet <YHVertex *>*bfsVertexs;
 @property (nonatomic, strong) NSMutableSet <YHVertex *>*dfsVertexs;
+@property (nonatomic, strong) YHComparator *comparator;
 
 
 @end
@@ -331,7 +341,33 @@
  * prim 算法
  */
 - (NSSet<YHEdgeInfo *> *)prim {
-    return nil;
+    
+    NSMutableSet *edgeInfo= [NSMutableSet set];
+    NSMutableSet *addedVertexs= [NSMutableSet set];
+
+    NSArray *vertexs = self.vertexs.allValues;
+    if (vertexs.count == 0) {
+        return edgeInfo;
+    }
+    YHVertex *vertex = vertexs[0];
+    YHBinaryHeap *heap =[[YHBinaryHeap alloc]initWithComparator:self.comparator elements:vertex.outEdges.allObjects];
+    [addedVertexs addObject:vertex];
+    
+    int vertexsSize = (int)vertexs.count;
+    while (![heap isEmpty] && addedVertexs.count < vertexsSize) {
+        YHEdge *edge = (YHEdge *)[heap remove];
+        if ([addedVertexs containsObject:edge.to]) {
+            continue;
+        }
+        
+        // 批量加入堆中
+        [heap addElements:edge.to.outEdges.allObjects];
+        [addedVertexs addObject:edge.to];
+
+        [edgeInfo addObject:[edge info]];
+    }
+    
+    return edgeInfo;
 }
 /**
  * kruskal 算法
@@ -367,6 +403,17 @@
         _dfsVertexs = [NSMutableSet set];
     }
     return _dfsVertexs;
+}
+
+- (YHComparator *)comparator {
+    if (!_comparator) {
+        _comparator = [[YHComparator alloc]init];
+        __weak typeof(self) weakSelf = self;
+        _comparator.compare = ^BOOL(YHEdge *a, YHEdge *b) {
+            return weakSelf.weightManager.comparator(a.weight,b.weight);
+        };
+    }
+    return _comparator;
 }
 
 @end

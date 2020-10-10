@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test4];
+    [self test2];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -52,25 +52,51 @@
 }
 
 - (void)test2 {
+    
+    YHWeightManager *m = [[YHWeightManager alloc]init];
+    m.comparator = ^BOOL(NSNumber *a, NSNumber *b) {
+        return [a intValue] < [b intValue];
+    };
 
     // Do any additional setup after loading the view.
-    YHListGraph *graph = [[YHListGraph alloc]init];
-    [graph addEdge:@(0) to:@(2)];
+    YHListGraph *graph = [[YHListGraph alloc]initWeightManager:m];
+    [graph addEdge:@(3) to:@(7) weight:@(9)];
+    [graph addEdge:@(7) to:@(3) weight:@(9)];
     
-    [graph addEdge:@(2) to:@(6)];
-    [graph addEdge:@(2) to:@(5)];
+    [graph addEdge:@(5) to:@(7) weight:@(5)];
+    [graph addEdge:@(7) to:@(5) weight:@(9)];
     
-    [graph addEdge:@(6) to:@(4)];
-    [graph addEdge:@(7) to:@(6)];
-    [graph addEdge:@(5) to:@(7)];
+    [graph addEdge:@(5) to:@(1) weight:@(1)];
+    [graph addEdge:@(1) to:@(5) weight:@(1)];
     
-    [graph addEdge:@(3) to:@(5)];
-    [graph addEdge:@(3) to:@(7)];
-    [graph addEdge:@(3) to:@(1)];
+    [graph addEdge:@(5) to:@(6) weight:@(3)];
+    [graph addEdge:@(6) to:@(5) weight:@(3)];
     
-    [graph addEdge:@(1) to:@(0)];
+    [graph addEdge:@(5) to:@(2) weight:@(3)];
+    [graph addEdge:@(2) to:@(5) weight:@(3)];
+
+    [graph addEdge:@(1) to:@(6) weight:@(7)];
+    [graph addEdge:@(6) to:@(1) weight:@(7)];
+
+    [graph addEdge:@(1) to:@(2) weight:@(3)];
+    [graph addEdge:@(2) to:@(1) weight:@(3)];
+
+    [graph addEdge:@(6) to:@(2) weight:@(6)];
+    [graph addEdge:@(2) to:@(6) weight:@(6)];
     
-    NSLog(@"%@", [graph topologicSort]);
+    [graph addEdge:@(6) to:@(4) weight:@(8)];
+    [graph addEdge:@(4) to:@(6) weight:@(8)];
+    
+    [graph addEdge:@(2) to:@(4) weight:@(4)];
+    [graph addEdge:@(4) to:@(2) weight:@(4)];
+    
+    [graph addEdge:@(2) to:@(0) weight:@(2)];
+    [graph addEdge:@(0) to:@(2) weight:@(2)];
+    
+    [graph addEdge:@(0) to:@(4) weight:@(7)];
+    [graph addEdge:@(4) to:@(0) weight:@(7)];
+   
+    NSLog(@"%@", [graph mst]);
 }
 
 - (void)test3 {
