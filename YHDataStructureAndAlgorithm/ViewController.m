@@ -53,7 +53,9 @@
 
 - (void)test2 {
     
-    YHWeightManager *m = [[YHWeightManager alloc]init];
+   // YHWeightManager *m = [[YHWeightManager alloc]init];
+    YHWeightManager *m = [YHWeightManager new];
+
     m.comparator = ^BOOL(NSNumber *a, NSNumber *b) {
         return [a intValue] < [b intValue];
     };

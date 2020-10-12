@@ -39,6 +39,15 @@
 		1884A46422BE2928000F20A1 /* MJPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44922BE2928000F20A1 /* MJPrinter.m */; };
 		1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */; };
 		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
+		8487E1E72534969200D72501 /* YHUnionFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1D92534969100D72501 /* YHUnionFind.m */; };
+		8487E1E82534969200D72501 /* YHQuickFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1DC2534969100D72501 /* YHQuickFind.m */; };
+		8487E1E92534969200D72501 /* YHQuickUnionRankPathCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1DE2534969100D72501 /* YHQuickUnionRankPathCompress.m */; };
+		8487E1EA2534969200D72501 /* YHQuickUnionRankPathSpliting.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1DF2534969100D72501 /* YHQuickUnionRankPathSpliting.m */; };
+		8487E1EB2534969200D72501 /* YHQuickUnionRank.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1E02534969100D72501 /* YHQuickUnionRank.m */; };
+		8487E1EC2534969200D72501 /* YHQuickUnion.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1E12534969100D72501 /* YHQuickUnion.m */; };
+		8487E1ED2534969200D72501 /* YHQuickUnionRankPathHalving.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1E22534969100D72501 /* YHQuickUnionRankPathHalving.m */; };
+		8487E1EE2534969200D72501 /* YHUFNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1E42534969100D72501 /* YHUFNode.m */; };
+		8487E1EF2534969200D72501 /* YHQuickUnionSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1E52534969100D72501 /* YHQuickUnionSize.m */; };
 		84FAEE7D2520A03E0099C0BA /* YHListGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FAEE792520A03E0099C0BA /* YHListGraph.m */; };
 		84FAEE7E2520A03E0099C0BA /* YHGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FAEE7C2520A03E0099C0BA /* YHGraph.m */; };
 		84FAEE8225232ABA0099C0BA /* YHHeap.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FAEE8125232ABA0099C0BA /* YHHeap.m */; };
@@ -134,6 +143,24 @@
 		1884A44C22BE2928000F20A1 /* MJBinaryTreeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBinaryTreeInfo.h; sourceTree = "<group>"; };
 		1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBinaryTrees.m; sourceTree = "<group>"; };
 		1884A44E22BE2928000F20A1 /* NSString+Trees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trees.m"; sourceTree = "<group>"; };
+		8487E1D52534969100D72501 /* YHQuickUnionRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnionRank.h; sourceTree = "<group>"; };
+		8487E1D62534969100D72501 /* YHQuickUnionRankPathSpliting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnionRankPathSpliting.h; sourceTree = "<group>"; };
+		8487E1D72534969100D72501 /* YHQuickUnionRankPathCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnionRankPathCompress.h; sourceTree = "<group>"; };
+		8487E1D82534969100D72501 /* YHUFNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHUFNode.h; sourceTree = "<group>"; };
+		8487E1D92534969100D72501 /* YHUnionFind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHUnionFind.m; sourceTree = "<group>"; };
+		8487E1DA2534969100D72501 /* YHQuickUnionRankPathHalving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnionRankPathHalving.h; sourceTree = "<group>"; };
+		8487E1DB2534969100D72501 /* YHQuickUnion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnion.h; sourceTree = "<group>"; };
+		8487E1DC2534969100D72501 /* YHQuickFind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHQuickFind.m; sourceTree = "<group>"; };
+		8487E1DD2534969100D72501 /* YHQuickUnionSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnionSize.h; sourceTree = "<group>"; };
+		8487E1DE2534969100D72501 /* YHQuickUnionRankPathCompress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHQuickUnionRankPathCompress.m; sourceTree = "<group>"; };
+		8487E1DF2534969100D72501 /* YHQuickUnionRankPathSpliting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHQuickUnionRankPathSpliting.m; sourceTree = "<group>"; };
+		8487E1E02534969100D72501 /* YHQuickUnionRank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHQuickUnionRank.m; sourceTree = "<group>"; };
+		8487E1E12534969100D72501 /* YHQuickUnion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHQuickUnion.m; sourceTree = "<group>"; };
+		8487E1E22534969100D72501 /* YHQuickUnionRankPathHalving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHQuickUnionRankPathHalving.m; sourceTree = "<group>"; };
+		8487E1E32534969100D72501 /* YHUnionFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHUnionFind.h; sourceTree = "<group>"; };
+		8487E1E42534969100D72501 /* YHUFNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHUFNode.m; sourceTree = "<group>"; };
+		8487E1E52534969100D72501 /* YHQuickUnionSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHQuickUnionSize.m; sourceTree = "<group>"; };
+		8487E1E62534969100D72501 /* YHQuickFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickFind.h; sourceTree = "<group>"; };
 		84FAEE792520A03E0099C0BA /* YHListGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHListGraph.m; sourceTree = "<group>"; };
 		84FAEE7A2520A03E0099C0BA /* YHGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHGraph.h; sourceTree = "<group>"; };
 		84FAEE7B2520A03E0099C0BA /* YHListGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHListGraph.h; sourceTree = "<group>"; };
@@ -240,33 +267,34 @@
 		1884A40B22BE2928000F20A1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				84FAEE7F25232A8D0099C0BA /* 堆 */,
-				84FAEE782520A03E0099C0BA /* 图 */,
-				F0FDCAF622C9EC020020BB60 /* 哈希表 */,
-				F0FDCAE822C9DE770020BB60 /* 集合 */,
-				1884A40C22BE2928000F20A1 /* 二叉树 */,
+				8487E1D42534969100D72501 /* UnionFind */,
+				84FAEE7F25232A8D0099C0BA /* Heap */,
+				84FAEE782520A03E0099C0BA /* Graph */,
+				F0FDCAF622C9EC020020BB60 /* HashMap */,
+				F0FDCAE822C9DE770020BB60 /* Set */,
+				1884A40C22BE2928000F20A1 /* BinaryTree */,
 				1884A42222BE2928000F20A1 /* LeetCode */,
-				1884A42522BE2928000F20A1 /* 链表 */,
-				1884A43A22BE2928000F20A1 /* 队列 */,
-				1884A43F22BE2928000F20A1 /* 栈 */,
+				1884A42522BE2928000F20A1 /* Linked */,
+				1884A43A22BE2928000F20A1 /* Queue */,
+				1884A43F22BE2928000F20A1 /* Stack */,
 				1884A44222BE2928000F20A1 /* MJBinaryTrees */,
 			);
 			path = Source;
 			sourceTree = "<group>";
 		};
-		1884A40C22BE2928000F20A1 /* 二叉树 */ = {
+		1884A40C22BE2928000F20A1 /* BinaryTree */ = {
 			isa = PBXGroup;
 			children = (
-				F0FDCA9122C227420020BB60 /* 红黑树 */,
-				1884A40D22BE2928000F20A1 /* 二叉树 */,
-				1884A41622BE2928000F20A1 /* AVL树 */,
-				1884A41C22BE2928000F20A1 /* 二叉搜索树 */,
-				1884A41F22BE2928000F20A1 /* 平衡二叉搜索树 */,
+				F0FDCA9122C227420020BB60 /* RBTree */,
+				1884A40D22BE2928000F20A1 /* YHBinaryTree */,
+				1884A41622BE2928000F20A1 /* AVLTree */,
+				1884A41C22BE2928000F20A1 /* BinarySearchTree */,
+				1884A41F22BE2928000F20A1 /* BalanceBinarySearchTree */,
 			);
-			path = "二叉树";
+			path = BinaryTree;
 			sourceTree = "<group>";
 		};
-		1884A40D22BE2928000F20A1 /* 二叉树 */ = {
+		1884A40D22BE2928000F20A1 /* YHBinaryTree */ = {
 			isa = PBXGroup;
 			children = (
 				1884A40E22BE2928000F20A1 /* YHBNote.h */,
@@ -278,10 +306,10 @@
 				1884A41422BE2928000F20A1 /* YHVisitor.h */,
 				1884A41522BE2928000F20A1 /* YHComparator.m */,
 			);
-			path = "二叉树";
+			path = YHBinaryTree;
 			sourceTree = "<group>";
 		};
-		1884A41622BE2928000F20A1 /* AVL树 */ = {
+		1884A41622BE2928000F20A1 /* AVLTree */ = {
 			isa = PBXGroup;
 			children = (
 				1884A41722BE2928000F20A1 /* YHAVLTree.h */,
@@ -289,25 +317,25 @@
 				1884A41922BE2928000F20A1 /* YHAVLNote.h */,
 				1884A41A22BE2928000F20A1 /* YHAVLTree.m */,
 			);
-			path = "AVL树";
+			path = AVLTree;
 			sourceTree = "<group>";
 		};
-		1884A41C22BE2928000F20A1 /* 二叉搜索树 */ = {
+		1884A41C22BE2928000F20A1 /* BinarySearchTree */ = {
 			isa = PBXGroup;
 			children = (
 				1884A41D22BE2928000F20A1 /* YHBinarySearchTree.h */,
 				1884A41E22BE2928000F20A1 /* YHBinarySearchTree.m */,
 			);
-			path = "二叉搜索树";
+			path = BinarySearchTree;
 			sourceTree = "<group>";
 		};
-		1884A41F22BE2928000F20A1 /* 平衡二叉搜索树 */ = {
+		1884A41F22BE2928000F20A1 /* BalanceBinarySearchTree */ = {
 			isa = PBXGroup;
 			children = (
 				1884A42022BE2928000F20A1 /* YHBalanceBinarySearchTree.m */,
 				1884A42122BE2928000F20A1 /* YHBalanceBinarySearchTree.h */,
 			);
-			path = "平衡二叉搜索树";
+			path = BalanceBinarySearchTree;
 			sourceTree = "<group>";
 		};
 		1884A42222BE2928000F20A1 /* LeetCode */ = {
@@ -321,47 +349,47 @@
 			path = LeetCode;
 			sourceTree = "<group>";
 		};
-		1884A42522BE2928000F20A1 /* 链表 */ = {
+		1884A42522BE2928000F20A1 /* Linked */ = {
 			isa = PBXGroup;
 			children = (
-				1884A42622BE2928000F20A1 /* 双向循环链表 */,
-				1884A42922BE2928000F20A1 /* 约瑟夫轮盘 */,
-				1884A42C22BE2928000F20A1 /* 双向链表 */,
-				1884A42F22BE2928000F20A1 /* 链表与节点 */,
-				1884A43422BE2928000F20A1 /* 单向循环链表 */,
-				1884A43722BE2928000F20A1 /* 单向链表 */,
+				1884A42622BE2928000F20A1 /* DoubleLoopLinked */,
+				1884A42922BE2928000F20A1 /* JosephusLinked */,
+				1884A42C22BE2928000F20A1 /* DoubleLinked */,
+				1884A42F22BE2928000F20A1 /* LinkedAndNode */,
+				1884A43422BE2928000F20A1 /* OneLoopLinked */,
+				1884A43722BE2928000F20A1 /* OneLinked */,
 			);
-			path = "链表";
+			path = Linked;
 			sourceTree = "<group>";
 		};
-		1884A42622BE2928000F20A1 /* 双向循环链表 */ = {
+		1884A42622BE2928000F20A1 /* DoubleLoopLinked */ = {
 			isa = PBXGroup;
 			children = (
 				1884A42722BE2928000F20A1 /* YHDoubleLoopLinked.h */,
 				1884A42822BE2928000F20A1 /* YHDoubleLoopLinked.m */,
 			);
-			path = "双向循环链表";
+			path = DoubleLoopLinked;
 			sourceTree = "<group>";
 		};
-		1884A42922BE2928000F20A1 /* 约瑟夫轮盘 */ = {
+		1884A42922BE2928000F20A1 /* JosephusLinked */ = {
 			isa = PBXGroup;
 			children = (
 				1884A42A22BE2928000F20A1 /* YHJosephusLinked.h */,
 				1884A42B22BE2928000F20A1 /* YHJosephusLinked.m */,
 			);
-			path = "约瑟夫轮盘";
+			path = JosephusLinked;
 			sourceTree = "<group>";
 		};
-		1884A42C22BE2928000F20A1 /* 双向链表 */ = {
+		1884A42C22BE2928000F20A1 /* DoubleLinked */ = {
 			isa = PBXGroup;
 			children = (
 				1884A42D22BE2928000F20A1 /* YHDoubleLinked.h */,
 				1884A42E22BE2928000F20A1 /* YHDoubleLinked.m */,
 			);
-			path = "双向链表";
+			path = DoubleLinked;
 			sourceTree = "<group>";
 		};
-		1884A42F22BE2928000F20A1 /* 链表与节点 */ = {
+		1884A42F22BE2928000F20A1 /* LinkedAndNode */ = {
 			isa = PBXGroup;
 			children = (
 				1884A43022BE2928000F20A1 /* YHNote.h */,
@@ -369,28 +397,28 @@
 				1884A43222BE2928000F20A1 /* YHNote.m */,
 				1884A43322BE2928000F20A1 /* YHBaseLinked.h */,
 			);
-			path = "链表与节点";
+			path = LinkedAndNode;
 			sourceTree = "<group>";
 		};
-		1884A43422BE2928000F20A1 /* 单向循环链表 */ = {
+		1884A43422BE2928000F20A1 /* OneLoopLinked */ = {
 			isa = PBXGroup;
 			children = (
 				1884A43522BE2928000F20A1 /* YHOneLoopLinked.m */,
 				1884A43622BE2928000F20A1 /* YHOneLoopLinked.h */,
 			);
-			path = "单向循环链表";
+			path = OneLoopLinked;
 			sourceTree = "<group>";
 		};
-		1884A43722BE2928000F20A1 /* 单向链表 */ = {
+		1884A43722BE2928000F20A1 /* OneLinked */ = {
 			isa = PBXGroup;
 			children = (
 				1884A43822BE2928000F20A1 /* YHOneLinked.m */,
 				1884A43922BE2928000F20A1 /* YHOneLinked.h */,
 			);
-			path = "单向链表";
+			path = OneLinked;
 			sourceTree = "<group>";
 		};
-		1884A43A22BE2928000F20A1 /* 队列 */ = {
+		1884A43A22BE2928000F20A1 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
 				1884A43E22BE2928000F20A1 /* YHQueue.h */,
@@ -398,16 +426,16 @@
 				1884A43C22BE2928000F20A1 /* YHDoubleQueue.h */,
 				1884A43D22BE2928000F20A1 /* YHDoubleQueue.m */,
 			);
-			path = "队列";
+			path = Queue;
 			sourceTree = "<group>";
 		};
-		1884A43F22BE2928000F20A1 /* 栈 */ = {
+		1884A43F22BE2928000F20A1 /* Stack */ = {
 			isa = PBXGroup;
 			children = (
 				1884A44022BE2928000F20A1 /* YHStack.m */,
 				1884A44122BE2928000F20A1 /* YHStack.h */,
 			);
-			path = "栈";
+			path = Stack;
 			sourceTree = "<group>";
 		};
 		1884A44222BE2928000F20A1 /* MJBinaryTrees */ = {
@@ -436,7 +464,32 @@
 			path = MJPrinter;
 			sourceTree = "<group>";
 		};
-		84FAEE782520A03E0099C0BA /* 图 */ = {
+		8487E1D42534969100D72501 /* UnionFind */ = {
+			isa = PBXGroup;
+			children = (
+				8487E1D52534969100D72501 /* YHQuickUnionRank.h */,
+				8487E1D62534969100D72501 /* YHQuickUnionRankPathSpliting.h */,
+				8487E1D72534969100D72501 /* YHQuickUnionRankPathCompress.h */,
+				8487E1D82534969100D72501 /* YHUFNode.h */,
+				8487E1D92534969100D72501 /* YHUnionFind.m */,
+				8487E1DA2534969100D72501 /* YHQuickUnionRankPathHalving.h */,
+				8487E1DB2534969100D72501 /* YHQuickUnion.h */,
+				8487E1DC2534969100D72501 /* YHQuickFind.m */,
+				8487E1DD2534969100D72501 /* YHQuickUnionSize.h */,
+				8487E1DE2534969100D72501 /* YHQuickUnionRankPathCompress.m */,
+				8487E1DF2534969100D72501 /* YHQuickUnionRankPathSpliting.m */,
+				8487E1E02534969100D72501 /* YHQuickUnionRank.m */,
+				8487E1E12534969100D72501 /* YHQuickUnion.m */,
+				8487E1E22534969100D72501 /* YHQuickUnionRankPathHalving.m */,
+				8487E1E32534969100D72501 /* YHUnionFind.h */,
+				8487E1E42534969100D72501 /* YHUFNode.m */,
+				8487E1E52534969100D72501 /* YHQuickUnionSize.m */,
+				8487E1E62534969100D72501 /* YHQuickFind.h */,
+			);
+			path = UnionFind;
+			sourceTree = "<group>";
+		};
+		84FAEE782520A03E0099C0BA /* Graph */ = {
 			isa = PBXGroup;
 			children = (
 				84FAEE7A2520A03E0099C0BA /* YHGraph.h */,
@@ -444,10 +497,10 @@
 				84FAEE7B2520A03E0099C0BA /* YHListGraph.h */,
 				84FAEE792520A03E0099C0BA /* YHListGraph.m */,
 			);
-			path = "图";
+			path = Graph;
 			sourceTree = "<group>";
 		};
-		84FAEE7F25232A8D0099C0BA /* 堆 */ = {
+		84FAEE7F25232A8D0099C0BA /* Heap */ = {
 			isa = PBXGroup;
 			children = (
 				84FAEE8025232ABA0099C0BA /* YHHeap.h */,
@@ -455,10 +508,10 @@
 				84FAEE8325232BF10099C0BA /* YHBinaryHeap.h */,
 				84FAEE8425232BF10099C0BA /* YHBinaryHeap.m */,
 			);
-			path = "堆";
+			path = Heap;
 			sourceTree = "<group>";
 		};
-		F0FDCA9122C227420020BB60 /* 红黑树 */ = {
+		F0FDCA9122C227420020BB60 /* RBTree */ = {
 			isa = PBXGroup;
 			children = (
 				F0FDCA9222C227540020BB60 /* YHRBTree.h */,
@@ -466,20 +519,20 @@
 				F0FDCA9522C227740020BB60 /* YHRBNote.h */,
 				F0FDCA9622C227740020BB60 /* YHRBNote.m */,
 			);
-			path = "红黑树";
+			path = RBTree;
 			sourceTree = "<group>";
 		};
-		F0FDCAE822C9DE770020BB60 /* 集合 */ = {
+		F0FDCAE822C9DE770020BB60 /* Set */ = {
 			isa = PBXGroup;
 			children = (
-				F0FDCAEB22C9DF030020BB60 /* 集合 */,
-				F0FDCAE922C9DEE70020BB60 /* 红黑树集合 */,
-				F0FDCAEA22C9DEE70020BB60 /* 链表集合 */,
+				F0FDCAEB22C9DF030020BB60 /* YHSet */,
+				F0FDCAE922C9DEE70020BB60 /* RBSet */,
+				F0FDCAEA22C9DEE70020BB60 /* LinkedSet */,
 			);
-			path = "集合";
+			path = Set;
 			sourceTree = "<group>";
 		};
-		F0FDCAE922C9DEE70020BB60 /* 红黑树集合 */ = {
+		F0FDCAE922C9DEE70020BB60 /* RBSet */ = {
 			isa = PBXGroup;
 			children = (
 				F0FDCAED22C9E0AD0020BB60 /* YHTreeSet.h */,
@@ -487,31 +540,31 @@
 				F0FDCAF022C9E3A80020BB60 /* YHLinkSet.h */,
 				F0FDCAF122C9E3A80020BB60 /* YHLinkSet.m */,
 			);
-			path = "红黑树集合";
+			path = RBSet;
 			sourceTree = "<group>";
 		};
-		F0FDCAEA22C9DEE70020BB60 /* 链表集合 */ = {
+		F0FDCAEA22C9DEE70020BB60 /* LinkedSet */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "链表集合";
+			path = LinkedSet;
 			sourceTree = "<group>";
 		};
-		F0FDCAEB22C9DF030020BB60 /* 集合 */ = {
+		F0FDCAEB22C9DF030020BB60 /* YHSet */ = {
 			isa = PBXGroup;
 			children = (
 				F0FDCAEC22C9DF4F0020BB60 /* YHSet.h */,
 			);
-			path = "集合";
+			path = YHSet;
 			sourceTree = "<group>";
 		};
-		F0FDCAF622C9EC020020BB60 /* 哈希表 */ = {
+		F0FDCAF622C9EC020020BB60 /* HashMap */ = {
 			isa = PBXGroup;
 			children = (
 				F0FDCAF322C9EBEF0020BB60 /* YHHashMap.h */,
 				F0FDCAF422C9EBEF0020BB60 /* YHHashMap.m */,
 			);
-			path = "哈希表";
+			path = HashMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -647,8 +700,10 @@
 				1884A45922BE2928000F20A1 /* YHJosephusLinked.m in Sources */,
 				1884A45322BE2928000F20A1 /* YHAVLNote.m in Sources */,
 				84FAEE8225232ABA0099C0BA /* YHHeap.m in Sources */,
+				8487E1EF2534969200D72501 /* YHQuickUnionSize.m in Sources */,
 				1884A45F22BE2928000F20A1 /* YHQueue.m in Sources */,
 				F0FDCA9722C227740020BB60 /* YHRBNote.m in Sources */,
+				8487E1EA2534969200D72501 /* YHQuickUnionRankPathSpliting.m in Sources */,
 				1884A45522BE2928000F20A1 /* YHBinarySearchTree.m in Sources */,
 				1884A45222BE2928000F20A1 /* YHComparator.m in Sources */,
 				1884A45822BE2928000F20A1 /* YHDoubleLoopLinked.m in Sources */,
@@ -663,22 +718,29 @@
 				84FAEE7D2520A03E0099C0BA /* YHListGraph.m in Sources */,
 				84FAEE8525232BF10099C0BA /* YHBinaryHeap.m in Sources */,
 				1884A45422BE2928000F20A1 /* YHAVLTree.m in Sources */,
+				8487E1EB2534969200D72501 /* YHQuickUnionRank.m in Sources */,
 				1884A3D722BE2787000F20A1 /* AppDelegate.m in Sources */,
+				8487E1EE2534969200D72501 /* YHUFNode.m in Sources */,
 				1884A45622BE2928000F20A1 /* YHBalanceBinarySearchTree.m in Sources */,
 				1884A46022BE2928000F20A1 /* YHDoubleQueue.m in Sources */,
+				8487E1E82534969200D72501 /* YHQuickFind.m in Sources */,
 				F0FDCAEF22C9E0AD0020BB60 /* YHTreeSet.m in Sources */,
+				8487E1E72534969200D72501 /* YHUnionFind.m in Sources */,
 				1884A46322BE2928000F20A1 /* MJLevelOrderPrinter.m in Sources */,
 				F0FDCAF922CA01B20020BB60 /* YHInterview.m in Sources */,
 				1884A44F22BE2928000F20A1 /* YHVisitor.m in Sources */,
 				1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */,
+				8487E1E92534969200D72501 /* YHQuickUnionRankPathCompress.m in Sources */,
 				1884A45B22BE2928000F20A1 /* YHBaseLinked.m in Sources */,
 				1884A45022BE2928000F20A1 /* YHBinaryTree.m in Sources */,
 				1884A45A22BE2928000F20A1 /* YHDoubleLinked.m in Sources */,
 				1884A45122BE2928000F20A1 /* YHBNote.m in Sources */,
 				1884A46422BE2928000F20A1 /* MJPrinter.m in Sources */,
 				1884A46222BE2928000F20A1 /* MJInorderPrinter.m in Sources */,
+				8487E1EC2534969200D72501 /* YHQuickUnion.m in Sources */,
 				84FAEE7E2520A03E0099C0BA /* YHGraph.m in Sources */,
 				1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */,
+				8487E1ED2534969200D72501 /* YHQuickUnionRankPathHalving.m in Sources */,
 				1884A45C22BE2928000F20A1 /* YHNote.m in Sources */,
 				1884A46122BE2928000F20A1 /* YHStack.m in Sources */,
 			);
