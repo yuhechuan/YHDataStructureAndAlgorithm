@@ -339,7 +339,7 @@
     return [self kruskal];
 }
 /**
- * prim 算法
+ * prim 算法 稍好点对比 kruskal
  */
 - (NSSet<YHEdgeInfo *> *)prim {
     
@@ -371,16 +371,30 @@
     return edgeInfo;
 }
 /**
- * kruskal 算法
+ * kruskal 算法 O(Elog(E))
  */
 - (NSSet<YHEdgeInfo *> *)kruskal {
-    
-    NSMutableSet *edgeInfo= [NSMutableSet set];
-    YHBinaryHeap *heap =[[YHBinaryHeap alloc]initWithComparator:self.comparator elements:self.edges.allObjects];
     int edgeSize = (int)self.vertexs.count - 1;
+    if (edgeSize <= 0) {
+        return nil;
+    }
+    NSMutableSet *edgeInfo= [NSMutableSet set];
+    // O(E)
+    YHBinaryHeap *heap =[[YHBinaryHeap alloc]initWithComparator:self.comparator elements:self.edges.allObjects];
+    // 初始化并查集
+    YHQuickUnionRankPathHalving *qu = [[YHQuickUnionRankPathHalving alloc]init];
+    // O(V)
+    [self.vertexs enumerateKeysAndObjectsUsingBlock:^(id<NSCopying>  _Nonnull key, YHVertex * _Nonnull obj, BOOL * _Nonnull stop) {
+        [qu makeSet:obj];
+    }];
+    // O(Elog(E))
     while (![heap isEmpty] && edgeInfo.count < edgeSize) {
         YHEdge *edge = (YHEdge *)[heap remove];
+        if ([qu isConnected:edge.from v2:edge.to]) {
+            continue;
+        }
         [edgeInfo addObject:[edge info]];
+        [qu union_:edge.from b:edge.to];
     }
     return edgeInfo;
 }

@@ -66,13 +66,13 @@
     [graph addEdge:@(7) to:@(3) weight:@(9)];
     
     [graph addEdge:@(5) to:@(7) weight:@(5)];
-    [graph addEdge:@(7) to:@(5) weight:@(9)];
+    [graph addEdge:@(7) to:@(5) weight:@(5)];
     
     [graph addEdge:@(5) to:@(1) weight:@(1)];
     [graph addEdge:@(1) to:@(5) weight:@(1)];
     
-    [graph addEdge:@(5) to:@(6) weight:@(3)];
-    [graph addEdge:@(6) to:@(5) weight:@(3)];
+    [graph addEdge:@(5) to:@(6) weight:@(4)];
+    [graph addEdge:@(6) to:@(5) weight:@(4)];
     
     [graph addEdge:@(5) to:@(2) weight:@(3)];
     [graph addEdge:@(2) to:@(5) weight:@(3)];
