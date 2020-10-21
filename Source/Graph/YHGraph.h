@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class YHVisitor;
+@class YHOneLinked;
 
 @interface YHWeightManager : NSObject
 
 @property(nonatomic, copy) BOOL (^comparator)(id a,id b);
 @property(nonatomic, copy) id (^add)(id a,id b);
+@property(nonatomic, copy) id (^zero)(void);
 
 @end
 
@@ -26,6 +28,14 @@
 - (instancetype)initWithFrom:(id<NSCopying>)from to:(id<NSCopying>)to weight:(NSObject *)weight;
 
 @end
+
+@interface YHPathInfo : NSObject
+
+@property (nonatomic, strong) NSObject *weight;
+@property (nonatomic, strong) NSMutableArray <YHEdgeInfo *>*edgeInfos;
+
+@end
+
 
 @interface YHGraph : NSObject
 
@@ -48,5 +58,8 @@
 
 - (NSArray *)topologicSort;
 - (NSSet<YHEdgeInfo *> *)mst;
+- (NSDictionary <id<NSCopying>,YHPathInfo *>*)shortestPath:(id<NSCopying>)v;
+- (NSDictionary <id<NSCopying>,NSDictionary <id<NSCopying>,YHPathInfo *>*>*)allShortestPath;
+
 
 @end

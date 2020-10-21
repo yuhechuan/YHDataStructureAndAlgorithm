@@ -30,6 +30,26 @@
 
 @end
 
+@implementation YHPathInfo
+
+- (NSMutableArray<YHEdgeInfo *> *)edgeInfos {
+    if (!_edgeInfos) {
+        _edgeInfos = [NSMutableArray array];
+    }
+    return _edgeInfos;
+}
+
+- (NSString *)description {
+    NSMutableArray *arr = [NSMutableArray array];
+    [arr addObject:[NSString stringWithFormat:@"total-weight: %@",_weight]];
+    for (YHEdgeInfo *info in _edgeInfos) {
+        [arr addObject: [NSString stringWithFormat:@"from: %@  to:%@  weight:%@",info.from,info.to,info.weight]];
+    }
+    return [arr componentsJoinedByString:@"=="];
+}
+
+@end
+
 @implementation YHGraph
 
 - (instancetype)initWeightManager:(YHWeightManager *)weightManager {
@@ -83,5 +103,9 @@
  * 最小生成树
  */
 - (NSSet<YHEdgeInfo *> *)mst{return nil;}
+/**
+ * 最短路径
+ */
+- (NSDictionary <id<NSCopying>,YHPathInfo *>*)shortestPath:(id<NSCopying>)v{return nil;}
 
 @end

@@ -10,7 +10,9 @@
 #import "YHUFNode.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/**
+ * 并查集
+ */
 @interface YHUnionFind : NSObject {
     NSMutableDictionary *_nodes;
 }

@@ -16,6 +16,9 @@
 #import "YHListGraph.h"
 #import "YHBinaryHeap.h"
 #import "MJBinaryTrees.h"
+#import "YHRecursive.h"
+#import "YHBackTracking.h"
+#import "YHGreedy.h"
 
 @interface ViewController ()
 
@@ -25,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test2];
+    [self test10];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -115,5 +118,94 @@
     NSArray *a = [YHInterview topK:@[@(68),@(72),@(43),@(50),@(38),@(10),@(95),@(65)] size:1];
     NSLog(@"%@",a);
 }
+
+- (void)test5 {
+    YHWeightManager *m = [YHWeightManager new];
+    m.comparator = ^BOOL(NSNumber *a, NSNumber *b) {
+       return [a intValue] < [b intValue];
+    };
+    m.add = ^id(NSNumber *a, NSNumber *b) {
+        return @([a intValue] + [b intValue]);
+    };
+    m.zero = ^id{
+        return @(0);
+    };
+    
+    YHListGraph *graph = [[YHListGraph alloc]initWeightManager:m];
+    
+//    [graph addEdge:@"A" to:@"E" weight:@(100)];
+//    [graph addEdge:@"E" to:@"A" weight:@(100)];
+//
+//    [graph addEdge:@"A" to:@"B" weight:@(10)];
+//    [graph addEdge:@"B" to:@"A" weight:@(10)];
+//
+//    [graph addEdge:@"A" to:@"D" weight:@(30)];
+//    [graph addEdge:@"D" to:@"A" weight:@(30)];
+//
+//
+//    [graph addEdge:@"D" to:@"E" weight:@(60)];
+//    [graph addEdge:@"E" to:@"D" weight:@(60)];
+//
+//    [graph addEdge:@"D" to:@"C" weight:@(20)];
+//    [graph addEdge:@"C" to:@"D" weight:@(20)];
+//
+//
+//    [graph addEdge:@"B" to:@"C" weight:@(50)];
+//    [graph addEdge:@"C" to:@"B" weight:@(50)];
+//
+//    [graph addEdge:@"C" to:@"E" weight:@(10)];
+//    [graph addEdge:@"E" to:@"C" weight:@(10)];
+    
+    
+    [graph addEdge:@"A" to:@"E" weight:@(100)];
+    [graph addEdge:@"A" to:@"B" weight:@(10)];
+    [graph addEdge:@"A" to:@"D" weight:@(30)];
+
+
+    [graph addEdge:@"D" to:@"E" weight:@(60)];
+    [graph addEdge:@"D" to:@"C" weight:@(20)];
+
+
+    [graph addEdge:@"B" to:@"C" weight:@(50)];
+    [graph addEdge:@"C" to:@"E" weight:@(10)];
+    NSDictionary *dict = [graph allShortestPath];
+    NSLog(@"%@", dict);
+}
+
+- (void)test6 {
+    NSDictionary *dict = @{@"1":@"a",@"2":@"b",@"3":@"c",@"4":@"d",@"5":@"e"};
+    [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([key isEqualToString:@"3"]) {
+            return;
+        }
+        NSLog(@"yuhechuan =====%@",key);
+    }];
+}
+
+- (void)test7 {
+    YHRecursive *r = [YHRecursive new];
+    NSLog(@"%d",[r fib0:10]);
+    NSLog(@"%d",[r fib1:10]);
+    NSLog(@"%d",[r fib2:10]);
+    NSLog(@"%d",[r fib3:10]);
+    NSLog(@"%d",[r fib4:10]);
+    NSLog(@"%d",[r fib5:10]);
+}
+
+- (void)test8 {
+    YHRecursive *r = [YHRecursive new];
+    [r hanoi:3 p1:@"A" p2:@"B" p3:@"C"];
+}
+
+- (void)test9 {
+    YHBackTracking *t = [[YHBackTracking alloc]init];
+    [t place8Queen];
+}
+
+- (void)test10 {
+    YHGreedy *g = [[YHGreedy alloc]init];
+    [g coinChnage1];
+}
+
 
 @end

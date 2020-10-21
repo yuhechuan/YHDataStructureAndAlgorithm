@@ -399,6 +399,194 @@
     return edgeInfo;
 }
 
+/**
+ * 最短路径 单元
+ */
+- (NSDictionary<id<NSCopying>,YHPathInfo *> *)shortestPath:(id<NSCopying>)v {
+   return [self dijkstra:v];
+}
+
+/**
+ * 最短路径 bellman-Ford 算法
+ */
+- (NSDictionary<id<NSCopying>,YHPathInfo *> *)bellmanFord:(id<NSCopying>)v {
+    YHVertex *vertex = self.vertexs[v];
+    if (!vertex) return nil;
+    NSMutableDictionary <id<NSCopying>,YHPathInfo *>*selectedPaths = [NSMutableDictionary dictionary];
+    int count = (int)self.vertexs.count - 1;
+    YHPathInfo *beginPath = [[YHPathInfo alloc]init];
+    beginPath.weight = self.weightManager.zero();
+    selectedPaths[v] = beginPath;
+    
+    for (int i = 0; i < count; i ++) {
+        for (YHEdge *edge in self.edges.allObjects) {
+            YHPathInfo *p = selectedPaths[edge.from.value];
+            if (p == nil) {
+                continue;
+            }
+            [self relaxbBellmanFord:selectedPaths edge:edge fromPath:p];
+        }
+    }
+    [selectedPaths removeObjectForKey:v];
+    return selectedPaths;
+}
+
+/**
+ * 松弛操作 bellman-Ford 
+ */
+- (void)relaxbBellmanFord:(NSMutableDictionary <id<NSCopying>,YHPathInfo *>*)paths
+         edge:(YHEdge *)edge
+     fromPath:(YHPathInfo *)fromPath {
+    NSObject *newWeight = self.weightManager.add(fromPath.weight,edge.weight);
+    NSObject *oldWeight = (YHPathInfo *)paths[edge.to.value].weight;
+
+    YHPathInfo *oldPath = paths[edge.to.value];
+    if (oldPath && !self.weightManager.comparator(newWeight,oldWeight)) {
+        return;
+    }
+    if (!oldPath) {
+        oldPath = [[YHPathInfo alloc]init];
+        paths[edge.to.value] = oldPath;
+    } else {
+        [oldPath.edgeInfos removeAllObjects];
+    }
+
+    oldPath.weight = newWeight;
+    [oldPath.edgeInfos addObjectsFromArray:fromPath.edgeInfos];
+    [oldPath.edgeInfos addObject:[edge info]];
+}
+
+/**
+ * 最短路径 dijkstra 算法 不能存在负权边
+ */
+- (NSDictionary<id<NSCopying>,YHPathInfo *> *)dijkstra:(id<NSCopying>)v {
+    YHVertex *vertex = self.vertexs[v];
+    if (!vertex) return nil;
+    NSMutableDictionary <id<NSCopying>,YHPathInfo *>*selectedPaths = [NSMutableDictionary dictionary];
+    NSMutableDictionary <YHVertex *,YHPathInfo *>*paths = [NSMutableDictionary dictionary];
+   
+    YHPathInfo *beginPath = [[YHPathInfo alloc]init];
+    beginPath.weight = self.weightManager.zero();
+    paths[vertex] = beginPath;
+    // 优化加入A时的
+    selectedPaths[v] = beginPath;
+
+    while (paths.count != 0) {
+       NSDictionary *entry =  [self getShortestPath:paths];
+       YHVertex *minV = entry.allKeys[0];
+       YHPathInfo *minPath = (YHPathInfo *)entry[minV];
+       selectedPaths[minV.value] = minPath;
+       [paths removeObjectForKey:minV];
+       for (YHEdge *edge in minV.outEdges.allObjects) {
+           if (selectedPaths[edge.to.value]) {
+               // 如果要松弛的边的to 已经被提起了 没必要松弛
+               continue;
+           }
+           // 对一条边进行 松弛操作
+           [self relaxDijkstra:paths edge:edge fromPath:minPath];
+       }
+    }
+    [selectedPaths removeObjectForKey:v];
+    return selectedPaths;
+}
+
+
+/**
+ * 松弛操作
+ */
+- (void)relaxDijkstra:(NSMutableDictionary <YHVertex *,YHPathInfo *>*)paths
+         edge:(YHEdge *)edge
+     fromPath:(YHPathInfo *)fromPath {
+    NSObject *newWeight = self.weightManager.add(fromPath.weight,edge.weight);
+    NSObject *oldWeight = (YHPathInfo *)paths[edge.to].weight;
+
+    YHPathInfo *oldPath = paths[edge.to];
+    if (oldPath && !self.weightManager.comparator(newWeight,oldWeight)) {
+        return;
+    }
+    if (!oldPath) {
+        oldPath = [[YHPathInfo alloc]init];
+        paths[edge.to] = oldPath;
+    } else {
+        [oldPath.edgeInfos removeAllObjects];
+    }
+
+    oldPath.weight = newWeight;
+    [oldPath.edgeInfos addObjectsFromArray:fromPath.edgeInfos];
+    [oldPath.edgeInfos addObject:[edge info]];
+}
+
+/**
+ * 从表里挑出一个最短的
+ */
+- (NSDictionary *)getShortestPath:(NSDictionary <YHVertex *,YHPathInfo *>*)dict {
+    if (dict.count == 0) {
+        return nil;
+    }
+    NSMutableDictionary *entry = [NSMutableDictionary dictionary];
+    __block YHVertex *minVertex = dict.allKeys[0];
+    __block YHPathInfo *minPathInfo = dict[minVertex];
+    [dict enumerateKeysAndObjectsUsingBlock:^(YHVertex * _Nonnull key, YHPathInfo * _Nonnull pathInfo, BOOL * _Nonnull stop) {
+        if (self.weightManager.comparator(pathInfo.weight,minPathInfo.weight)) {
+            minPathInfo = pathInfo;
+            minVertex = key;
+        }
+    }];
+    entry[minVertex] = minPathInfo;
+    return entry;
+}
+/**
+ * 最短路径 多元Floyd 算法
+ */
+- (NSDictionary<id<NSCopying>,NSDictionary<id<NSCopying>,YHPathInfo *> *> *)allShortestPath {
+    NSMutableDictionary *paths = [NSMutableDictionary dictionary];
+    
+    for (YHEdge *edge in self.edges) {
+        NSMutableDictionary *pathDict = paths[edge.from.value];
+        if (!pathDict) {
+            pathDict = [NSMutableDictionary dictionary];
+            paths[edge.from.value] = pathDict;
+        }
+        YHPathInfo *pinfo = [[YHPathInfo alloc]init];
+        pinfo.weight = edge.weight;
+        [pinfo.edgeInfos addObject:edge.info];
+        pathDict[edge.to.value] = pinfo;
+    }
+    
+    [self.vertexs enumerateKeysAndObjectsUsingBlock:^(NSObject <NSCopying>  *_Nonnull v2, YHVertex * _Nonnull vertex2, BOOL * _Nonnull stop1) {
+        [self.vertexs enumerateKeysAndObjectsUsingBlock:^(NSObject <NSCopying>*  _Nonnull v1, YHVertex * _Nonnull vertex1, BOOL * _Nonnull stop2) {
+            [self.vertexs enumerateKeysAndObjectsUsingBlock:^(NSObject <NSCopying>*  _Nonnull v3, YHVertex * _Nonnull vertex3, BOOL * _Nonnull stop3) {
+                
+                if ([v1 isEqual:v2] || [v2 isEqual:v3] || [v1 isEqual:v3]) {
+                    return;
+                }
+                
+                YHPathInfo *path12 = paths[v1][v2];
+                if (!path12) return;
+                
+                YHPathInfo *path23 = paths[v2][v3];
+                if (!path23) return;
+
+                YHPathInfo *path13 = paths[v1][v3];
+                id newWeight = self.weightManager.add(path12.weight,path23.weight);
+                if (path13!=nil && !self.weightManager.comparator(newWeight, path13.weight)) {
+                    return;
+                }
+                if (path13 == nil) {
+                    path13 = [YHPathInfo new];
+                    paths[v1][v3] = path13;
+                } else {
+                    [path13.edgeInfos removeAllObjects];
+                }
+                path13.weight = newWeight;
+                [path13.edgeInfos addObjectsFromArray:path12.edgeInfos];
+                [path13.edgeInfos addObjectsFromArray:path23.edgeInfos];
+            }];
+        }];
+    }];
+    return paths;
+}
+
 - (NSMutableDictionary<id<NSCopying>,YHVertex *> *)vertexs {
     if (!_vertexs) {
         _vertexs = [NSMutableDictionary dictionary];

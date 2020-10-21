@@ -9,7 +9,9 @@
 #import "YHHeap.h"
 #import "MJBinaryTreeInfo.h"
 #import "YHComparator.h"
-
+/**
+ * 二叉堆
+ */
 @interface YHBinaryHeap : YHHeap<MJBinaryTreeInfo>
 
 - (instancetype)initWithComparator:(YHComparator *)comparator;
