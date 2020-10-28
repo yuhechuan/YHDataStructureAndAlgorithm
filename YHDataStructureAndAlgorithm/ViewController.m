@@ -19,6 +19,7 @@
 #import "YHRecursive.h"
 #import "YHBackTracking.h"
 #import "YHGreedy.h"
+#import "YHDynamicProgramming.h"
 
 @interface ViewController ()
 
@@ -28,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test10];
+    [self test11];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -205,6 +206,12 @@
 - (void)test10 {
     YHGreedy *g = [[YHGreedy alloc]init];
     [g coinChnage1];
+}
+
+- (void)test11 {
+    YHDynamicProgramming *d = [[YHDynamicProgramming alloc]init];
+    NSArray *f = @[@(1),@(5),@(20),@(25)];
+    NSLog(@"%d",[d coinChange:41 faces:f]);
 }
 
 
