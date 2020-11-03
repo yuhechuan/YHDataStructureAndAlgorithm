@@ -21,6 +21,21 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)coinChange:(int)n
              faces:(NSArray *)faces;
 
+/**
+ * 最大连续子序列和
+ */
+- (int)maxLengthOfSubsequence:(NSArray *)nums;
+/**
+ * 最长上升子序列 长度
+ */
+- (int)maxLengthOfIncreasingSubsequence:(NSArray *)nums;
+
+/**
+ *  最长公共子序列
+ */
+- (int)maxLengthOfCommonSubsequence:(NSArray *)nums1
+                              nums2:(NSArray *)nums2;
+
 @end
 
 NS_ASSUME_NONNULL_END

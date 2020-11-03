@@ -9,6 +9,19 @@
 #import "YHDynamicProgramming.h"
 
 @implementation YHDynamicProgramming
+/**
+ * 动态规划
+ * 暴力搜索 递归 自顶向下
+ * 记忆化搜索  自顶向下
+ * 递推  自底向上
+ *
+ * 动态:会变化的状态
+ *  常规步骤
+ *  1.定义状态 (子问题,原问题的解 dp[i])
+ *  2.设置初始状态
+ *  3.确定状态转移方程
+ */
+
 
 /**
  * 找零钱 n 钱总数  faces 可使用的币种
@@ -41,6 +54,205 @@
         }
     }
     return [dp[n] intValue];
+}
+
+/**
+ * 最大连续子序列和
+ *  时间复杂度   O(n)
+ *  空间复杂度   O(n)
+ */
+- (int)maxLengthOfSubsequence:(NSArray *)nums {
+    if (!nums || nums.count == 0) {
+        return 0;
+    }
+    if (nums.count == 1) {
+        return [nums[0] intValue];
+    }
+    int n = (int)nums.count;
+    int dp = [nums[0] intValue];
+    int max = dp;
+    
+    for (int i = 1; i < n; i ++) {
+        if (dp > 0) {
+            dp = dp + [nums[i] intValue];
+        } else {
+            dp = [nums[i] intValue];
+        }
+        max = MAX(max, dp);
+    }
+    return max;
+}
+
+/**
+ *  最长上升子序列 长度
+ *  时间复杂度   O(n^2)
+ *  空间复杂度   O(n)
+ */
+
+- (int)maxLengthOfIncreasingSubsequence:(NSArray *)nums {
+    if (!nums || nums.count == 0) {
+        return 0;
+    }
+    NSMutableArray *dp = [NSMutableArray array];
+    int n = (int)nums.count;
+    for (int i = 0; i < n; i ++) {
+        dp[i] = @(1);
+    }
+    int maxLength = [dp[0] intValue];
+    for (int i = 1; i < n; i ++) {
+        for (int j = 0; j < i;  j ++) {
+            if ([nums[j] intValue] < [nums[i] intValue]) {
+                dp[i] = @(MAX([dp[i] intValue], [dp[j] intValue]  +1));
+            }
+        }
+        maxLength = MAX(maxLength, [dp[i] intValue]);
+    }
+    
+    return maxLength;
+}
+
+/**
+ *  最长公共子序列
+ *  时间复杂度   n *m
+ *  空间复杂度   m
+ *   dp(i,j) 第一个序列前i个元素和 第二个序列前j个元素
+ */
+
+- (int)maxLengthOfCommonSubsequence:(NSArray *)nums1
+                              nums2:(NSArray *)nums2 {
+    if (!nums1 || nums1.count == 0) {
+        return 0;
+    }
+    if (!nums2 || nums2.count == 0) {
+        return 0;
+    }
+    
+    NSArray *rows = nums2;
+    NSArray *cols = nums1;
+    if (nums1.count > nums2.count) {
+        rows = nums1;
+        cols = nums2;
+    }
+    
+    NSMutableArray *dp = [NSMutableArray array];
+    
+    for (int i = 0; i <= cols.count; i ++) {
+        [dp addObject:@(0)];
+    }
+    for (int i = 1; i <= rows.count; i ++) {
+        int cur = 0;
+        for (int j = 1; j <= cols.count; j ++) {
+            int leftTop = cur;
+            cur = [dp[j] intValue];
+            if ([nums1[i - 1] intValue] == [nums2[j - 1] intValue]) {
+                dp[j] = @(leftTop  + 1);
+            } else {
+                dp[j] = @(MAX([dp[j - 1] intValue], [dp[j] intValue]));
+            }
+        }
+    }
+    return [dp[cols.count] intValue];
+}
+
+/**
+ *  最长公共子序列
+ *  时间复杂度   n *m
+ *  空间复杂度   2 *m
+ *   dp(i,j) 第一个序列前i个元素和 第二个序列前j个元素
+ */
+
+- (int)maxLengthOfCommonSubsequence3:(NSArray *)nums1
+                               nums2:(NSArray *)nums2 {
+    if (!nums1 || nums1.count == 0) {
+        return 0;
+    }
+    if (!nums2 || nums2.count == 0) {
+        return 0;
+    }
+    int n1 = (int)nums1.count;
+    int n2 = (int)nums2.count;
+    NSMutableArray *dp = [NSMutableArray array];
+    
+    for (int i = 0; i < 2; i ++) {
+        NSMutableArray *dpsub = [NSMutableArray array];
+        for (int j = 0; j < n2 + 1; j ++) {
+            [dpsub addObject:@(0)];
+        }
+        [dp addObject:dpsub];
+    }
+    for (int i = 1; i < n1 + 1; i ++) {
+        int row = i & 1;
+        int prow = (i - 1) & 1;
+        for (int j = 1; j < n2 + 1; j ++) {
+            if ([nums1[i - 1] intValue] == [nums2[j - 1] intValue]) {
+                dp[row][j] = @([dp[prow][j - 1] intValue]  + 1);
+            } else {
+                dp[row][j] = @(MAX([dp[row][j - 1] intValue], [dp[prow][j] intValue]));
+            }
+        }
+    }
+    return [dp[n1 & 1][n2] intValue];
+}
+
+- (int)maxLengthOfCommonSubsequence2:(NSArray *)nums1
+                               nums2:(NSArray *)nums2 {
+    if (!nums1 || nums1.count == 0) {
+        return 0;
+    }
+    if (!nums2 || nums2.count == 0) {
+        return 0;
+    }
+    int n1 = (int)nums1.count;
+    int n2 = (int)nums2.count;
+    NSMutableArray *dp = [NSMutableArray array];
+    
+    for (int i = 0; i < n1 + 1; i ++) {
+        NSMutableArray *dpsub = [NSMutableArray array];
+        for (int j = 0; j < n2 + 1; j ++) {
+            [dpsub addObject:@(0)];
+        }
+        [dp addObject:dpsub];
+    }
+    for (int i = 1; i < n1 + 1; i ++) {
+        for (int j = 1; j < n2 + 1; j ++) {
+            if ([nums1[i - 1] intValue] == [nums2[j - 1] intValue]) {
+                dp[i][j] = @([dp[i - 1][j - 1] intValue]  + 1);
+            } else {
+                dp[i][j] = @(MAX([dp[i][j - 1] intValue], [dp[i - 1][j] intValue]));
+            }
+        }
+    }
+    return [dp[n1][n2] intValue];
+}
+
+- (int)maxLengthOfCommonSubsequence1:(NSArray *)nums1
+                               nums2:(NSArray *)nums2 {
+     if (!nums1 || nums1.count == 0) {
+         return 0;
+     }
+     if (!nums2 || nums2.count == 0) {
+         return 0;
+     }
+     return [self maxLengthOfCommonSubsequence1:nums1 nums2:nums2 i:(int)nums1.count j:(int)nums2.count];
+}
+/**
+ * 递归
+ * K为 nums1.count ,nums1.count2 最小值
+ * 空间复杂度 O(K)
+ * 时间复杂度 2^n
+ */
+- (int)maxLengthOfCommonSubsequence1:(NSArray *)nums1
+                              nums2:(NSArray *)nums2
+                                  i:(int)i
+                                  j:(int)j {
+    if (i == 0 || j == 0) {
+        return 0;
+    }
+    if ([nums1[i - 1] intValue] == [nums2[j - 1] intValue]) {
+        return [self maxLengthOfCommonSubsequence1:nums1 nums2:nums2 i:i - 1 j:j -1] + 1;
+    } else {
+        return MAX([self maxLengthOfCommonSubsequence1:nums1 nums2:nums2 i:i - 1 j:j], [self maxLengthOfCommonSubsequence1:nums1 nums2:nums2 i:i j:j -1]);
+    }
 }
 
 @end

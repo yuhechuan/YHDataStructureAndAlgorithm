@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test11];
+    [self test13];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -213,6 +213,24 @@
     NSArray *f = @[@(1),@(5),@(20),@(25)];
     NSLog(@"%d",[d coinChange:41 faces:f]);
 }
+
+- (void)test12 {
+    YHDynamicProgramming *d = [[YHDynamicProgramming alloc]init];
+    NSArray *f = @[@(-2),@(1),@(-3),@(4),@(-1),@(2),@(1),@(-5),@(4)];
+    NSLog(@"%d",[d maxLengthOfSubsequence:f]);
+}
+
+- (void)test13 {
+    YHDynamicProgramming *d = [[YHDynamicProgramming alloc]init];
+    NSArray *a = @[@(1),@(4),@(5),@(9),@(10)];
+    NSArray *b = @[@(1),@(4),@(9),@(10)];
+
+    NSLog(@"%d",[d maxLengthOfCommonSubsequence:a nums2:b]);
+
+}
+
+
+
 
 
 @end
