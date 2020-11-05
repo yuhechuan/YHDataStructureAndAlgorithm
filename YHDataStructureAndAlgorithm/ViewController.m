@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test13];
+    [self test15];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -222,14 +222,28 @@
 
 - (void)test13 {
     YHDynamicProgramming *d = [[YHDynamicProgramming alloc]init];
-    NSArray *a = @[@(1),@(4),@(5),@(9),@(10)];
-    NSArray *b = @[@(1),@(4),@(9),@(10)];
 
-    NSLog(@"%d",[d maxLengthOfCommonSubsequence:a nums2:b]);
+    NSArray *v =@[@(6),@(3),@(5),@(4),@(6)];
+    NSArray *w =@[@(2),@(2),@(6),@(5),@(4)];
+    int c = 10;
+    NSLog(@"%d",[d maxValueExactly:v weights:w capacity:c]);
+}
 
+- (void)test14 {
+    YHDynamicProgramming *d = [[YHDynamicProgramming alloc]init];
+
+    NSString *v = @"A B D";
+    NSString *w = @"D A B C";
+    NSLog(@"%d",[d lcs:v str2:w]);
 }
 
 
+- (void)test15 {
+    YHDynamicProgramming *d = [[YHDynamicProgramming alloc]init];
+    NSArray *a = @[@(10),@(2),@(2),@(5),@(1),@(7),@(101),@(18)];
+    NSLog(@"动规划 = %d",[d maxLengthOfIncreasingSubsequence:a]);
+    NSLog(@"二分查找 = %d",[d maxLengthOfIncreasingSubsequence1:a]);
+}
 
 
 

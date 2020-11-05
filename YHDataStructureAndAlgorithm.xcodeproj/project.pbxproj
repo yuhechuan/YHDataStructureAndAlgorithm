@@ -41,6 +41,7 @@
 		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
 		841F679D25394CCE00D30A7D /* YHRecursive.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F679C25394CCE00D30A7D /* YHRecursive.m */; };
 		845E64FC25499BA100441C43 /* YHDynamicProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E64FB25499BA100441C43 /* YHDynamicProgramming.m */; };
+		848333CA2552EB230094CF1C /* YHBloomFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 848333C92552EB230094CF1C /* YHBloomFilter.m */; };
 		8487E1E72534969200D72501 /* YHUnionFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1D92534969100D72501 /* YHUnionFind.m */; };
 		8487E1E82534969200D72501 /* YHQuickFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1DC2534969100D72501 /* YHQuickFind.m */; };
 		8487E1E92534969200D72501 /* YHQuickUnionRankPathCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1DE2534969100D72501 /* YHQuickUnionRankPathCompress.m */; };
@@ -151,6 +152,8 @@
 		841F679C25394CCE00D30A7D /* YHRecursive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRecursive.m; sourceTree = "<group>"; };
 		845E64FA25499BA100441C43 /* YHDynamicProgramming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDynamicProgramming.h; sourceTree = "<group>"; };
 		845E64FB25499BA100441C43 /* YHDynamicProgramming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDynamicProgramming.m; sourceTree = "<group>"; };
+		848333C82552EB230094CF1C /* YHBloomFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHBloomFilter.h; sourceTree = "<group>"; };
+		848333C92552EB230094CF1C /* YHBloomFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHBloomFilter.m; sourceTree = "<group>"; };
 		8487E1D52534969100D72501 /* YHQuickUnionRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnionRank.h; sourceTree = "<group>"; };
 		8487E1D62534969100D72501 /* YHQuickUnionRankPathSpliting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnionRankPathSpliting.h; sourceTree = "<group>"; };
 		8487E1D72534969100D72501 /* YHQuickUnionRankPathCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHQuickUnionRankPathCompress.h; sourceTree = "<group>"; };
@@ -279,6 +282,7 @@
 		1884A40B22BE2928000F20A1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				848333C72552EB0C0094CF1C /* BloomFilter */,
 				845E64F925499B8D00441C43 /* DynamicProgramming */,
 				84CE825D2540403A0088EF36 /* Greedy */,
 				84CE8259253EB3490088EF36 /* BackTracking */,
@@ -496,6 +500,15 @@
 				845E64FB25499BA100441C43 /* YHDynamicProgramming.m */,
 			);
 			path = DynamicProgramming;
+			sourceTree = "<group>";
+		};
+		848333C72552EB0C0094CF1C /* BloomFilter */ = {
+			isa = PBXGroup;
+			children = (
+				848333C82552EB230094CF1C /* YHBloomFilter.h */,
+				848333C92552EB230094CF1C /* YHBloomFilter.m */,
+			);
+			path = BloomFilter;
 			sourceTree = "<group>";
 		};
 		8487E1D42534969100D72501 /* UnionFind */ = {
@@ -756,6 +769,7 @@
 				84CE8260254040520088EF36 /* YHGreedy.m in Sources */,
 				1884A45F22BE2928000F20A1 /* YHQueue.m in Sources */,
 				F0FDCA9722C227740020BB60 /* YHRBNote.m in Sources */,
+				848333CA2552EB230094CF1C /* YHBloomFilter.m in Sources */,
 				8487E1EA2534969200D72501 /* YHQuickUnionRankPathSpliting.m in Sources */,
 				1884A45522BE2928000F20A1 /* YHBinarySearchTree.m in Sources */,
 				1884A45222BE2928000F20A1 /* YHComparator.m in Sources */,

@@ -29,12 +29,28 @@ NS_ASSUME_NONNULL_BEGIN
  * 最长上升子序列 长度
  */
 - (int)maxLengthOfIncreasingSubsequence:(NSArray *)nums;
+- (int)maxLengthOfIncreasingSubsequence1:(NSArray *)nums;
 
 /**
  *  最长公共子序列
  */
 - (int)maxLengthOfCommonSubsequence:(NSArray *)nums1
                               nums2:(NSArray *)nums2;
+/**
+ *  最长公共子串的长度
+ */
+- (int)lcs:(NSString *)str1 str2:(NSString *)str2;
+
+/**
+ * 0-1背包问题
+ */
+- (int)maxValue:(NSArray *)values
+        weights:(NSArray *)weights
+       capacity:(int)capacity;
+
+- (int)maxValueExactly:(NSArray *)values
+               weights:(NSArray *)weights
+              capacity:(int)capacity;
 
 @end
 

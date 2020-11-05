@@ -110,6 +110,59 @@
     
     return maxLength;
 }
+/**
+ * 二分查找思路
+ */
+
+- (int)maxLengthOfIncreasingSubsequence1:(NSArray *)nums {
+    if (!nums || nums.count == 0) {
+       return 0;
+    }
+    // 牌堆数组
+    NSMutableArray *top = [NSMutableArray array];
+    
+    for (NSNumber *n in nums) {
+        int begin = 0;
+        int end = (int)top.count;
+        
+        while (begin < end) {
+            int mid = (begin + end) >>1;
+            if ([n intValue] <= [top[mid] intValue]) {
+                end = mid;
+            } else {
+                begin = mid + 1;
+            }
+        }
+        top[begin] = n;
+    }
+    return (int)top.count;
+}
+
+- (int)maxLengthOfIncreasingSubsequence2:(NSArray *)nums {
+    if (!nums || nums.count == 0) {
+       return 0;
+    }
+    // 牌堆数组
+    NSMutableArray *top = [NSMutableArray array];
+    
+    for (NSNumber *n in nums) {
+        int index = -1;
+        for (int i = 0; i < top.count; i ++) {
+            int t  = [top[i] intValue];
+            if (t >= [n intValue]) {
+                index = i;
+                break;
+            }
+        }
+        if (index >= 0) {
+            top[index] = n;
+        } else {
+            [top addObject:n];
+        }
+    }
+    
+    return (int)top.count;
+}
 
 /**
  *  最长公共子序列
@@ -253,6 +306,116 @@
     } else {
         return MAX([self maxLengthOfCommonSubsequence1:nums1 nums2:nums2 i:i - 1 j:j], [self maxLengthOfCommonSubsequence1:nums1 nums2:nums2 i:i j:j -1]);
     }
+}
+
+/**
+ * 最长公共子串的长度
+ * 时间复杂度   n *m
+ * 空间复杂度   k
+ */
+
+- (int)lcs:(NSString *)str1 str2:(NSString *)str2 {
+    if (!str1 || str1.length == 0 || !str2 || str2.length == 0) {
+        return 0;
+    }
+    
+    NSArray *chars1 = [str1 componentsSeparatedByString:@" "];
+    NSArray *chars2 = [str2 componentsSeparatedByString:@" "];
+    
+    NSArray *rows = chars1;
+    NSArray *cols = chars2;
+    if (chars1.count < chars2.count) {
+        rows = chars2;
+        cols = chars1;
+    }
+    
+    NSMutableArray *dp = [NSMutableArray array];
+    for (int i = 0; i <= cols.count; i ++) {
+        [dp addObject:@(0)];
+    }
+    
+    int max = 0;
+    for (int i = 1; i <= rows.count; i ++) {
+        for (int j = (int)cols.count; j >= 1; j --) {
+            if ([rows[i -1] isEqualToString:cols[j -1]]) {
+                dp[j] = @([dp[j - 1] intValue] + 1);
+                max = MAX(max, [dp[j] intValue]);
+            }
+        }
+    }
+    return max;
+}
+
+/**
+ *  0-1背包最大价值
+ *  空间复杂度 O (capacity)
+ *  时间复杂度  m*n
+ */
+- (int)maxValue:(NSArray *)values
+        weights:(NSArray *)weights
+       capacity:(int)capacity {
+    if (!values || values.count == 0 || !weights || weights.count == 0) {
+        return 0;
+    }
+    if (values.count != weights.count || capacity <= 0) {
+        return 0;
+    }
+    int n1 = (int)values.count;
+    int n2 = capacity;
+    NSMutableArray *dp = [NSMutableArray array];
+    for (int i = 0; i <= n2 ; i ++) {
+        [dp addObject:@(0)];
+    }
+    
+    for (int i = 1; i <= n1 ; i ++) {
+        int curweight = [weights[i - 1] intValue];
+        for (int j = n2; j >= curweight; j --) {
+            if (j > curweight) {
+                int vc = j - curweight;
+                dp[j] =@( MAX([dp[j] intValue], [values[i -1] intValue] + [dp[vc] intValue]));
+            }
+        }
+    }
+    return [dp[n2] intValue];
+}
+
+
+/**
+ *  0-1背包刚好装满
+ *  空间复杂度 O (capacity)
+ *  时间复杂度  m*n
+ */
+
+- (int)maxValueExactly:(NSArray *)values
+               weights:(NSArray *)weights
+              capacity:(int)capacity {
+    if (!values || values.count == 0 || !weights || weights.count == 0) {
+        return 0;
+    }
+    if (values.count != weights.count || capacity <= 0) {
+        return 0;
+    }
+    int n1 = (int)values.count;
+    int n2 = capacity;
+    NSMutableArray *dp = [NSMutableArray array];
+    for (int i = 0; i <= n2 ; i ++) {
+        if (i == 0) {
+            [dp addObject:@(0)];
+        } else {
+            [dp addObject:@(INT_MIN)];
+        }
+    }
+    
+    for (int i = 1; i <= n1 ; i ++) {
+        int curweight = [weights[i - 1] intValue];
+        for (int j = n2; j >= curweight; j --) {
+            if (j >= curweight) {
+                int vc = j - curweight;
+                dp[j] =@( MAX([dp[j] intValue], [values[i -1] intValue] + [dp[vc] intValue]));
+            }
+        }
+    }
+    return [dp[n2] intValue] < 0 ? -1 :[dp[n2] intValue];
 }
 
 @end
