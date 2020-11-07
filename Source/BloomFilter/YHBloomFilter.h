@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 添加元素
  */
-- (void)put:(NSObject *)value;
+- (BOOL)put:(NSObject *)value;
 /**
  * 是否包含
  */

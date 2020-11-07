@@ -47,16 +47,19 @@
 /**
  * 添加元素
  */
-- (void)put:(NSObject *)value {
+- (BOOL)put:(NSObject *)value {
     if (!value) {
-        return;
+        return NO;
     }
     __weak typeof(self) weakself = self;
+    __block BOOL isChange = NO;
     [self hashMathod:value result:^BOOL(int indexp) {
-        [weakself setBit:indexp];
+        if (!isChange) {
+            isChange = [weakself setBit:indexp];
+        }
         return NO;
     }];
-   
+    return isChange;
 }
 
 /**
@@ -82,7 +85,7 @@
             result:(BOOL(^)(int indexp))result {
     unsigned int hash1 = (unsigned int)value.hash;
     // 无符号右移16位
-    unsigned int hash2 = hash1 >> 16;
+    unsigned int hash2 = hash1 >> 16 ?: hash1 >> 2;
 
     for (int i = 1; i <= _hashSize ; i ++) {
        int combinHash = hash1 + (hash2 * i);
@@ -100,16 +103,20 @@
 /**
  * 改变二进制向量 一个索引的一位为1
  */
-- (void)setBit:(int)index {
+- (BOOL)setBit:(int)index {
     // 数组index
     int realIndex = index / 64;
     // 取出数组里面的一个long
     long value = _bits[realIndex];
     
-    // 算出 long里面的第几位
-    int subIndex = index % 64;
-    value |= (1 << subIndex);
+    // 算出 long里面的第几位 并向左移几位
+    int bitValue = 1 << (index % 64);
+    
+    value |= bitValue;
     _bits[realIndex] = value;
+    // 看看 之前是否是0 如果是0 表示可以改变
+    BOOL result = (value & bitValue) == 0;
+    return result;
 }
 /**
  * 查看index 位的二进制位
