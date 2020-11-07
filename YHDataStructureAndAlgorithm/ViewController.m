@@ -20,6 +20,7 @@
 #import "YHBackTracking.h"
 #import "YHGreedy.h"
 #import "YHDynamicProgramming.h"
+#import "YHBloomFilter.h"
 
 @interface ViewController ()
 
@@ -29,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test15];
+    [self test16];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -245,6 +246,20 @@
     NSLog(@"二分查找 = %d",[d maxLengthOfIncreasingSubsequence1:a]);
 }
 
+- (void)test16 {
+    YHBloomFilter *filter = [[YHBloomFilter alloc]initScale:100000000 rate:0.01];
+    for (int i = 0; i < 1000000; i ++) {
+        [filter put: @(i)];
+    }
+    int count = 0;
+    for (int i = 0; i < 1000000; i ++) {
+        if ([filter contains:@(i)]) {
+            count ++;
+        }
+    }
+    NSLog(@"%d",count);
+
+}
 
 
 @end
