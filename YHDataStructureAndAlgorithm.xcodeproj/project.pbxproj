@@ -41,6 +41,7 @@
 		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
 		841F679D25394CCE00D30A7D /* YHRecursive.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F679C25394CCE00D30A7D /* YHRecursive.m */; };
 		845E64FC25499BA100441C43 /* YHDynamicProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E64FB25499BA100441C43 /* YHDynamicProgramming.m */; };
+		84756E0A255924AE00660783 /* YHSkipComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84756E09255924AE00660783 /* YHSkipComparator.m */; };
 		848333CA2552EB230094CF1C /* YHBloomFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 848333C92552EB230094CF1C /* YHBloomFilter.m */; };
 		8483341525568A340094CF1C /* YHSkipList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8483341425568A340094CF1C /* YHSkipList.m */; };
 		8487E1E72534969200D72501 /* YHUnionFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 8487E1D92534969100D72501 /* YHUnionFind.m */; };
@@ -153,6 +154,8 @@
 		841F679C25394CCE00D30A7D /* YHRecursive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRecursive.m; sourceTree = "<group>"; };
 		845E64FA25499BA100441C43 /* YHDynamicProgramming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDynamicProgramming.h; sourceTree = "<group>"; };
 		845E64FB25499BA100441C43 /* YHDynamicProgramming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDynamicProgramming.m; sourceTree = "<group>"; };
+		84756E08255924AE00660783 /* YHSkipComparator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHSkipComparator.h; sourceTree = "<group>"; };
+		84756E09255924AE00660783 /* YHSkipComparator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHSkipComparator.m; sourceTree = "<group>"; };
 		848333C82552EB230094CF1C /* YHBloomFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHBloomFilter.h; sourceTree = "<group>"; };
 		848333C92552EB230094CF1C /* YHBloomFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHBloomFilter.m; sourceTree = "<group>"; };
 		8483341325568A340094CF1C /* YHSkipList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHSkipList.h; sourceTree = "<group>"; };
@@ -520,6 +523,8 @@
 			children = (
 				8483341325568A340094CF1C /* YHSkipList.h */,
 				8483341425568A340094CF1C /* YHSkipList.m */,
+				84756E08255924AE00660783 /* YHSkipComparator.h */,
+				84756E09255924AE00660783 /* YHSkipComparator.m */,
 			);
 			path = SkipList;
 			sourceTree = "<group>";
@@ -794,6 +799,7 @@
 				1884A45D22BE2928000F20A1 /* YHOneLoopLinked.m in Sources */,
 				1884A3E522BE2789000F20A1 /* main.m in Sources */,
 				84CE825C253EB3570088EF36 /* YHBackTracking.m in Sources */,
+				84756E0A255924AE00660783 /* YHSkipComparator.m in Sources */,
 				1884A45722BE2928000F20A1 /* YHLeetCode.m in Sources */,
 				F0FDCAF222C9E3A80020BB60 /* YHLinkSet.m in Sources */,
 				84FAEE7D2520A03E0099C0BA /* YHListGraph.m in Sources */,

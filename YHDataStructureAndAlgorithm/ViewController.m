@@ -21,6 +21,7 @@
 #import "YHGreedy.h"
 #import "YHDynamicProgramming.h"
 #import "YHBloomFilter.h"
+#import "YHSkipList.h"
 
 @interface ViewController ()
 
@@ -30,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test16];
+    [self test17];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -257,9 +258,64 @@
             count ++;
         }
     }
-    NSLog(@"%d",count);
+
 
 }
 
+- (void)test17 {
+    YHSkipComparator *c = [[YHSkipComparator alloc]init];
+    c.compare = ^int(NSString  *_Nonnull a, NSString * _Nonnull b) {
+        int av = [a intValue];
+        int bv = [b intValue];
+        if (av > bv) {
+            return 1;
+        } else if (av < bv) {
+            return -1;
+        } else {
+            return 0;
+        }
+    };
+    YHSkipList *skip  =[[YHSkipList alloc]initWithComparator:c];
+    [self setSkipList:skip keys:100 delta:10];
+}
+
+- (void)setSkipList:(YHSkipList *)skip keys:(int)keys delta:(int)delta {
+    for (int i = 0; i < keys; i ++) {
+        NSString *key = [NSString stringWithFormat:@"%d",i];
+        NSString *value = [NSString stringWithFormat:@"%d_%d",i,delta];
+        [skip put:key value:value];
+    }
+    
+    for (int i = 0; i < keys; i ++) {
+        NSString *key = [NSString stringWithFormat:@"%d",i];
+        NSString *value = [NSString stringWithFormat:@"%d_%d",i,delta];
+        NSString *skipV = (NSString *)[skip get:key];
+        if (![skipV isEqualToString:value]) {
+            NSAssert(NO, @"不符合");
+        }
+    }
+    
+    NSLog(@"%@",skip.description);
+    
+    if (keys != [skip size]) {
+        NSAssert(NO, @"不符合");
+    }
+    
+    for (int i = 0; i < keys; i ++) {
+       NSString *key = [NSString stringWithFormat:@"%d",i];
+       NSString *value = [NSString stringWithFormat:@"%d_%d",i,delta];
+       NSString *skipV = (NSString *)[skip remove:key];
+       if (![skipV isEqualToString:value]) {
+           NSAssert(NO, @"不符合");
+       }
+    }
+    if (0 != [skip size]) {
+        NSAssert(NO, @"不符合");
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
+}
 
 @end
