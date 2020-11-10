@@ -12,6 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 /**
  * 跳表
+ * 时间复杂度 搜索,添加,删除 log(n)
+ * 空间复杂度是  n
  */
 @interface YHSkipList : NSObject
 
