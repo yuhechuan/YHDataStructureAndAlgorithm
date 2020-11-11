@@ -22,7 +22,7 @@
 #import "YHDynamicProgramming.h"
 #import "YHBloomFilter.h"
 #import "YHSkipList.h"
-
+#import "YHSequence.h"
 @interface ViewController ()
 
 @end
@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test17];
+    [self test18];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -312,6 +312,11 @@
     if (0 != [skip size]) {
         NSAssert(NO, @"不符合");
     }
+}
+
+- (void)test18 {
+    YHSequence *s = [[YHSequence alloc]init];
+    NSLog(@"%d",[s indexOf:@"AAABAAAAB" pattern:@"AAAAB"]);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
