@@ -23,6 +23,11 @@
 #import "YHBloomFilter.h"
 #import "YHSkipList.h"
 #import "YHSequence.h"
+#import "YHSort.h"
+#import "YHHeapSort.h"
+#import "YHBubbleSort.h"
+#import "YHSelectionSort.h"
+
 @interface ViewController ()
 
 @end
@@ -31,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test18];
+    [self test19];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -319,8 +324,31 @@
     NSLog(@"%d",[s indexOf:@"AAABAAAAB" pattern:@"AAAAB"]);
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)test19 {
+    YHSort *s1 = [[YHHeapSort alloc]init];
+    YHSort *s2 = [[YHBubbleSort alloc]init];
+    YHSort *s3 = [[YHSelectionSort alloc]init];
 
+    NSMutableArray *arr1 = [self romdomNumber:1000];
+    NSMutableArray *arr2 = [self romdomNumber:1000];
+    NSMutableArray *arr3 = [self romdomNumber:1000];
+
+    [s1 sort:arr1];
+    [s2 sort:arr2];
+    [s3 sort:arr3];
+
+    NSLog(@"%@",s1);
+    NSLog(@"%@",s2);
+    NSLog(@"%@",s3);
+}
+
+
+- (NSMutableArray *)romdomNumber:(int)count {
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i < count; i ++) {
+        [arr addObject:@(arc4random() % count)];
+    }
+    return arr;
 }
 
 @end
