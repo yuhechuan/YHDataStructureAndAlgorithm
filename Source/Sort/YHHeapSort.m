@@ -14,6 +14,8 @@
 /**
  * 堆排序 -  对选择排序的一种优化
  * 时间复杂度 O(n *logn)
+ * 空间复杂度   O(1)
+ * 不是稳定的排序
  */
 - (void)realizeSort {
     // 原地建堆
@@ -34,26 +36,26 @@
         return;
     }
     // 第一个叶子节点的索引 就是  非叶子节点的数量
-    int e = [self.sortArray[index] intValue];
+    NSObject *e = self.sortArray[index];
     int half = (int)(_heapSize >> 1);
     while (index < half) {
         // 1.只有左叶子节点 2. 左右都有
         int childindex = (index << 1) + 1;
-        int child = [self.sortArray[childindex] intValue];
+        NSObject *child = self.sortArray[childindex];
         
         // 右子节点
         int rightIndex = childindex + 1;
-        if (rightIndex < _heapSize && [self cmpv:[self.sortArray[rightIndex] intValue] v2:child] > 0) {
+        if (rightIndex < _heapSize && [self cmpv:self.sortArray[rightIndex] v2:child] > 0) {
             childindex = rightIndex;
-            child = [self.sortArray[rightIndex] intValue];
+            child = self.sortArray[rightIndex];
         }
         if ([self cmpv:e v2:child] >= 0) {
             break;
         }
-        self.sortArray[index] = @(child);
+        self.sortArray[index] = child;
         index = childindex;
     }
-    self.sortArray[index] = @(e);
+    self.sortArray[index] = e;
 }
 
 @end

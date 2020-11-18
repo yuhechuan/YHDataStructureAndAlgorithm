@@ -9,7 +9,9 @@
 #import "YHSort.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/**
+ * 选择排序
+ */
 @interface YHSelectionSort : YHSort
 
 @end

@@ -1,8 +1,8 @@
 //
-//  YHHeapSort.h
+//  YHInsertionSort.h
 //  YHDataStructureAndAlgorithm
 //
-//  Created by admin on 2020/11/16.
+//  Created by admin on 2020/11/17.
 //  Copyright © 2020 玉河川. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /**
- * 堆入排序
+ * 插入排序
  */
-@interface YHHeapSort : YHSort
+@interface YHInsertionSort : YHSort
 
 @end
 

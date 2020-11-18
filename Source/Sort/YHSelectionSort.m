@@ -21,7 +21,7 @@
     for (int i = length - 1; i >= 0; i --) {
         int maxIndex = 0;
         for (int j = 1; j <= i ; j ++) {
-            if ([self cmp:maxIndex p2:j]) {
+            if ([self cmp:maxIndex p2:j] < 0) {
                 maxIndex = j;
             }
         }

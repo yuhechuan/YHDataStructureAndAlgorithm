@@ -11,10 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef BOOL(^Comparator)(id a,id b);
+typedef int(^IComparator)(id a,id b);
 
 @interface YHComparator : NSObject
 
 @property (nonatomic, copy) Comparator compare;
+@property (nonatomic, copy) IComparator icompare;
 
 
 @end

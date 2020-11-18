@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YHComparator.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YHSort : NSObject
 
+- (instancetype)initWithComparator:(YHComparator *)comparator;
 /**
  * 待比较数组
  */
@@ -32,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sort:(NSMutableArray *)sortArray;
 - (void)realizeSort;
 - (int)cmp:(int)p1 p2:(int)p2;
-- (int)cmpv:(int)v1 v2:(int)v2;
+- (int)cmpv:(NSObject *)v1 v2:(NSObject *)v2;
 - (void)swap:(int)p1 p2:(int)p2;
 
 @end

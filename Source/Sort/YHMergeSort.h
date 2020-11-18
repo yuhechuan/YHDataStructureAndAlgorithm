@@ -1,18 +1,19 @@
 //
-//  YHHeapSort.h
+//  YHMergeSort.h
 //  YHDataStructureAndAlgorithm
 //
-//  Created by admin on 2020/11/16.
+//  Created by admin on 2020/11/18.
 //  Copyright © 2020 玉河川. All rights reserved.
 //
 
 #import "YHSort.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
 /**
- * 堆入排序
+ * 归并排序
  */
-@interface YHHeapSort : YHSort
+@interface YHMergeSort : YHSort
 
 @end
 

@@ -27,6 +27,8 @@
 #import "YHHeapSort.h"
 #import "YHBubbleSort.h"
 #import "YHSelectionSort.h"
+#import "YHInsertionSort.h"
+#import "YHBinarySearch.h"
 
 @interface ViewController ()
 
@@ -325,21 +327,30 @@
 }
 
 - (void)test19 {
-    YHSort *s1 = [[YHHeapSort alloc]init];
-    YHSort *s2 = [[YHBubbleSort alloc]init];
-    YHSort *s3 = [[YHSelectionSort alloc]init];
+    YHComparator *c = [[YHComparator alloc]init];
+    c.icompare = ^int(NSNumber  *_Nonnull a, NSNumber *_Nonnull b) {
+        return [a intValue] - [b intValue];
+    };
+    YHSort *s1 = [[YHHeapSort alloc]initWithComparator:c];
+    YHSort *s2 = [[YHBubbleSort alloc]initWithComparator:c];
+    YHSort *s3 = [[YHSelectionSort alloc]initWithComparator:c];
+    YHSort *s4 = [[YHInsertionSort alloc]initWithComparator:c];
 
-    NSMutableArray *arr1 = [self romdomNumber:1000];
-    NSMutableArray *arr2 = [self romdomNumber:1000];
-    NSMutableArray *arr3 = [self romdomNumber:1000];
+    NSMutableArray *arr = [self romdomNumber:1000];
+    NSMutableArray *arr1 = arr.mutableCopy;
+    NSMutableArray *arr2 = arr.mutableCopy;
+    NSMutableArray *arr3 = arr.mutableCopy;
 
-    [s1 sort:arr1];
-    [s2 sort:arr2];
-    [s3 sort:arr3];
+
+    [s1 sort:arr];
+    [s2 sort:arr1];
+    [s3 sort:arr2];
+    [s4 sort:arr3];
 
     NSLog(@"%@",s1);
     NSLog(@"%@",s2);
     NSLog(@"%@",s3);
+    NSLog(@"%@",s4);
 }
 
 
@@ -349,6 +360,20 @@
         [arr addObject:@(arc4random() % count)];
     }
     return arr;
+}
+
+- (void)test20 {
+    NSArray *arr = @[@(1),@(3),@(5),@(7),@(9),@(12),@(20)];
+    YHComparator *c = [[YHComparator alloc]init];
+    c.icompare = ^int(NSNumber  *_Nonnull a, NSNumber *_Nonnull b) {
+        return [a intValue] - [b intValue];
+    };
+    YHBinarySearch *s = [[YHBinarySearch alloc]initWithComparator:c];
+    NSLog(@"%d",[s search:arr v:@(2)]);
+    NSLog(@"%d",[s search:arr v:@(5)]);
+    NSLog(@"%d",[s search:arr v:@(22)]);
+    NSLog(@"%d",[s search:arr v:@(8)]);
+    NSLog(@"%d",[s search:arr v:@(12)]);
 }
 
 @end
