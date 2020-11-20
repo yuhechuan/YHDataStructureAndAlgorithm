@@ -109,7 +109,10 @@
     }
     
     if ([self isKindOfClass:NSClassFromString(@"YHCountingSort")]) {
-        return NO;
+        return YES;
+    }
+    if ([self isKindOfClass:NSClassFromString(@"YHRadixSort")]) {
+        return YES;
     }
     
     YHComparator *c = [[YHComparator alloc]init];

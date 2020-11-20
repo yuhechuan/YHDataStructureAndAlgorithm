@@ -1,5 +1,5 @@
 //
-//  YHRadixSort.h
+//  YHBucketSort.h
 //  YHDataStructureAndAlgorithm
 //
 //  Created by admin on 2020/11/20.
@@ -10,9 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /**
- * 基数排序
+ * 桶排序
+ * 通过一个函数算出 桶的index  分别对桶进行排序  排序完之后  合并
  */
-@interface YHRadixSort : YHSort
+@interface YHBucketSort : YHSort
 
 @end
 

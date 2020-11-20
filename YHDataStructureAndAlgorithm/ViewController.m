@@ -34,6 +34,7 @@
 #import "YHShellSort.h"
 #import "YHCountingSort.h"
 #import "YHDog.h"
+#import "YHRadixSort.h"
 
 @interface ViewController ()
 
@@ -346,6 +347,10 @@
     YHSort *s8 = [[YHCountingSort alloc]initWithInterger:^int(NSNumber * _Nonnull v) {
         return [v intValue];
     }];
+    
+    YHSort *s9 = [[YHRadixSort alloc]initWithInterger:^int(NSNumber * _Nonnull v) {
+        return [v intValue];
+    }];
 
     NSMutableArray *arr1 = [self romdomNumber:10000];
     //NSMutableArray *arr2 = arr1.mutableCopy;
@@ -355,6 +360,8 @@
     NSMutableArray *arr6 = arr1.mutableCopy;
     //NSMutableArray *arr7 = arr1.mutableCopy;
     NSMutableArray *arr8 = arr1.mutableCopy;
+    NSMutableArray *arr9 = arr1.mutableCopy;
+
 
     
     [s1 sort:arr1];
@@ -365,6 +372,8 @@
     [s6 sort:arr6];
    // [s7 sort:arr7];
     [s8 sort:arr8];
+    [s9 sort:arr9];
+
 
 
     NSLog(@"%@",s1);
@@ -375,6 +384,7 @@
     NSLog(@"%@",s6);
     //NSLog(@"%@",s7);
     NSLog(@"%@",s8);
+    NSLog(@"%@",s9);
 }
 
 
