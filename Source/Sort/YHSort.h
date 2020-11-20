@@ -15,9 +15,15 @@ NS_ASSUME_NONNULL_BEGIN
  * 休眠排序  史上最强排序  一种思路 休眠 value时间
  */
 
+typedef int(^IntegerOf)(id v);
+
 @interface YHSort : NSObject
 
 - (instancetype)initWithComparator:(YHComparator *)comparator;
+/**
+ * 用于自定义类型整数的排序
+ */
+- (instancetype)initWithInterger:(IntegerOf)integerOf;
 /**
  * 待比较数组
  */
@@ -40,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)cmp:(int)p1 p2:(int)p2;
 - (int)cmpv:(NSObject *)v1 v2:(NSObject *)v2;
 - (void)swap:(int)p1 p2:(int)p2;
+- (int)value:(id)v;
 
 @end
 

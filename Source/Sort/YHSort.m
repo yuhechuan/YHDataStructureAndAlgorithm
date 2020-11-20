@@ -38,6 +38,7 @@
 @interface YHSort ()
 
 @property (nonatomic, strong) YHComparator *comparator;
+@property (nonatomic, copy) IntegerOf integerOf;
 
 @end
 
@@ -46,6 +47,14 @@
 - (instancetype)initWithComparator:(YHComparator *)comparator {
     if (self = [super init]) {
         _comparator = comparator;
+    }
+    return self;
+}
+
+
+- (instancetype)initWithInterger:(IntegerOf)integerOf {
+    if (self = [super init]) {
+        _integerOf = integerOf;
     }
     return self;
 }
@@ -99,6 +108,10 @@
         return NO;
     }
     
+    if ([self isKindOfClass:NSClassFromString(@"YHCountingSort")]) {
+        return NO;
+    }
+    
     YHComparator *c = [[YHComparator alloc]init];
     c.icompare = ^int(YHStudent * _Nonnull a, YHStudent * _Nonnull b) {
         return a.age - b.age;
@@ -123,6 +136,12 @@
     }
     return isret;
 }
+
+// 获取排序整数
+- (int)value:(id)v {
+    return self.integerOf ? self.integerOf(v) : [v intValue];
+}
+
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@: 交换次数:%d 比较次数:%d 所花时间:%f 稳定性: %d",NSStringFromClass([self class]),_swapCount,_cmpCount,self.time,[self isStable]];

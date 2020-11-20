@@ -32,6 +32,8 @@
 #import "YHMergeSort.h"
 #import "YHQuickSort.h"
 #import "YHShellSort.h"
+#import "YHCountingSort.h"
+#import "YHDog.h"
 
 @interface ViewController ()
 
@@ -337,37 +339,42 @@
     YHSort *s1 = [[YHHeapSort alloc]initWithComparator:c];
     //YHSort *s2 = [[YHBubbleSort alloc]initWithComparator:c];
     //YHSort *s3 = [[YHSelectionSort alloc]initWithComparator:c];
-    YHSort *s4 = [[YHInsertionSort alloc]initWithComparator:c];
+    //YHSort *s4 = [[YHInsertionSort alloc]initWithComparator:c];
     YHSort *s5 = [[YHMergeSort alloc]initWithComparator:c];
     YHSort *s6 = [[YHQuickSort alloc]initWithComparator:c];
-    YHSort *s7 = [[YHShellSort alloc]initWithComparator:c];
+    //YHSort *s7 = [[YHShellSort alloc]initWithComparator:c];
+    YHSort *s8 = [[YHCountingSort alloc]initWithInterger:^int(NSNumber * _Nonnull v) {
+        return [v intValue];
+    }];
 
-
-
-    NSMutableArray *arr1 = [self romdomNumber:30000];
+    NSMutableArray *arr1 = [self romdomNumber:10000];
     //NSMutableArray *arr2 = arr1.mutableCopy;
     //NSMutableArray *arr3 = arr1.mutableCopy;
-    NSMutableArray *arr4 = arr1.mutableCopy;
+    //NSMutableArray *arr4 = arr1.mutableCopy;
     NSMutableArray *arr5 = arr1.mutableCopy;
     NSMutableArray *arr6 = arr1.mutableCopy;
-    NSMutableArray *arr7 = arr1.mutableCopy;
+    //NSMutableArray *arr7 = arr1.mutableCopy;
+    NSMutableArray *arr8 = arr1.mutableCopy;
+
     
     [s1 sort:arr1];
     //[s2 sort:arr2];
     //[s3 sort:arr3];
-    [s4 sort:arr4];
+    //[s4 sort:arr4];
     [s5 sort:arr5];
     [s6 sort:arr6];
-    [s7 sort:arr7];
+   // [s7 sort:arr7];
+    [s8 sort:arr8];
 
 
     NSLog(@"%@",s1);
    // NSLog(@"%@",s2);
    // NSLog(@"%@",s3);
-    NSLog(@"%@",s4);
+    //NSLog(@"%@",s4);
     NSLog(@"%@",s5);
     NSLog(@"%@",s6);
-    NSLog(@"%@",s7);
+    //NSLog(@"%@",s7);
+    NSLog(@"%@",s8);
 }
 
 
@@ -391,6 +398,23 @@
     NSLog(@"%d",[s search:arr v:@(22)]);
     NSLog(@"%d",[s search:arr v:@(8)]);
     NSLog(@"%d",[s search:arr v:@(12)]);
+}
+
+- (void)test21 {
+    NSMutableArray *arr = [self romdomNumber:20];
+    NSMutableArray *dogs = [NSMutableArray array];
+    for (int i = 0; i < arr.count; i ++) {
+        YHDog *d = [[YHDog alloc]init];
+        d.money = [arr[i] intValue];
+        d.breed = [NSString stringWithFormat:@"品种%d",i];
+        [dogs addObject:d];
+    }
+    
+    YHSort *s = [[YHCountingSort alloc]initWithInterger:^int(YHDog * _Nonnull v) {
+        return v.money;
+    }];
+    [s sort:dogs];
+    NSLog(@"%@",s.sortArray);
 }
 
 @end
