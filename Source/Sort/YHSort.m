@@ -8,6 +8,8 @@
 
 #import "YHSort.h"
 
+@class YHShellSort;
+
 @interface YHStudent : NSObject<NSCopying>
 
 @property (nonatomic, assign) int age;
@@ -80,6 +82,9 @@
 }
 
 - (void)swap:(int)p1 p2:(int)p2 {
+    if (p1 == p2) {
+        return;
+    }
     _swapCount ++;
     NSObject *tmp = self.sortArray[p1];
     self.sortArray[p1] = self.sortArray[p2];
@@ -89,6 +94,11 @@
  * 用20个相同对象 进行测试
  */
 - (BOOL)isStable {
+    // 希尔排序 不能用这个方法判断
+    if ([self isKindOfClass:NSClassFromString(@"YHShellSort")]) {
+        return NO;
+    }
+    
     YHComparator *c = [[YHComparator alloc]init];
     c.icompare = ^int(YHStudent * _Nonnull a, YHStudent * _Nonnull b) {
         return a.age - b.age;

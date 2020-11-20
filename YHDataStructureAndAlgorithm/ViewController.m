@@ -29,6 +29,9 @@
 #import "YHSelectionSort.h"
 #import "YHInsertionSort.h"
 #import "YHBinarySearch.h"
+#import "YHMergeSort.h"
+#import "YHQuickSort.h"
+#import "YHShellSort.h"
 
 @interface ViewController ()
 
@@ -332,25 +335,39 @@
         return [a intValue] - [b intValue];
     };
     YHSort *s1 = [[YHHeapSort alloc]initWithComparator:c];
-    YHSort *s2 = [[YHBubbleSort alloc]initWithComparator:c];
-    YHSort *s3 = [[YHSelectionSort alloc]initWithComparator:c];
+    //YHSort *s2 = [[YHBubbleSort alloc]initWithComparator:c];
+    //YHSort *s3 = [[YHSelectionSort alloc]initWithComparator:c];
     YHSort *s4 = [[YHInsertionSort alloc]initWithComparator:c];
-
-    NSMutableArray *arr = [self romdomNumber:1000];
-    NSMutableArray *arr1 = arr.mutableCopy;
-    NSMutableArray *arr2 = arr.mutableCopy;
-    NSMutableArray *arr3 = arr.mutableCopy;
+    YHSort *s5 = [[YHMergeSort alloc]initWithComparator:c];
+    YHSort *s6 = [[YHQuickSort alloc]initWithComparator:c];
+    YHSort *s7 = [[YHShellSort alloc]initWithComparator:c];
 
 
-    [s1 sort:arr];
-    [s2 sort:arr1];
-    [s3 sort:arr2];
-    [s4 sort:arr3];
+
+    NSMutableArray *arr1 = [self romdomNumber:30000];
+    //NSMutableArray *arr2 = arr1.mutableCopy;
+    //NSMutableArray *arr3 = arr1.mutableCopy;
+    NSMutableArray *arr4 = arr1.mutableCopy;
+    NSMutableArray *arr5 = arr1.mutableCopy;
+    NSMutableArray *arr6 = arr1.mutableCopy;
+    NSMutableArray *arr7 = arr1.mutableCopy;
+    
+    [s1 sort:arr1];
+    //[s2 sort:arr2];
+    //[s3 sort:arr3];
+    [s4 sort:arr4];
+    [s5 sort:arr5];
+    [s6 sort:arr6];
+    [s7 sort:arr7];
+
 
     NSLog(@"%@",s1);
-    NSLog(@"%@",s2);
-    NSLog(@"%@",s3);
+   // NSLog(@"%@",s2);
+   // NSLog(@"%@",s3);
     NSLog(@"%@",s4);
+    NSLog(@"%@",s5);
+    NSLog(@"%@",s6);
+    NSLog(@"%@",s7);
 }
 
 

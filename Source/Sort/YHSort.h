@@ -11,6 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * 休眠排序  史上最强排序  一种思路 休眠 value时间
+ */
+
 @interface YHSort : NSObject
 
 - (instancetype)initWithComparator:(YHComparator *)comparator;
