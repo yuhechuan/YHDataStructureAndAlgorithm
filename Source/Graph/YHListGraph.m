@@ -552,10 +552,18 @@
         [pinfo.edgeInfos addObject:edge.info];
         pathDict[edge.to.value] = pinfo;
     }
+    [self.vertexs enumerateKeysAndObjectsUsingBlock:^(id<NSCopying>  _Nonnull key, YHVertex * _Nonnull obj, BOOL * _Nonnull stop) {
+        
+    }];
     
-    [self.vertexs enumerateKeysAndObjectsUsingBlock:^(NSObject <NSCopying>  *_Nonnull v2, YHVertex * _Nonnull vertex2, BOOL * _Nonnull stop1) {
-        [self.vertexs enumerateKeysAndObjectsUsingBlock:^(NSObject <NSCopying>*  _Nonnull v1, YHVertex * _Nonnull vertex1, BOOL * _Nonnull stop2) {
-            [self.vertexs enumerateKeysAndObjectsUsingBlock:^(NSObject <NSCopying>*  _Nonnull v3, YHVertex * _Nonnull vertex3, BOOL * _Nonnull stop3) {
+    [self.vertexs enumerateKeysAndObjectsUsingBlock:^(id<NSCopying>  _Nonnull key2, YHVertex * _Nonnull vertex2, BOOL * _Nonnull stop2) {
+        [self.vertexs enumerateKeysAndObjectsUsingBlock:^(id<NSCopying>  _Nonnull key1, YHVertex * _Nonnull vertex1, BOOL * _Nonnull stop1){
+            [self.vertexs enumerateKeysAndObjectsUsingBlock:^(id<NSCopying>  _Nonnull key3, YHVertex * _Nonnull vertex3, BOOL * _Nonnull stop3) {
+                
+                NSObject <NSCopying>  *v2 = (NSObject <NSCopying>  *)key2;
+                NSObject <NSCopying>  *v1 = (NSObject <NSCopying>  *)key1;
+                NSObject <NSCopying>  *v3 = (NSObject <NSCopying>  *)key3;
+
                 
                 if ([v1 isEqual:v2] || [v2 isEqual:v3] || [v1 isEqual:v3]) {
                     return;

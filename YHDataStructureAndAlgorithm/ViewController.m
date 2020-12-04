@@ -35,6 +35,7 @@
 #import "YHCountingSort.h"
 #import "YHDog.h"
 #import "YHRadixSort.h"
+#import "YHQuestions.h"
 
 @interface ViewController ()
 
@@ -44,7 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test19];
+    [self test22];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -425,6 +426,11 @@
     }];
     [s sort:dogs];
     NSLog(@"%@",s.sortArray);
+}
+
+- (void)test22 {
+    NSArray *arr = [YHQuestions sortedSquares:@[@(-4),@(-2),@(5),@(9),@(11)]];
+    NSLog(@"%@",arr);
 }
 
 @end
