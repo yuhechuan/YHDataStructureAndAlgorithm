@@ -66,6 +66,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isPalindrome:(YHNode *)head;
 
 #pragma =============== 栈、队列 ========================
+/**
+ * 239. 滑动窗口最大值
+ */
++ (NSArray *)maxSlidingWindow:(NSArray *)nums
+                            k:(int)k;
 
 
 @end

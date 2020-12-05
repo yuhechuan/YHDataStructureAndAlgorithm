@@ -8,6 +8,7 @@
 
 #import "YHQuestions.h"
 #import "YHStack.h"
+#import "YHDoubleQueue.h"
 
 @interface YHNode : NSObject
 
@@ -419,9 +420,54 @@
  * pop() —— 删除栈顶的元素。
  * top() —— 获取栈顶元素。
  * getMin() —— 检索栈中的最小元素。
- *  可转移至 YHMinStack 实现
  */
+ //  可转移至 YHMinStack 或 YHMinNodeStack 实现
 
+/**
+ * 239. 滑动窗口最大值
+ * 给定一个数组 nums，有一个大小为 k 的滑动窗口从数组的最左侧移动到数组的最右侧。你只可以看到在滑动窗口内的 k 个数字。滑动窗口每次只向右移动一位。
+ * 返回滑动窗口中的最大值。
+ * 你能在线性时间复杂度内解决此题吗？
+ *  输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3
+ * 输出: [3,3,5,5,6,7]
+ *  n - (k - 1)    k-1  不可以作为滑动窗口的第一位  所以返回 数量为 n - (k - 1)
+ * 解释:
+ */
+// 双端队列
++ (NSArray *)maxSlidingWindow:(NSArray *)nums
+                            k:(int)k {
+    if (!nums || nums.count == 0 || k < 1) {
+        return @[];
+    }
+    if (k == 1) {
+        return nums;
+    }
+    NSMutableArray *max = [NSMutableArray arrayWithCapacity:nums.count - k + 1];
+    // 创建一个双端 队列
+    YHDoubleQueue *queue = [[YHDoubleQueue alloc]init];
+    for (int i = 0; i < nums.count; i ++) {
+        
+        // 检查队列里面的 值是否小于 单前值 如果小于 出队
+        while (![queue isEmpty] && [nums[i] intValue] >= [nums[[[queue rear] intValue]] intValue]) {
+            [queue deQueueRear];
+        }
+        // 入队当前索引
+        [queue enQueueRear:@(i)];
+        
+        // 检查w索引是否合法
+        int w = i -k + 1;
+        if (w < 0) continue;
+        
+        
+        // 如果头部索引 不合法  队头出队
+        if ([[queue front] intValue] < w) {
+            [queue deQueueFront];
+        }
+        // 拿到合法的队头就是 当前队头即为窗口最大值
+        [max addObject:nums[[[queue front] intValue]]];
+    }
+    return max;
+}
 
 @end
 

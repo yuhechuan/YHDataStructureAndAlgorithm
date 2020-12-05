@@ -429,7 +429,7 @@
 }
 
 - (void)test22 {
-    NSArray *arr = [YHQuestions sortedSquares:@[@(-4),@(-2),@(5),@(9),@(11)]];
+    NSArray *arr = [YHQuestions maxSlidingWindow:@[@(1),@(7),@(5),@(3),@(-1),@(-3),@(8),@(2)] k:3];
     NSLog(@"%@",arr);
 }
 
