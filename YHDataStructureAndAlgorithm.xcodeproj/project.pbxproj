@@ -40,6 +40,8 @@
 		1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */; };
 		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
 		841F679D25394CCE00D30A7D /* YHRecursive.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F679C25394CCE00D30A7D /* YHRecursive.m */; };
+		8448DCBB257B21F0008029B9 /* YHMinStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448DCBA257B21F0008029B9 /* YHMinStack.m */; };
+		8448DCC1257B28D3008029B9 /* YHMinNodeStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448DCC0257B28D3008029B9 /* YHMinNodeStack.m */; };
 		84510CEA2578CB28003037F6 /* YHQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84510CE92578CB28003037F6 /* YHQuestions.m */; };
 		845E64FC25499BA100441C43 /* YHDynamicProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E64FB25499BA100441C43 /* YHDynamicProgramming.m */; };
 		84756E0A255924AE00660783 /* YHSkipComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84756E09255924AE00660783 /* YHSkipComparator.m */; };
@@ -169,6 +171,10 @@
 		1884A44E22BE2928000F20A1 /* NSString+Trees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trees.m"; sourceTree = "<group>"; };
 		841F679B25394CCE00D30A7D /* YHRecursive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHRecursive.h; sourceTree = "<group>"; };
 		841F679C25394CCE00D30A7D /* YHRecursive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRecursive.m; sourceTree = "<group>"; };
+		8448DCB9257B21F0008029B9 /* YHMinStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHMinStack.h; sourceTree = "<group>"; };
+		8448DCBA257B21F0008029B9 /* YHMinStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHMinStack.m; sourceTree = "<group>"; };
+		8448DCBF257B28D3008029B9 /* YHMinNodeStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHMinNodeStack.h; sourceTree = "<group>"; };
+		8448DCC0257B28D3008029B9 /* YHMinNodeStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHMinNodeStack.m; sourceTree = "<group>"; };
 		84510CE82578CB28003037F6 /* YHQuestions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestions.h; sourceTree = "<group>"; };
 		84510CE92578CB28003037F6 /* YHQuestions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestions.m; sourceTree = "<group>"; };
 		845E64FA25499BA100441C43 /* YHDynamicProgramming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDynamicProgramming.h; sourceTree = "<group>"; };
@@ -519,6 +525,10 @@
 			children = (
 				1884A44022BE2928000F20A1 /* YHStack.m */,
 				1884A44122BE2928000F20A1 /* YHStack.h */,
+				8448DCB9257B21F0008029B9 /* YHMinStack.h */,
+				8448DCBA257B21F0008029B9 /* YHMinStack.m */,
+				8448DCBF257B28D3008029B9 /* YHMinNodeStack.h */,
+				8448DCC0257B28D3008029B9 /* YHMinNodeStack.m */,
 			);
 			path = Stack;
 			sourceTree = "<group>";
@@ -922,6 +932,7 @@
 				84756E932564015C00660783 /* YHInsertionSort.m in Sources */,
 				F0FDCA9422C227540020BB60 /* YHRBTree.m in Sources */,
 				1884A45E22BE2928000F20A1 /* YHOneLinked.m in Sources */,
+				8448DCBB257B21F0008029B9 /* YHMinStack.m in Sources */,
 				F0FDCAF522C9EBEF0020BB60 /* YHHashMap.m in Sources */,
 				84756E972565128A00660783 /* YHBinarySearch.m in Sources */,
 				1884A3DA22BE2787000F20A1 /* ViewController.m in Sources */,
@@ -932,6 +943,7 @@
 				84756E0A255924AE00660783 /* YHSkipComparator.m in Sources */,
 				1884A45722BE2928000F20A1 /* YHLeetCode.m in Sources */,
 				F0FDCAF222C9E3A80020BB60 /* YHLinkSet.m in Sources */,
+				8448DCC1257B28D3008029B9 /* YHMinNodeStack.m in Sources */,
 				84FAEE7D2520A03E0099C0BA /* YHListGraph.m in Sources */,
 				84FAEE8525232BF10099C0BA /* YHBinaryHeap.m in Sources */,
 				84756E75255E9A4B00660783 /* YHSelectionSort.m in Sources */,

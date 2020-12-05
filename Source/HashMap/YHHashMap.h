@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YHHashMap : NSObject
+@interface YHHashMap : NSMutableDictionary
 
 @end
 

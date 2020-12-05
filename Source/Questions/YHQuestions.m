@@ -7,6 +7,7 @@
 //
 
 #import "YHQuestions.h"
+#import "YHStack.h"
 
 @interface YHNode : NSObject
 
@@ -381,6 +382,47 @@
 }
 
 #pragma mark -- 栈、队列
+/**
+ * 用栈解决 234 回文链表
+ *  对称问题一般可以用到栈
+ */
++ (BOOL)isPalindromeStack:(YHNode *)head {
+    if (!head || !head.next) {
+        return YES;
+    }
+    if (!head.next.next) {
+        return [head.element isEqual:head.next.element];
+    }
+    // 找到中间节点
+    YHNode *mid = [self middleNode:head];
+    YHNode *right = mid.next;
+    YHStack *stack = [[YHStack alloc]init];
+    while (right) {
+        [stack push:right];
+        right = right.next;
+    }
+    YHNode *nowHead = head;
+    while (![stack isEmpty]) {
+        YHNode *n = [stack pop];
+        if (![n.element isEqual:nowHead.element]) {
+            return NO;
+        }
+        nowHead = nowHead.next;
+    }
+    return YES;
+}
+
+/**
+ * 155. 最小栈
+ * 设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
+ * push(x) —— 将元素 x 推入栈中。
+ * pop() —— 删除栈顶的元素。
+ * top() —— 获取栈顶元素。
+ * getMin() —— 检索栈中的最小元素。
+ *  可转移至 YHMinStack 实现
+ */
 
 
 @end
+
+
