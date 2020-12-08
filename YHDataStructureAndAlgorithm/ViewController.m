@@ -463,7 +463,7 @@
 }
 
 - (void)test24 {
-    [YHQuestions reverseWords:@"   hello   world!  "];
+    [YHQuestions lengthOfLongestSubstring:@"pwwkew"];
 }
 
 

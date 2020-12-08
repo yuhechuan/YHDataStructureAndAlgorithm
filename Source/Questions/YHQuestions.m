@@ -799,10 +799,47 @@
 /**
  * 3. 无重复字符的最长子串
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+ * pwwkew
+ * 单字节字符
  */
 + (int)lengthOfLongestSubstring:(NSString *)s {
-    return 0;
+    if (!s || s.length ==0) {
+        return 0;
+    }
+    int length = (int)s.length;
+    char chars[length];
+    memcpy(chars, [s cStringUsingEncoding:NSUTF8StringEncoding],length);
+    
+    // 0位置特殊处理
+    int size = 128;
+    int *map = (int *)malloc(size * sizeof(int));
+    
+    for (int i = 0; i < size; i ++) {
+        map[i] = -1;
+    }
+    
+    // 用于保存字符上次出现的位置
+    map[chars[0]] = 0;
+    
+    // 以i减一 结尾的 最长子串 开始位置
+    int li = 0;
+    int max = 1;
+    for (int i = 1; i < length; i++) {
+        // 上一次出现的位置
+        // 如果k字符不存在 啧 pi为最小-1
+        int index = chars[i] ;
+        int pi = map[index];
+        if (li <= pi) {
+            li = pi + 1;
+        }
+        map[index] = i;
+        max = MAX(max, i - li + 1);
+    }
+    free(map);
+    return max;
 }
+
+#pragma mark -- 动态规划
 
 
 @end
