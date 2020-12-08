@@ -9,6 +9,7 @@
 #import "YHQuestions.h"
 #import "YHStack.h"
 #import "YHDoubleQueue.h"
+#import "YHBNote.h"
 
 @interface YHNode : NSObject
 
@@ -434,7 +435,8 @@
  * 解释:
  */
 // 双端队列
-+ (NSArray *)maxSlidingWindow:(NSArray *)nums
+// 单调队列
++ (NSArray *)maxSlidingWindow1:(NSArray *)nums
                             k:(int)k {
     if (!nums || nums.count == 0 || k < 1) {
         return @[];
@@ -468,6 +470,340 @@
     }
     return max;
 }
+
+/**
+ * 简单粗暴 效率很高
+ */
++ (NSArray *)maxSlidingWindow:(NSArray *)nums
+                            k:(int)k {
+    if (!nums || nums.count == 0 || k < 1) {
+        return @[];
+    }
+    if (k == 1) {
+        return nums;
+    }
+    int length = (int)nums.count - k + 1;
+    NSMutableArray *max = [NSMutableArray arrayWithCapacity:length];
+    int maxIndex = [self maxIndex:nums begin:0 end:k -1];
+    
+    for (int li = 0; li < length; li ++) {
+        int ri = li + k - 1;
+        if (maxIndex < li) {
+            maxIndex = [self maxIndex:nums begin:li end:ri];
+        } else if ([nums[ri] intValue] >= [nums[maxIndex] intValue]) {
+            maxIndex = ri;
+        }
+        max[li] = nums[maxIndex];
+    }
+    return max;
+}
+/**
+ * 获取一定范围内的  最大值
+ */
++ (int)maxIndex:(NSArray *)nums
+          begin:(int)begin
+            end:(int)end {
+    int maxIndex = begin;
+    for (int i = begin + 1; i <= end; i ++) {
+        if ([nums[i] intValue] >= [nums[maxIndex] intValue]) {
+            maxIndex = i;
+        }
+    }
+    return maxIndex;
+}
+
+
+/**
+ * 654 最大二叉树  根节点是整棵树 最大的节点
+ * 返回二叉树的根节点
+ * [3,2,1,6,0,5]
+ */
++ (YHBNote *)constructMaximumBinaryTree:(NSArray *)nums {
+    return [self findRoot:nums left:0 right:(int)nums.count];
+}
+
++ (YHBNote *)findRoot:(NSArray *)nums
+                 left:(int)left
+                right:(int)right {
+    if (left == right) {
+        return nil;
+    }
+    int maxIndex = left;
+    for (int i = left + 1; i < right; i ++) {
+        if ([nums[i] intValue] > [nums[maxIndex] intValue]) {
+            maxIndex = i;
+        }
+    }
+    YHBNote *node = [YHBNote new];
+    node->element = nums[maxIndex];
+    node->left = [self findRoot:nums left:left right:maxIndex];
+    node->right = [self findRoot:nums left:maxIndex + 1 right:right];
+    return node;
+}
+/**
+ * 返回数组每个数的 根节点  数组
+ *  利用栈  里面元素单调 递减 越往上 数据越小
+ */
++ (NSArray *)constructMaximumBinaryTreeRoots:(NSArray *)nums {
+    if (!nums || nums.count == 0) {
+        return @[];
+    }
+    //  从栈底到栈顶 单调递减的栈
+    YHStack *stack = [[YHStack alloc]init];
+    
+    int length = (int)nums.count;
+    NSMutableArray *left = [NSMutableArray arrayWithCapacity:length];
+    NSMutableArray *right = [NSMutableArray arrayWithCapacity:length];
+    for (int i = 0; i < length; i++) {
+        [left addObject:@(-1)];
+        [right addObject:@(-1)];
+    }
+    
+    for (int i = 0; i < length; i ++) {
+        while (![stack isEmpty] && [nums[i] intValue] > [nums[[[stack peek] intValue]] intValue]) {
+            int pop = [[stack pop] intValue];
+            right[pop] = @(i);
+        }
+        left[i] = [stack isEmpty] ? @(-1) : [stack peek];
+        [stack push:@(i)];
+    }
+    for (int i = 0; i < length; i++) {
+        int lindex = [left[i] intValue];
+        int rindex = [right[i] intValue];
+        NSNumber *result = nil;
+        if (lindex >=0 && rindex >= 0) {
+            result = @(MIN([nums[lindex] intValue],[nums[rindex] intValue]));
+        } else if (lindex < 0 &&  rindex >= 0) {
+            result = nums[rindex];
+        } else if (rindex < 0 &&  lindex >= 0) {
+            result = nums[lindex];
+        } else {
+            result = @(-1);
+        }
+        left[i] = result;
+    }
+    return left;
+}
+
+/**
+ *  739 每日温度
+ *   [73, 74, 75, 71, 69, 72, 76, 73]
+ */
+
++ (NSArray *)dailyTemperatures:(NSArray *)T {
+    if (!T || T.count == 0) {
+        return @[];
+    }
+    int length = (int)T.count;
+    NSMutableArray *values = [NSMutableArray arrayWithCapacity:length];
+    for (int i = 0; i < length; i++) {
+        [values addObject:@(0)];
+    }
+    
+    for (int i = length -2; i>= 0; i --) {
+        int j = i + 1;
+        while (YES) {
+            int iv = [T[i] intValue];
+            int jv = [T[j] intValue];
+            if (iv < jv) {
+                values[i] = @(j - i);
+                break;
+            } else if ([values[j] intValue] == 0) {
+                values[i] = @(0);
+                break;
+            }
+            j = j + [values[j] intValue];
+        }
+    }
+    return values;
+}
+
++ (NSArray *)dailyTemperatures1:(NSArray *)T {
+    if (!T || T.count == 0) {
+        return @[];
+    }
+    YHStack *stack = [[YHStack alloc]init];
+    int length = (int)T.count;
+    NSMutableArray *right = [NSMutableArray arrayWithCapacity:length];
+    for (int i = 0; i < length; i++) {
+        [right addObject:@(0)];
+    }
+    
+    for (int i = 0; i < length; i ++) {
+        // 第一个比我大的  不能写=
+        while (![stack isEmpty] && [T[i] intValue] > [T[[[stack peek] intValue]] intValue]) {
+            int pop = [[stack pop] intValue];
+            right[pop] = @(i - pop);
+        }
+        [stack push:@(i)];
+    }
+    return right;
+}
+
+#pragma mark -- 字符串
+
+/**
+ * 01.09.字符串轮转
+ *  https://leetcode-cn.com/problems/string-rotation-lcci/
+ *  旋转词
+ *  back
+ *  ackb
+ *  kbac
+ */
++ (BOOL)isFlipedString:(NSString *)s1 s2:(NSString *)s2 {
+    if (!s1 || !s2) {
+        return NO;
+    }
+    
+    if (s1.length != s2.length) {
+        return NO;
+    }
+    NSString *newString = [NSString stringWithFormat:@"%@%@",s1,s1];
+    return [newString containsString:s2];
+}
+
+/**
+ * 572 另一个树的子树
+ */
++ (BOOL)isSubtree:(YHBNote *)s t:(YHBNote *)t {
+    // 序列化
+    NSString *sstr = [self postorder:s];
+    NSString *tstr = [self postorder:t];
+    NSLog(@"1.====%@",sstr);
+    NSLog(@"2.====%@",tstr);
+    return [sstr containsString:tstr];
+}
+
+/**
+ * 利用后续遍历的方式进行序列化
+ */
++ (NSString *)postorder:(YHBNote *)note {
+    if (!note) {
+        return @"";
+    }
+    NSMutableString *sb = [NSMutableString string];
+    [self postorder:note sb:sb];
+    return sb;
+}
+
++ (void)postorder:(YHBNote *)note sb:(NSMutableString *)sb {
+    if (note->left) {
+        [self postorder:note->left sb:sb];
+    } else {
+        [sb appendString:@"#!"];
+    }
+    if (note->right) {
+        [self postorder:note->right sb:sb];
+    } else {
+        [sb appendString:@"#!"];
+    }
+    
+    [sb appendString:note->element];
+    [sb appendString:@"!"];
+}
+
+/**
+ * 242. 有效的字母异位词
+ */
++ (BOOL)isAnagram:(NSString *)s t:(NSString *)t {
+    if (!s || !t) {
+        return NO;
+    }
+    if (s.length != t.length) {
+        return NO;
+    }
+    int lenth = (int)s.length;
+    NSMutableArray *chars = [NSMutableArray arrayWithCapacity:26];
+    for (int i = 0; i < 26; i ++) {
+        [chars addObject:@(0)];
+    }
+    for (int i = 0; i < lenth; i ++) {
+        int index = [s characterAtIndex:i] - 'a';
+        chars[index] = @([chars[index] intValue] + 1);
+    }
+    
+    for (int i = 0; i < lenth; i ++) {
+        int index = [t characterAtIndex:i] - 'a';
+        int v =  [chars[index] intValue] - 1;
+        if (v < 0) {
+            return NO;
+        }
+        chars[index] = @(v);
+    }
+    return YES;
+}
+
+/**
+ * 151.翻转字符串里面的单词
+ *  去除多余空格
+ *  hello world!
+ *  world! hello
+ */
++ (NSString *)reverseWords:(NSString *)s {
+    if (!s) {
+        return nil;
+    }
+    // 去除多余空格
+    int length = (int)s.length;
+    char chars[length];
+    memcpy(chars, [s cStringUsingEncoding:NSUTF8StringEncoding],length);
+    
+    int cur = 0;      // 当前用来存放字符的位置
+    BOOL space = YES; // -1 是空格 处理前面空格
+    for (int i = 0; i < length; i ++) {
+        // 非空格字符
+        if (chars[i] != ' ') {
+            chars[cur ++] = chars[i];
+            space = NO;
+        } else if (space == NO) {
+            chars[cur ++] = ' ';
+            space = YES;
+        }
+    }
+    
+    int len = space ? cur - 1 : cur;
+    // 全部逆序
+    [self reversedOrder:chars li:0 ri:len];
+
+    // 分别逆序
+    int preIndex = -1; // 假想的哨兵
+    for (int i = 0; i < len; i++) {
+        if (chars[i] == ' ') {
+            [self reversedOrder:chars li:preIndex + 1 ri:i];
+            preIndex = i;
+        }
+    }
+    [self reversedOrder:chars li:preIndex + 1 ri:len];
+    
+    // 组装字符串
+    NSMutableString *mustr = [NSMutableString string];
+    for (int i = 0; i < len; i++) {
+        [mustr appendFormat:@"%c",chars[i] ];
+    }
+    return mustr;
+}
+
++ (void)reversedOrder:(char [])chars
+                li:(int)li
+                ri:(int)ri {
+    ri--;
+    while (li < ri) {
+        char tmp = chars[li];
+        chars[li] = chars[ri];
+        chars[ri] = tmp;
+        li ++;
+        ri --;
+    }
+}
+
+/**
+ * 3. 无重复字符的最长子串
+ * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+ */
++ (int)lengthOfLongestSubstring:(NSString *)s {
+    return 0;
+}
+
 
 @end
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class YHNode;
+@class YHBNote;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -71,7 +72,42 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSArray *)maxSlidingWindow:(NSArray *)nums
                             k:(int)k;
+/**
+ * 654 最大二叉树  根节点是整棵树 最大的节点
+ */
 
++ (YHBNote *)constructMaximumBinaryTree:(NSArray *)nums;
++ (NSArray *)constructMaximumBinaryTreeRoots:(NSArray *)nums;
+/**
+ *  739 每日温度
+ *   [73, 74, 75, 71, 69, 72, 76, 73]
+ */
++ (NSArray *)dailyTemperatures:(NSArray *)T;
+
+#pragma =============== 字符串 ========================
+
+/**
+ * 01.09.字符串轮转
+ */
++ (BOOL)isFlipedString:(NSString *)s1 s2:(NSString *)s2;
+
+/**
+ * 572 另一个树的子树
+ */
++ (BOOL)isSubtree:(YHBNote *)s t:(YHBNote *)t;
+/**
+ * 242. 有效的字母异位词
+ */
++ (BOOL)isAnagram:(NSString *)s t:(NSString *)t;
+/**
+ * 151.翻转字符串里面的单词
+ */
++ (NSString *)reverseWords:(NSString *)s;
+/**
+ * 3. 无重复字符的最长子串
+ * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+ */
++ (int)lengthOfLongestSubstring:(NSString *)s;
 
 @end
 

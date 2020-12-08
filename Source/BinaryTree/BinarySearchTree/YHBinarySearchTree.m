@@ -138,7 +138,7 @@
     if (comparator != nil) {
         return comparator.compare(a,b);
     }
-    return [a compare:b];
+    return (int)[a compare:b];
 }
 
 

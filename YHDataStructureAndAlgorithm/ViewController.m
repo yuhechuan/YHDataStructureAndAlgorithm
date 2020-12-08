@@ -45,7 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test22];
+    [self test24];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -429,8 +429,42 @@
 }
 
 - (void)test22 {
-    NSArray *arr = [YHQuestions maxSlidingWindow:@[@(1),@(7),@(5),@(3),@(-1),@(-3),@(8),@(2)] k:3];
+    NSArray *arr = [YHQuestions dailyTemperatures:@[@(73),@(74),@(75),@(71),@(69),@(72),@(76),@(73)]];
     NSLog(@"%@",arr);
 }
+
+- (void)test23 {
+    YHBNote *a = [YHBNote new];
+    a->element = @"3";
+    
+    YHBNote *b = [[YHBNote alloc]init];
+    b->element = @"4";
+
+    YHBNote *c = [YHBNote new];
+    c->element = @"5";
+
+    YHBNote *d = [YHBNote new];
+    d->element = @"1";
+
+    YHBNote *e = [YHBNote new];
+    e->element = @"2";
+    
+    a->left = b;
+    a->right = c;
+    b->parent = a;
+    c->parent = a;
+    
+    b->left = d;
+    b->right = e;
+    d->parent = b;
+    e->parent = b;
+    
+    [YHQuestions isSubtree:a t:b];
+}
+
+- (void)test24 {
+    [YHQuestions reverseWords:@"   hello   world!  "];
+}
+
 
 @end
