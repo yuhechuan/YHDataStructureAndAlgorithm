@@ -45,7 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test24];
+    [self test25];
     // Do any additional setup after loading the view, typically from a nib.
 }
 //2 1  2 3  2 3  4  3  4
@@ -463,8 +463,17 @@
 }
 
 - (void)test24 {
-    [YHQuestions lengthOfLongestSubstring:@"pwwkew"];
+    NSArray *a1 = @[@(1),@(3),@(1),@(2)];
+    NSArray *a2 = @[@(1),@(5),@(1),@(3)];
+    NSArray *a3 = @[@(4),@(2),@(1),@(4)];
+    NSArray *a4 = @[@(3),@(2),@(6),@(5)];
+    NSArray *values = @[a1,a2,a3,a4];
+    
+    NSLog(@"%d",[YHQuestions maxValue:values]);
 }
 
+- (void)test25 {
+    NSLog(@"%@",[YHQuestions longestPalindrome:@"babad"]);
+}
 
 @end
