@@ -126,7 +126,18 @@
  */
 + (NSString *)longestPalindrome:(NSString *)s;
 
-#pragma =============== 动态规划 ========================
+#pragma =============== 二叉树 ========================
+/**
+ * 236 二叉树的最近公共祖先
+ */
++ (YHBNote *)lowestCommonAncestor:(YHBNote *)root
+                                p:(YHBNote *)p
+                                q:(YHBNote *)q;
+/**
+ * 99 恢复二叉搜索树
+ *  二叉搜搜数 中序遍历是升序的
+ */
++ (void)recoverTree:(YHBNote *)root;
 
 @end
 

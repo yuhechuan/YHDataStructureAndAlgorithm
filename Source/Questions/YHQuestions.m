@@ -11,6 +11,10 @@
 #import "YHDoubleQueue.h"
 #import "YHBNote.h"
 
+YHBNote *_preNode;
+YHBNote *_fristNode;
+YHBNote *_secondNode;
+
 @interface YHNode : NSObject
 
 @property (nonatomic, strong) YHNode *next;
@@ -21,6 +25,7 @@
 @implementation YHNode
 
 @end
+
 
 @implementation YHQuestions
 
@@ -1178,9 +1183,121 @@
     if (!root || p == root || q == root) {
         return root;
     }
-    return nil;
+    YHBNote *left = [self lowestCommonAncestor:root->left p:p q:q];
+    YHBNote *right = [self lowestCommonAncestor:root->right p:p q:q];
+    
+    if (left && right) {
+        return root;
+    }
+    return left ? left : right;
 }
 
+/**
+ * 99 恢复二叉搜索树
+ *  二叉搜搜数 中序遍历是升序的
+ *  时间O(n)
+ *  空间O(h) 输的高度
+ */
++ (void)recoverTree:(YHBNote *)root {
+    [self findMorrisWrongNodes:root];
+    id tmp = _fristNode->element;
+    _fristNode->element = _secondNode->element;
+    _secondNode->element = tmp;
+}
+
+/**
+ * 二叉树的Morris遍历 可以达到 时间复杂度O(n)  空间复杂度O(1)
+ * 每个节点遍历2次 O(2n)
+ */
++ (void)findMorrisWrongNodes:(YHBNote *)root {
+    if (!root) {
+        return;
+    }
+    
+    YHBNote *N =root;
+    while (N) {
+        if (N->left) {
+            // 找到前驱节点
+            YHBNote *pre = N->left;
+            while (pre->right && pre->right != N) {
+                pre = pre->right;
+            }
+            
+            if (!pre->right) {
+                pre->right = N;
+                N = N->left;
+            } else {
+                // 第二次 访问
+                [self findNode:root];
+                pre->right = nil;
+                N = N->right;
+            }
+        } else {
+            [self findNode:root];
+            N = N->right;
+        }
+    }
+    
+}
+
+/**
+ * 获取前驱节点
+ */
+
++ (void)findNode:(YHBNote *)node {
+    if (_preNode && [self compare:_preNode->element v2:node->element]) {
+        _secondNode = node;
+        if (_fristNode) {
+            return;
+        }
+        _fristNode = _preNode;
+    }
+    _preNode = node;
+}
+
+
+/**
+ * 中序遍历 查找逆序对
+ */
++ (void)findWrongNodes:(YHBNote *)root {
+    if (!root) {
+        return;
+    }
+    [self findWrongNodes:root->left];
+    [self findNode:root];
+    [self findWrongNodes:root->right];
+}
+
++ (int)compare:(id)v1 v2:(id)v2 {
+    int a = [v1 intValue];
+    int b = [v2 intValue];
+    return a > b;
+}
+
+/**
+ * 333.最大BST子树
+ * 包含所有的子类
+ * 返回节点数量
+ */
++ (int)largestBSTSubtree:(YHBNote *)root {
+    if (!root) {
+        return 0;
+    }
+    
+    if ([self isBST:root]) {
+        return [self nodeCounts:root];
+    }
+    
+    return MAX([self largestBSTSubtree:root->left], [self largestBSTSubtree:root->right]);
+}
+
++ (BOOL)isBST:(YHBNote *)root {
+    return YES;
+}
+
++ (int)nodeCounts:(YHBNote *)root {
+    return 0;
+}
 @end
 
 
