@@ -26,6 +26,43 @@ YHBNote *_secondNode;
 
 @end
 
+/**
+ * 最大bst子树的信息
+ */
+@interface YHNodeInfo : NSObject
+// 根节点
+@property (nonatomic, strong) YHBNote *root;
+// 节点数量
+@property (nonatomic, assign) int size;
+// 子树里面的最大值
+@property (nonatomic, strong) id max;
+// 子树里面的最小值
+@property (nonatomic, assign) id min;
+
+- (instancetype)initWihtRoot:(YHBNote *)root
+                        size:(int)size
+                         max:(id)max
+                         min:(id)min;
+
+@end
+
+@implementation YHNodeInfo
+
+- (instancetype)initWihtRoot:(YHBNote *)root
+                        size:(int)size
+                         max:(id)max
+                         min:(id)min {
+    if (self = [super init]) {
+        _root = root;
+        _size = size;
+        _max = max;
+        _min = min;
+    }
+    return self;
+}
+
+@end
+
 
 @implementation YHQuestions
 
@@ -1278,8 +1315,9 @@ YHBNote *_secondNode;
  * 333.最大BST子树
  * 包含所有的子类
  * 返回节点数量
+ * 时间复杂度 0(n^2)
  */
-+ (int)largestBSTSubtree:(YHBNote *)root {
++ (int)largestBSTSubtree1:(YHBNote *)root {
     if (!root) {
         return 0;
     }
@@ -1292,12 +1330,75 @@ YHBNote *_secondNode;
 }
 
 + (BOOL)isBST:(YHBNote *)root {
-    return YES;
+    return [self isBST:root max:@(INT_MAX) min:@(INT_MIN)];
+}
+
++ (BOOL)isBST:(YHBNote *)root max:(id)max min:(id)min {
+    if (!root) {
+        return YES;
+    }
+    BOOL ret = [self compare:root->element v2:min] && [self compare:max v2:root->element] && [self isBST:root->left max:root->element min:min] && [self isBST:root->right max:max min:root->element];
+    return ret;
 }
 
 + (int)nodeCounts:(YHBNote *)root {
-    return 0;
+    if (!root) {
+        return 0;
+    }
+    return 1 + [self nodeCounts:root->left] + [self nodeCounts:root->right];
 }
+
++ (int)largestBSTSubtree:(YHBNote *)root {
+    if (!root) {
+        return 0;
+    }
+    YHNodeInfo *info = [self getInfo:root];
+    return info.size;
+}
+
+/**
+ * 返回以root为根节点的最大BST子树的信息
+ */
++ (YHNodeInfo *)getInfo:(YHBNote *)root {
+    if (!root) {
+        return nil;
+    }
+    
+    // 分别获取左右子树的 最大BST子树信息
+    YHNodeInfo *li = [self getInfo:root->left];
+    YHNodeInfo *ri = [self getInfo:root->right];
+    /**
+     * 4种情况
+     */
+    int leftSize = -1;
+    int rightSize = -1;
+    id min = root->element;
+    id max = root->element;
+
+    if (li == nil) {
+        leftSize = 0;
+    } else if (li.root == root->left && [self compare:root->element v2:li.max]) {
+        leftSize = li.size;
+        min = li.min;
+    }
+    
+    if (ri == nil) {
+        rightSize = 0;
+    } else if (ri.root == root->right && [self compare:ri.min v2:root->element]) {
+        rightSize = ri.size;
+        max = ri.max;
+    }
+    
+    if (leftSize >= 0 && rightSize >= 0 ) {
+        return [[YHNodeInfo alloc]initWihtRoot:root size:1 + leftSize + rightSize max:max min:min];
+    }
+    
+    if (li && ri) {
+        return li.size > ri.size ? li : ri;
+    }
+    return li ? li: ri;
+}
+
 @end
 
 
