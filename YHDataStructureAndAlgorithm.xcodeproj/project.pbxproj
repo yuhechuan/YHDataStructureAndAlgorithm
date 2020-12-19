@@ -42,8 +42,15 @@
 		841F679D25394CCE00D30A7D /* YHRecursive.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F679C25394CCE00D30A7D /* YHRecursive.m */; };
 		8448DCBB257B21F0008029B9 /* YHMinStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448DCBA257B21F0008029B9 /* YHMinStack.m */; };
 		8448DCC1257B28D3008029B9 /* YHMinNodeStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448DCC0257B28D3008029B9 /* YHMinNodeStack.m */; };
-		84510CEA2578CB28003037F6 /* YHQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84510CE92578CB28003037F6 /* YHQuestions.m */; };
 		845E64FC25499BA100441C43 /* YHDynamicProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 845E64FB25499BA100441C43 /* YHDynamicProgramming.m */; };
+		8466D795258DAE0700406507 /* YHQuestionDFS.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466D794258DAE0700406507 /* YHQuestionDFS.m */; };
+		8466D79B258DD02400406507 /* YHQuestionArraySort.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466D79A258DD02400406507 /* YHQuestionArraySort.m */; };
+		8466D7A1258DD09200406507 /* YHQuestionLinked.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466D7A0258DD09100406507 /* YHQuestionLinked.m */; };
+		8466D7A7258DD14C00406507 /* YHQuestionStackAndQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466D7A6258DD14C00406507 /* YHQuestionStackAndQueue.m */; };
+		8466D7AD258DD1D600406507 /* YHNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466D7AC258DD1D600406507 /* YHNode.m */; };
+		8466D7B3258DD3CA00406507 /* YHQuestionString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466D7B2258DD3CA00406507 /* YHQuestionString.m */; };
+		8466D7B9258DD43A00406507 /* YHQuestionDynamicProgramming.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466D7B8258DD43A00406507 /* YHQuestionDynamicProgramming.m */; };
+		8466D7C2258DD48700406507 /* YHQuestionBinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 8466D7C1258DD48700406507 /* YHQuestionBinaryTree.m */; };
 		84756E0A255924AE00660783 /* YHSkipComparator.m in Sources */ = {isa = PBXBuildFile; fileRef = 84756E09255924AE00660783 /* YHSkipComparator.m */; };
 		84756E0E255A385E00660783 /* YHB+Tree.m in Sources */ = {isa = PBXBuildFile; fileRef = 84756E0D255A385E00660783 /* YHB+Tree.m */; };
 		84756E12255A5FE200660783 /* YHSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 84756E11255A5FE200660783 /* YHSequence.m */; };
@@ -175,10 +182,24 @@
 		8448DCBA257B21F0008029B9 /* YHMinStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHMinStack.m; sourceTree = "<group>"; };
 		8448DCBF257B28D3008029B9 /* YHMinNodeStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHMinNodeStack.h; sourceTree = "<group>"; };
 		8448DCC0257B28D3008029B9 /* YHMinNodeStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHMinNodeStack.m; sourceTree = "<group>"; };
-		84510CE82578CB28003037F6 /* YHQuestions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestions.h; sourceTree = "<group>"; };
-		84510CE92578CB28003037F6 /* YHQuestions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestions.m; sourceTree = "<group>"; };
 		845E64FA25499BA100441C43 /* YHDynamicProgramming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHDynamicProgramming.h; sourceTree = "<group>"; };
 		845E64FB25499BA100441C43 /* YHDynamicProgramming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHDynamicProgramming.m; sourceTree = "<group>"; };
+		8466D793258DAE0700406507 /* YHQuestionDFS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestionDFS.h; sourceTree = "<group>"; };
+		8466D794258DAE0700406507 /* YHQuestionDFS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestionDFS.m; sourceTree = "<group>"; };
+		8466D799258DD02400406507 /* YHQuestionArraySort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestionArraySort.h; sourceTree = "<group>"; };
+		8466D79A258DD02400406507 /* YHQuestionArraySort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestionArraySort.m; sourceTree = "<group>"; };
+		8466D79F258DD09100406507 /* YHQuestionLinked.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestionLinked.h; sourceTree = "<group>"; };
+		8466D7A0258DD09100406507 /* YHQuestionLinked.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestionLinked.m; sourceTree = "<group>"; };
+		8466D7A5258DD14C00406507 /* YHQuestionStackAndQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestionStackAndQueue.h; sourceTree = "<group>"; };
+		8466D7A6258DD14C00406507 /* YHQuestionStackAndQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestionStackAndQueue.m; sourceTree = "<group>"; };
+		8466D7AB258DD1D600406507 /* YHNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHNode.h; sourceTree = "<group>"; };
+		8466D7AC258DD1D600406507 /* YHNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHNode.m; sourceTree = "<group>"; };
+		8466D7B1258DD3CA00406507 /* YHQuestionString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestionString.h; sourceTree = "<group>"; };
+		8466D7B2258DD3CA00406507 /* YHQuestionString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestionString.m; sourceTree = "<group>"; };
+		8466D7B7258DD43A00406507 /* YHQuestionDynamicProgramming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestionDynamicProgramming.h; sourceTree = "<group>"; };
+		8466D7B8258DD43A00406507 /* YHQuestionDynamicProgramming.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestionDynamicProgramming.m; sourceTree = "<group>"; };
+		8466D7C0258DD48700406507 /* YHQuestionBinaryTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHQuestionBinaryTree.h; sourceTree = "<group>"; };
+		8466D7C1258DD48700406507 /* YHQuestionBinaryTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHQuestionBinaryTree.m; sourceTree = "<group>"; };
 		84756E08255924AE00660783 /* YHSkipComparator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHSkipComparator.h; sourceTree = "<group>"; };
 		84756E09255924AE00660783 /* YHSkipComparator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHSkipComparator.m; sourceTree = "<group>"; };
 		84756E0C255A385E00660783 /* YHB+Tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YHB+Tree.h"; sourceTree = "<group>"; };
@@ -571,8 +592,22 @@
 		84510CE72578CB19003037F6 /* Questions */ = {
 			isa = PBXGroup;
 			children = (
-				84510CE82578CB28003037F6 /* YHQuestions.h */,
-				84510CE92578CB28003037F6 /* YHQuestions.m */,
+				8466D7AB258DD1D600406507 /* YHNode.h */,
+				8466D7AC258DD1D600406507 /* YHNode.m */,
+				8466D793258DAE0700406507 /* YHQuestionDFS.h */,
+				8466D794258DAE0700406507 /* YHQuestionDFS.m */,
+				8466D799258DD02400406507 /* YHQuestionArraySort.h */,
+				8466D79A258DD02400406507 /* YHQuestionArraySort.m */,
+				8466D79F258DD09100406507 /* YHQuestionLinked.h */,
+				8466D7A0258DD09100406507 /* YHQuestionLinked.m */,
+				8466D7A5258DD14C00406507 /* YHQuestionStackAndQueue.h */,
+				8466D7A6258DD14C00406507 /* YHQuestionStackAndQueue.m */,
+				8466D7B1258DD3CA00406507 /* YHQuestionString.h */,
+				8466D7B2258DD3CA00406507 /* YHQuestionString.m */,
+				8466D7B7258DD43A00406507 /* YHQuestionDynamicProgramming.h */,
+				8466D7B8258DD43A00406507 /* YHQuestionDynamicProgramming.m */,
+				8466D7C0258DD48700406507 /* YHQuestionBinaryTree.h */,
+				8466D7C1258DD48700406507 /* YHQuestionBinaryTree.m */,
 			);
 			path = Questions;
 			sourceTree = "<group>";
@@ -915,6 +950,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8466D795258DAE0700406507 /* YHQuestionDFS.m in Sources */,
 				1884A45922BE2928000F20A1 /* YHJosephusLinked.m in Sources */,
 				1884A45322BE2928000F20A1 /* YHAVLNote.m in Sources */,
 				84FAEE8225232ABA0099C0BA /* YHHeap.m in Sources */,
@@ -923,15 +959,18 @@
 				84CE8260254040520088EF36 /* YHGreedy.m in Sources */,
 				1884A45F22BE2928000F20A1 /* YHQueue.m in Sources */,
 				F0FDCA9722C227740020BB60 /* YHRBNote.m in Sources */,
+				8466D7B3258DD3CA00406507 /* YHQuestionString.m in Sources */,
 				848333CA2552EB230094CF1C /* YHBloomFilter.m in Sources */,
 				8487E1EA2534969200D72501 /* YHQuickUnionRankPathSpliting.m in Sources */,
 				1884A45522BE2928000F20A1 /* YHBinarySearchTree.m in Sources */,
 				1884A45222BE2928000F20A1 /* YHComparator.m in Sources */,
+				8466D7B9258DD43A00406507 /* YHQuestionDynamicProgramming.m in Sources */,
 				1884A45822BE2928000F20A1 /* YHDoubleLoopLinked.m in Sources */,
 				84C7C1C12567CD5400268471 /* YHRadixSort.m in Sources */,
 				84756E932564015C00660783 /* YHInsertionSort.m in Sources */,
 				F0FDCA9422C227540020BB60 /* YHRBTree.m in Sources */,
 				1884A45E22BE2928000F20A1 /* YHOneLinked.m in Sources */,
+				8466D7A1258DD09200406507 /* YHQuestionLinked.m in Sources */,
 				8448DCBB257B21F0008029B9 /* YHMinStack.m in Sources */,
 				F0FDCAF522C9EBEF0020BB60 /* YHHashMap.m in Sources */,
 				84756E972565128A00660783 /* YHBinarySearch.m in Sources */,
@@ -956,6 +995,7 @@
 				1884A45622BE2928000F20A1 /* YHBalanceBinarySearchTree.m in Sources */,
 				1884A46022BE2928000F20A1 /* YHDoubleQueue.m in Sources */,
 				8487E1E82534969200D72501 /* YHQuickFind.m in Sources */,
+				8466D7A7258DD14C00406507 /* YHQuestionStackAndQueue.m in Sources */,
 				F0FDCAEF22C9E0AD0020BB60 /* YHTreeSet.m in Sources */,
 				84756EAC2567750100660783 /* YHCountingSort.m in Sources */,
 				8487E1E72534969200D72501 /* YHUnionFind.m in Sources */,
@@ -973,7 +1013,9 @@
 				845E64FC25499BA100441C43 /* YHDynamicProgramming.m in Sources */,
 				84C7C1C42567F86300268471 /* YHBucketSort.m in Sources */,
 				1884A45A22BE2928000F20A1 /* YHDoubleLinked.m in Sources */,
+				8466D7C2258DD48700406507 /* YHQuestionBinaryTree.m in Sources */,
 				1884A45122BE2928000F20A1 /* YHBNote.m in Sources */,
+				8466D79B258DD02400406507 /* YHQuestionArraySort.m in Sources */,
 				1884A46422BE2928000F20A1 /* MJPrinter.m in Sources */,
 				1884A46222BE2928000F20A1 /* MJInorderPrinter.m in Sources */,
 				84756E9A256525C100660783 /* YHMergeSort.m in Sources */,
@@ -981,12 +1023,12 @@
 				841F679D25394CCE00D30A7D /* YHRecursive.m in Sources */,
 				84FAEE7E2520A03E0099C0BA /* YHGraph.m in Sources */,
 				1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */,
-				84510CEA2578CB28003037F6 /* YHQuestions.m in Sources */,
 				84756EA92567675600660783 /* YHTimSort.m in Sources */,
 				8487E1ED2534969200D72501 /* YHQuickUnionRankPathHalving.m in Sources */,
 				84756E0E255A385E00660783 /* YHB+Tree.m in Sources */,
 				1884A45C22BE2928000F20A1 /* YHNote.m in Sources */,
 				1884A46122BE2928000F20A1 /* YHStack.m in Sources */,
+				8466D7AD258DD1D600406507 /* YHNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

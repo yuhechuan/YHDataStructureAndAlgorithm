@@ -35,7 +35,7 @@
 #import "YHCountingSort.h"
 #import "YHDog.h"
 #import "YHRadixSort.h"
-#import "YHQuestions.h"
+#import "YHQuestionDFS.h"
 
 @interface ViewController ()
 
@@ -428,52 +428,11 @@
     NSLog(@"%@",s.sortArray);
 }
 
-- (void)test22 {
-    NSArray *arr = [YHQuestions dailyTemperatures:@[@(73),@(74),@(75),@(71),@(69),@(72),@(76),@(73)]];
+- (void)test25 {
+    NSArray *arr = [YHQuestionDFS letterCombinations:@"23"];
     NSLog(@"%@",arr);
 }
 
-- (void)test23 {
-    YHBNote *a = [YHBNote new];
-    a->element = @"3";
-    
-    YHBNote *b = [[YHBNote alloc]init];
-    b->element = @"4";
 
-    YHBNote *c = [YHBNote new];
-    c->element = @"5";
-
-    YHBNote *d = [YHBNote new];
-    d->element = @"1";
-
-    YHBNote *e = [YHBNote new];
-    e->element = @"2";
-    
-    a->left = b;
-    a->right = c;
-    b->parent = a;
-    c->parent = a;
-    
-    b->left = d;
-    b->right = e;
-    d->parent = b;
-    e->parent = b;
-    
-    [YHQuestions isSubtree:a t:b];
-}
-
-- (void)test24 {
-    NSArray *a1 = @[@(1),@(3),@(1),@(2)];
-    NSArray *a2 = @[@(1),@(5),@(1),@(3)];
-    NSArray *a3 = @[@(4),@(2),@(1),@(4)];
-    NSArray *a4 = @[@(3),@(2),@(6),@(5)];
-    NSArray *values = @[a1,a2,a3,a4];
-    
-    NSLog(@"%d",[YHQuestions maxValue:values]);
-}
-
-- (void)test25 {
-    NSLog(@"%@",[YHQuestions longestPalindrome:@"babad"]);
-}
 
 @end
