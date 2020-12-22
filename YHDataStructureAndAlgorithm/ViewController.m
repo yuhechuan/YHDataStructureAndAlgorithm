@@ -429,8 +429,7 @@
 }
 
 - (void)test25 {
-    NSArray *arr = [YHQuestionDFS letterCombinations:@"23"];
-    NSLog(@"%@",arr);
+
 }
 
 

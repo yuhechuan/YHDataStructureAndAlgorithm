@@ -17,6 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
  * 17 电话号码的字母组合
  */
 + (NSArray *)letterCombinations:(NSString *)digits;
+/**
+ * 46 全排列
+ */
++ (NSArray *)permute:(NSArray *)arr;
+/**
+ * 46 全排列2 (给定数据含重复) 不包含重复数据
+ */
+
++ (NSArray *)permuteRepeat:(NSArray *)arr;
+
+/**
+ * 22 括号生成
+*/
++ (NSArray *)generateParenthesis:(int)n;
 
 @end
 

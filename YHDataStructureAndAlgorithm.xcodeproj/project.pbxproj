@@ -39,6 +39,7 @@
 		1884A46422BE2928000F20A1 /* MJPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44922BE2928000F20A1 /* MJPrinter.m */; };
 		1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */; };
 		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
+		84072A902590CFD10074D1DF /* YHHighFrequency.m in Sources */ = {isa = PBXBuildFile; fileRef = 84072A8F2590CFD10074D1DF /* YHHighFrequency.m */; };
 		841F679D25394CCE00D30A7D /* YHRecursive.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F679C25394CCE00D30A7D /* YHRecursive.m */; };
 		8448DCBB257B21F0008029B9 /* YHMinStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448DCBA257B21F0008029B9 /* YHMinStack.m */; };
 		8448DCC1257B28D3008029B9 /* YHMinNodeStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448DCC0257B28D3008029B9 /* YHMinNodeStack.m */; };
@@ -176,6 +177,8 @@
 		1884A44C22BE2928000F20A1 /* MJBinaryTreeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJBinaryTreeInfo.h; sourceTree = "<group>"; };
 		1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJBinaryTrees.m; sourceTree = "<group>"; };
 		1884A44E22BE2928000F20A1 /* NSString+Trees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trees.m"; sourceTree = "<group>"; };
+		84072A8E2590CFD10074D1DF /* YHHighFrequency.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHHighFrequency.h; sourceTree = "<group>"; };
+		84072A8F2590CFD10074D1DF /* YHHighFrequency.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHHighFrequency.m; sourceTree = "<group>"; };
 		841F679B25394CCE00D30A7D /* YHRecursive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHRecursive.h; sourceTree = "<group>"; };
 		841F679C25394CCE00D30A7D /* YHRecursive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRecursive.m; sourceTree = "<group>"; };
 		8448DCB9257B21F0008029B9 /* YHMinStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHMinStack.h; sourceTree = "<group>"; };
@@ -608,6 +611,8 @@
 				8466D7B8258DD43A00406507 /* YHQuestionDynamicProgramming.m */,
 				8466D7C0258DD48700406507 /* YHQuestionBinaryTree.h */,
 				8466D7C1258DD48700406507 /* YHQuestionBinaryTree.m */,
+				84072A8E2590CFD10074D1DF /* YHHighFrequency.h */,
+				84072A8F2590CFD10074D1DF /* YHHighFrequency.m */,
 			);
 			path = Questions;
 			sourceTree = "<group>";
@@ -1013,6 +1018,7 @@
 				845E64FC25499BA100441C43 /* YHDynamicProgramming.m in Sources */,
 				84C7C1C42567F86300268471 /* YHBucketSort.m in Sources */,
 				1884A45A22BE2928000F20A1 /* YHDoubleLinked.m in Sources */,
+				84072A902590CFD10074D1DF /* YHHighFrequency.m in Sources */,
 				8466D7C2258DD48700406507 /* YHQuestionBinaryTree.m in Sources */,
 				1884A45122BE2928000F20A1 /* YHBNote.m in Sources */,
 				8466D79B258DD02400406507 /* YHQuestionArraySort.m in Sources */,
