@@ -31,6 +31,11 @@ NS_ASSUME_NONNULL_BEGIN
  * 22 括号生成
 */
 + (NSArray *)generateParenthesis:(int)n;
+/**
+ * 39 组合总和
+ * 数字可以无限制重复
+ */
++ (NSArray *)combinationSum:(NSArray *)candidates target:(int)target;
 
 @end
 

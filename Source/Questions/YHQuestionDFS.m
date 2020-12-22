@@ -286,7 +286,34 @@ NSMutableArray *_used;
     if (candidates.count == 0 || !candidates || target < 0) {
         return @[];
     }
-    return nil;
+    NSMutableArray *nums = [NSMutableArray array];
+    NSMutableArray *list = [NSMutableArray array];
+    [self dfsc:0 candidates:candidates nums:nums remain:target list:list];
+    return list;
+}
+
++ (void)dfsc:(int)index
+  candidates:(NSArray *)candidates
+        nums:(NSMutableArray *)nums
+      remain:(int)remain
+        list:(NSMutableArray *)list {
+    if (index == candidates.count) {
+        return;
+    }
+    if (remain == 0) {
+        // 找到了
+        [list addObject:nums.copy];
+        return;
+    }
+    
+    [self dfsc:index + 1 candidates:candidates nums:nums remain:remain list:list];
+    
+    int next = remain - [candidates[index] intValue];
+    if (next >= 0) {
+        [nums addObject:candidates[index]];
+        [self dfsc:index candidates:candidates nums:nums remain:next list:list];
+        [nums removeLastObject];
+    }
 }
 
 @end
