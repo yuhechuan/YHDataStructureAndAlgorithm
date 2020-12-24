@@ -40,6 +40,7 @@
 		1884A46522BE2928000F20A1 /* MJBinaryTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44D22BE2928000F20A1 /* MJBinaryTrees.m */; };
 		1884A46622BE2928000F20A1 /* NSString+Trees.m in Sources */ = {isa = PBXBuildFile; fileRef = 1884A44E22BE2928000F20A1 /* NSString+Trees.m */; };
 		84072A902590CFD10074D1DF /* YHHighFrequency.m in Sources */ = {isa = PBXBuildFile; fileRef = 84072A8F2590CFD10074D1DF /* YHHighFrequency.m */; };
+		84072D21259464CA0074D1DF /* YHLRUCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 84072D20259464CA0074D1DF /* YHLRUCache.m */; };
 		841F679D25394CCE00D30A7D /* YHRecursive.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F679C25394CCE00D30A7D /* YHRecursive.m */; };
 		8448DCBB257B21F0008029B9 /* YHMinStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448DCBA257B21F0008029B9 /* YHMinStack.m */; };
 		8448DCC1257B28D3008029B9 /* YHMinNodeStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8448DCC0257B28D3008029B9 /* YHMinNodeStack.m */; };
@@ -179,6 +180,8 @@
 		1884A44E22BE2928000F20A1 /* NSString+Trees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Trees.m"; sourceTree = "<group>"; };
 		84072A8E2590CFD10074D1DF /* YHHighFrequency.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHHighFrequency.h; sourceTree = "<group>"; };
 		84072A8F2590CFD10074D1DF /* YHHighFrequency.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHHighFrequency.m; sourceTree = "<group>"; };
+		84072D1F259464CA0074D1DF /* YHLRUCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHLRUCache.h; sourceTree = "<group>"; };
+		84072D20259464CA0074D1DF /* YHLRUCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHLRUCache.m; sourceTree = "<group>"; };
 		841F679B25394CCE00D30A7D /* YHRecursive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHRecursive.h; sourceTree = "<group>"; };
 		841F679C25394CCE00D30A7D /* YHRecursive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHRecursive.m; sourceTree = "<group>"; };
 		8448DCB9257B21F0008029B9 /* YHMinStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHMinStack.h; sourceTree = "<group>"; };
@@ -371,6 +374,7 @@
 		1884A40B22BE2928000F20A1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				84072D1E259464A40074D1DF /* LRU */,
 				84510CE72578CB19003037F6 /* Questions */,
 				84756E942565127400660783 /* BinarySearch */,
 				84756E6C255E747D00660783 /* Sort */,
@@ -581,6 +585,15 @@
 				1884A44A22BE2928000F20A1 /* MJInorderPrinter.h */,
 			);
 			path = MJPrinter;
+			sourceTree = "<group>";
+		};
+		84072D1E259464A40074D1DF /* LRU */ = {
+			isa = PBXGroup;
+			children = (
+				84072D1F259464CA0074D1DF /* YHLRUCache.h */,
+				84072D20259464CA0074D1DF /* YHLRUCache.m */,
+			);
+			path = LRU;
 			sourceTree = "<group>";
 		};
 		841F679A25394CAD00D30A7D /* Recursive */ = {
@@ -1005,6 +1018,7 @@
 				84756EAC2567750100660783 /* YHCountingSort.m in Sources */,
 				8487E1E72534969200D72501 /* YHUnionFind.m in Sources */,
 				84756E72255E991E00660783 /* YHBubbleSort.m in Sources */,
+				84072D21259464CA0074D1DF /* YHLRUCache.m in Sources */,
 				84756EA6256697D200660783 /* YHShellSort.m in Sources */,
 				1884A46322BE2928000F20A1 /* MJLevelOrderPrinter.m in Sources */,
 				84C7C1BE2567CB5E00268471 /* YHDog.m in Sources */,

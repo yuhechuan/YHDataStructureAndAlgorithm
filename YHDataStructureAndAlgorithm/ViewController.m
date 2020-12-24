@@ -7,7 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "YHQuestionDFS.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <sanitizer/coverage_interface.h>
+#import <dlfcn.h>
+#import <libkern/OSAtomic.h> // 原子操作
+#import "YHHighFrequency.h"
 
 @interface ViewController ()
 
@@ -17,14 +22,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test25];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSArray *arr = @[@[@(1),@(2),@(3),@(4)],
+                     @[@(4),@(5),@(6),@(7)],
+                     @[@(8),@(9),@(10),@(11)]];
+    
+    NSArray *d = [YHHighFrequency spiralOrder:arr];
+    NSLog(@"%@",d);
 }
-
-- (void)test25 {
-   NSArray *arr = [YHQuestionDFS  combinationSum:@[@(2),@(3),@(6),@(7)] target:7];
-    NSLog(@"%@",arr);
-}
-
 
 @end
