@@ -24,12 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSArray *arr = @[@[@(1),@(2),@(3),@(4)],
-                     @[@(4),@(5),@(6),@(7)],
-                     @[@(8),@(9),@(10),@(11)]];
-    
-    NSArray *d = [YHHighFrequency spiralOrder:arr];
-    NSLog(@"%@",d);
+    NSLog(@"%d",[YHHighFrequency maxArea:@[@(1),@(2)]]);
+
 }
 
 @end

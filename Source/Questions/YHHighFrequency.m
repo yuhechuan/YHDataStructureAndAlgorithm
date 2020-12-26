@@ -7,6 +7,7 @@
 //
 
 #import "YHHighFrequency.h"
+#import "YHBinaryHeap.h"
 
 @implementation YHHighFrequency
 /**
@@ -226,11 +227,197 @@
 
 /**
  * 7 整数反转
+ * 如果 溢出
+ */
++ (int)reverse1:(int)x {
+    long res = 0;
+    while (x > 0) {
+        int l = x % 10;
+        res = res * 10 + l;
+        if (res > INT_MAX) return 0;
+        if (res < INT_MIN) return 0;
+
+        x = x / 10;
+    }
+    return (int)res;
+}
+
++ (int)reverse:(int)x {
+    int res = 0;
+    while (x > 0) {
+        int pres = res;
+        res = res * 10 +  x % 10;
+        
+        if ((res - x % 10) / 10 != pres) {
+            return 0;
+        }
+        x = x / 10;
+    }
+    return res;
+}
+
+/**
+ * 146 LRU 最近最少使用   参考 YHLRUCache
  */
 
 /**
- * 146 LRU 最近最少使用
+ * 252. 会议室
+ *  直接对开始时间进行排序 然后拿到上一个 的结束时间和单前开始时间 进行对比 如果结束时间大于开始时间 表示 无法参加全部会议
+ */
++ (BOOL)canAttendMeeting:(NSArray *)intervals {
+    if (!intervals || intervals.count == 0) {
+        return YES;
+    }
+    NSArray *sortArr = [intervals sortedArrayUsingComparator:^NSComparisonResult(NSArray *obj1, NSArray *obj2) {
+        NSNumber *s1 = [obj1 firstObject];
+        NSNumber *s2 = [obj2 firstObject];
+        return [s1 compare:s2];
+    }];
+    for (int i = 1; i < sortArr.count; i ++) {
+        NSNumber *bp = [sortArr[i -1] lastObject];
+        NSNumber *b = [sortArr[i] firstObject];
+        if ([b compare:bp] == NSOrderedAscending) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+/**
+ * 252. 会议室2
+ * 时间复杂度 O(nlog(n))
+ * 空间复杂度 O(n)
+ */
++ (int)canAttendMeeting2:(NSArray *)intervals {
+    if (!intervals || intervals.count == 0) {
+        return 0;
+    }
+    NSArray *sortArr = [intervals sortedArrayUsingComparator:^NSComparisonResult(NSArray *obj1, NSArray *obj2) {
+        NSNumber *s1 = [obj1 firstObject];
+        NSNumber *s2 = [obj2 firstObject];
+        return [s1 compare:s2];
+    }];
+    
+    YHComparator *c = [[YHComparator alloc]init];
+    c.compare = ^BOOL(NSNumber *a, NSNumber *b) {
+        return [a intValue] < [b intValue];
+    };
+    // 创建一个小顶堆
+    YHBinaryHeap *heap = [[YHBinaryHeap alloc]initWithComparator:c];
+    [heap add:[sortArr[0] lastObject]];
+    
+    for (int i = 1; i < sortArr.count; i ++) {
+        int headTop = [[heap get] intValue];
+        int start = [[sortArr[i] firstObject] intValue];
+        if (start >= headTop) {
+            [heap remove];
+        }
+        [heap add:[sortArr[i] lastObject]];
+    }
+    return (int)[heap size];
+}
+// 用两个数据 分别对 开始时间和结束时间进行排序
++ (int)canAttendMeeting1:(NSArray *)intervals {
+    if (!intervals || intervals.count == 0) {
+        return 0;
+    }
+    NSMutableArray *start = [NSMutableArray array];
+    NSMutableArray *end = [NSMutableArray array];
+    
+    int count = (int)intervals.count;
+    
+    for (int i = 0; i < count; i ++) {
+        [start addObject:intervals[i][0]];
+        [end addObject:intervals[i][1]];
+    }
+    [start sortUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+        return [obj1 compare:obj2];
+    }];
+    [end sortUsingComparator:^NSComparisonResult(NSNumber *obj1, NSNumber *obj2) {
+        return [obj1 compare:obj2];
+    }];
+    int room = 0;
+    int endIdx = 0;
+    
+    for (int i = 0; i < count; i ++) {
+        int st = [start[i] intValue];
+        int et = [end[endIdx] intValue];
+        if (st >= et) {
+            endIdx ++;
+        } else {
+            room ++;
+        }
+    }
+    return room;
+}
+/**
+ * 11 盛最多水的容器
+ */
++ (int)maxArea:(NSArray *)heights {
+    if (!heights || heights.count == 0) {
+        return 0;
+    }
+    int l = 0;
+    int r = (int)heights.count -1;
+    int max = 0;
+    while (l < r) {
+
+        int minv = [heights[l] intValue] <=  [heights[r] intValue] ? [heights[l++] intValue] :[heights[r--] intValue];
+        max = MAX(max, (r - l + 1) * minv);
+    }
+    return max;
+}
+
+/**
+ * 42. 接雨水
+ *  左边所有柱子最大的  和 右边最大柱子的值 其中的最大值
+ *  左边和右边都有比他大的柱子
  */
 
++ (int)trap1:(NSArray *)heights {
+    if (!heights || heights.count == 0) {
+        return 0;
+    }
+    
+    int lastIdx = (int)heights.count -2;
+    
+    NSMutableArray *rightMaxs = [NSMutableArray array];
+    for (int i = 0; i < lastIdx + 2; i ++) {
+        rightMaxs[0] = @(0);
+    }
+
+    for (int i = lastIdx; i >=1; i --) {
+        rightMaxs[i] = @(MAX([rightMaxs[i +1] intValue], [heights[i + 1] intValue]));
+    }
+    
+    int water = 0;
+    int leftMax = 0;
+    for (int i = 1; i <= lastIdx; i ++) {
+        leftMax = MAX(leftMax, [heights[i - 1] intValue]);
+        int min = MIN(leftMax,[rightMaxs[i] intValue]);
+        int off = min - [heights[i] intValue];
+        if (off <= 0) {
+            continue;
+        }
+        water += off;
+    }
+    return water;
+}
+
++ (int)trap:(NSArray *)heights {
+    if (!heights || heights.count == 0) {
+        return 0;
+    }
+    int water = 0;
+    int lowMax = 0;
+    int l = 0;
+    int r = (int)heights.count - 1;
+    while (l < r) {
+        int lower = [heights[l] intValue] <  [heights[r] intValue] ? [heights[l++] intValue] : [heights[r--] intValue];
+        lowMax = MAX(lower, lowMax);
+        water = lowMax - lower;
+    }
+    return water;
+}
 
 @end

@@ -45,6 +45,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  7 8 9
  */
 + (NSArray *)spiralOrder:(NSArray *)matrix;
+/**
+ * 7 整数反转
+ * 如果 溢出
+ */
++ (int)reverse:(int)x;
+/**
+ * 252. 会议室
+ */
++ (BOOL)canAttendMeeting:(NSArray *)intervals;
+/**
+ * 11 盛最多水的容器
+ */
++ (int)maxArea:(NSArray *)height;
+/**
+ * 42. 接雨水
+ */
++ (int)trap:(NSArray *)heights;
 
 @end
 
