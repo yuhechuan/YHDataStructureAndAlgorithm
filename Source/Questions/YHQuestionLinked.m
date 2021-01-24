@@ -26,47 +26,19 @@
     }
     // 虚拟头节点
     YHNode *newHead = [YHNode new];
+    newHead.next = head;
     YHNode *newTail = newHead;
     while (head) {
-        if (![head.element isEqual:element]) {
-            newTail.next = head;
-            newTail = head;
+        // 找到之后 让head的上一个节点指向 head的下一个节点
+        if ([head.element isEqual:element]) {
+            newTail.next = head.next;
+        } else {
+            newTail = newTail.next;
+            head = head.next;
         }
-        head = head.next;
     }
     // 最后一个 要置空
-    newTail.next = nil;
     return newHead.next;
-}
-
-+ (YHNode *)removeElement1:(YHNode *)head
-                  element:(id)element {
-    if (!head) {
-        return nil;
-    }
-    
-    if (!element) {
-        return head;
-    }
-    YHNode *newTail = nil;
-    YHNode *newHead = nil;
-    while (head) {
-        if (![head.element isEqual:element]) {
-            if (!newHead) {
-                newHead = head;
-                newTail = head;
-            } else {
-                newTail.next = head;
-                newTail = head;
-            }
-        }
-        head = head.next;
-    }
-    // 最后一个 要置空
-    if (newTail) {
-        newTail.next = nil;
-    }
-    return newHead;
 }
 
 /**
@@ -128,6 +100,11 @@
 
 /**
  * 86 分割链表
+ * 给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。
+ * 你应当保留两个分区中每个节点的初始相对位置。
+ * 示例:
+ * 输入: head = 1->4->3->2->5->2, x = 3
+ * 输出: 1->2->2->4->3->5
  */
 + (YHNode *)partition:(YHNode *)head x:(int)x {
     
@@ -215,6 +192,21 @@
         head = tmp;
     }
     return newHead;
+}
+
++ (YHNode *)mergeTwoLists:(YHNode *)node1
+                  node2:(YHNode *)node2 {
+    if (!node1) {
+        return node2;
+    } else if (!node2) {
+        return node1;
+    } else if ([node1.element intValue] < [node2.element intValue]) {
+        node1.next = [self mergeTwoLists:node1.next node2:node2];
+        return node1;
+    } else  {
+        node2.next = [self mergeTwoLists:node1 node2:node2.next];
+        return node2;
+    }
 }
 
 

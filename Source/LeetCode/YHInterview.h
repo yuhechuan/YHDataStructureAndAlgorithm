@@ -86,6 +86,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSArray *)topK:(NSArray *)datas
              size:(int)size;
+/**
+ * 两个有序数组中的中位数
+ */
++ (double)findMedianSortedArrays:(NSArray *)num1  num2:(NSArray *)num2;
 
 @end
 

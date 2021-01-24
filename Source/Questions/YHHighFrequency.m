@@ -161,7 +161,7 @@
     if (n == 1) {
         return 0;
     }
-    return ([self lastRemaining:n -1 m:m] + m ) % n;
+    return ([self lastRemaining1:n -1 m:m] + m ) % n;
 }
 
 + (int)lastRemaining:(int)n m:(int)m {
@@ -415,9 +415,37 @@
     while (l < r) {
         int lower = [heights[l] intValue] <  [heights[r] intValue] ? [heights[l++] intValue] : [heights[r--] intValue];
         lowMax = MAX(lower, lowMax);
-        water = lowMax - lower;
+        water += (lowMax - lower);
     }
     return water;
+}
+/**
+ * 寻找第一个公共父视图
+ */
++ (UIView *)findCommonParentView:(UIView *)A  B:(UIView *)B {
+    UIView *curA = A;
+    UIView *curB = B;
+    while (curA != curB) {
+        curA = curA.nextResponder ? (UIView *)curA.nextResponder : B;
+        curB = curB.nextResponder ? (UIView *)curB.nextResponder : A;
+    }
+    return curA;
+}
+/**
+ * 寻找第一个公共父视图
+ */
+- (NSArray *)findCommonAllParentView:(UIView *)A  B:(UIView *)B {
+    UIView *curA = A;
+    UIView *curB = B;
+    NSMutableArray *arr = [NSMutableArray array];
+    while (curA.nextResponder || curB.nextResponder) {
+        curA = curA.nextResponder ? (UIView *)curA.nextResponder : B;
+        curB = curB.nextResponder ? (UIView *)curB.nextResponder : A;
+        if (curA == curB && curA && [curA isKindOfClass:[UIView class]]) {
+            [arr addObject:curA];
+        }
+    }
+    return arr.copy;
 }
 
 @end

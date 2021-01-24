@@ -13,6 +13,12 @@
 #import <dlfcn.h>
 #import <libkern/OSAtomic.h> // 原子操作
 #import "YHHighFrequency.h"
+#import "YHInterview.h"
+#import "YHStack.h"
+#import "YHQueue.h"
+#import "YHDoubleQueue.h"
+#import "YHNode.h"
+#import "YHBNote.h"
 
 @interface ViewController ()
 
@@ -23,9 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    NSLog(@"%d",[YHHighFrequency maxArea:@[@(1),@(2)]]);
 
 }
+
+
 
 @end

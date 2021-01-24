@@ -97,7 +97,7 @@
     YHDoubleQueue *queue = [[YHDoubleQueue alloc]init];
     for (int i = 0; i < nums.count; i ++) {
         
-        // 检查队列里面的 值是否小于 单前值 如果小于 出队
+        // 检查队列里面的 值是否小于 当前值 如果小于 出队
         while (![queue isEmpty] && [nums[i] intValue] >= [nums[[[queue rear] intValue]] intValue]) {
             [queue deQueueRear];
         }

@@ -8,6 +8,8 @@
 
 #import "YHInterview.h"
 #import "YHBinaryHeap.h"
+#import "YHBNote.h"
+#import "YHStack.h"
 
 @implementation YHInterview
 
@@ -333,6 +335,7 @@
 
 /*
  LeetCode（78）：子集
+ 给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
  */
 
 + (NSArray <NSArray *>*)subsets:(NSArray *)arr {
@@ -359,6 +362,10 @@
 
 /*
  LeetCode（70）：爬楼
+ 假设你正在爬楼梯。需要 n 步你才能到达楼顶。
+ 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+ 动态规划
+ dp[n] = dp[n -1] + dp[n-2]
  */
 
 + (NSInteger)climbStairs:(NSInteger)n {
@@ -417,6 +424,21 @@
         curHead = tmp;
     }
     return newHead;
+}
+
+/**
+ * 递归实现
+ */
++ (YHNote *)reverseLinkList:(YHNote *)head {
+    if (!head || !head->next) {
+        return head;
+    }
+    
+    YHNote *tmp = head->next;
+    YHNote *newNode = [self reverseLinkList:head->next];
+    tmp->next = head;
+    head->next = nil;
+    return newNode;
 }
 
 /*
@@ -564,5 +586,168 @@
     return [heap heapElements];
 }
 
+/**
+ * 两个有序数组中的中位数
+ */
++ (double)findMedianSortedArrays:(NSArray *)num1  num2:(NSArray *)num2 {
+    // 保证遍历长度比较小的数组
+    
+    if (num1.count > num2.count) {
+        NSArray *tmp = num1;
+        num1 = num2;
+        num2 = tmp;
+    }
+    
+    int m = (int)num1.count;
+    int n = (int)num2.count;
+    
+    // 获取分割线 上下两个下标的和
+    int total = (m + n + 1 ) >> 1;
+    int left = 0;
+    int right = m;
+    
+    while (left < right) {
+        int i = left + (right - left + 1) / 2;
+        int j = total - i;
+        // 上面左边 要大于 下面右边 说明上面i 太大了
+        if ([num1[i -1] integerValue] > [num2[j] intValue]) {
+            // 确定 右边界
+            right = i - 1;
+        } else {
+            left = i;
+        }
+    }
+    
+    int i = left;
+    int j = total - i;
+    
+    int left1 = i == 0 ? INT_MIN:[num1[i - 1] intValue];
+    int left2 = i == m ? INT_MAX:[num1[i] intValue];
+    
+    int right1 = j == 0? INT_MIN:[num2[j - 1] intValue];
+    int right2 = j == n ?INT_MAX:[num2[j] intValue];
+    // 如果是基数
+    if ((m + n) & 1) {
+        return MAX(left1, right1);
+    } else {
+        return (double)(MAX(left1, right1) + MIN(left2, right2)) / 2.0;
+    }
+}
+
+/**
+ *  反转一颗二叉树递归
+ */
++ (void)reverseBinaryTree:(YHBNote *)root {
+    if (!root) {
+        return;
+    }
+    
+    [self swapBinaryTree:root];
+    [self reverseBinaryTree:root->left];
+    [self reverseBinaryTree:root->right];
+}
+
++ (void)swapBinaryTree:(YHBNote *)root {
+    YHBNote *tmp = root->left;
+    root->left = root->right;
+    root->right = tmp;
+}
+
+/**
+ *  反转一颗二叉树非递归
+ */
++ (void)reverseBinaryTree1:(YHBNote *)root {
+    if (!root) {
+        return;
+    }
+    YHStack *stack = [[YHStack alloc]init];
+    [stack push:root];
+    while (![stack isEmpty]) {
+        YHBNote *node = [stack pop];
+        [self swapBinaryTree:node];
+        if (node->left) {
+            [stack push:node->left];
+        }
+        if (node->right) {
+            [stack push:node->right];
+        }
+    }
+}
+
+/**
+ * 对只包含0、1、2三种元素的数组进行排序
+ */
++ (void)sortarray3:(NSMutableArray *)nums {
+    int i = 0;
+    int b = (int)nums.count -1;
+    int a = i;
+    while (i <= b) {
+        int v = [nums[i] intValue];
+        if (v == 1) {
+            i ++;
+        } else if (v == 2) {
+            [self swap:i p2:b-- sortArray:nums];
+        } else {
+            [self swap:i++ p2:a++ sortArray:nums];
+        }
+    }
+    
+}
+
++ (void)swap:(int)p1 p2:(int)p2 sortArray:(NSMutableArray *)sortArray {
+    if (p1 == p2) {
+        return;
+    }
+    NSObject *tmp = sortArray[p1];
+    sortArray[p1] = sortArray[p2];
+    sortArray[p2] = tmp;
+}
+
++ (void)heapSort:(NSMutableArray *)nums {
+    // 建堆
+    int length = (int)nums.count;
+    // 从最后有个非叶子节点开始下滤
+    for (int i = 0; i < (length >> 1); i ++) {
+        [self siftDown:nums index:i];
+    }
+    
+    for (int i = length -1; i >= 0; i --) {
+        [self swap:0 p2:i nums:nums];
+        [self siftDown:nums index:0];
+    }
+}
+
+/**
+ * 下滤
+ */
++ (void)siftDown:(NSMutableArray *)nums index:(int)index {
+    int halfCount = (int)(nums.count >> 1);
+    NSNumber *e = nums[index];
+    while (index < halfCount) {
+        // 左叶子节点
+        int childIndex = (index << 1) + 1;
+        int rightIndex = childIndex + 1;
+        if (rightIndex < nums.count && [nums[rightIndex] intValue] > [nums[childIndex] intValue]) {
+            childIndex = rightIndex;
+        }
+        
+        if ([e intValue] >= [nums[childIndex] intValue]) {
+            break;
+        }
+        
+        [self swap:childIndex p2:index nums:nums];
+        index = childIndex;
+    }
+    nums[index] = e;
+}
+
++ (void)swap:(int)p1 p2:(int)p2 nums:(NSMutableArray *)nums {
+    if (p1 == p2) {
+        return;
+    }
+    NSObject *tmp = nums[p1];
+    nums[p1] = nums[p2];
+    nums[p2] = tmp;
+}
 
 @end
